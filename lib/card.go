@@ -1,164 +1,8 @@
-package main
+package lib
 
 import (
 	"fmt"
-	"strings"
 )
-
-const X = -1
-
-// --- Arena ---
-
-type Arena struct {
-	id       int
-	name     string
-	trophies int
-}
-
-func (a *Arena) String() string {
-	return fmt.Sprintf("Arena %d: %s", a.id, a.name)
-}
-
-var (
-	ARENA_0 = &Arena{0, "Training Camp", -1}
-	ARENA_1 = &Arena{1, "Goblin Stadium", 0}
-	ARENA_2 = &Arena{2, "Bone Pit", 400}
-	ARENA_3 = &Arena{3, "Barbarian Bowl", 800}
-	ARENA_4 = &Arena{4, "P.E.K.K.A's Playhouse", 1100}
-	ARENA_5 = &Arena{5, "Spell Valley", 1400}
-	ARENA_6 = &Arena{6, "Builder's Workshop", 1700}
-	ARENA_7 = &Arena{7, "Royal Arena", 2000}
-	ARENA_8 = &Arena{8, "Legendary Arena", 3000}
-)
-
-var ARENAS = [...]*Arena{
-	ARENA_0,
-	ARENA_1,
-	ARENA_2,
-	ARENA_3,
-	ARENA_4,
-	ARENA_5,
-	ARENA_6,
-	ARENA_7,
-	ARENA_8,
-}
-
-// --- Rarity ---
-
-type RarityAttribute string
-
-const (
-	CARDS_REQ = RarityAttribute("Cards Required")
-	GOLD_REQ  = RarityAttribute("Gold Required")
-	EXP_GAIN  = RarityAttribute("Experience Gained")
-)
-
-var RARITY_ATTRIBUTES = [...]RarityAttribute{
-	CARDS_REQ,
-	GOLD_REQ,
-	EXP_GAIN,
-}
-
-type Rarity struct {
-	name  string
-	cards []int
-	gold  []int
-	exp   []int
-}
-
-func (r *Rarity) String() string {
-	return r.name
-}
-
-var (
-	COMMON = &Rarity{
-		name:  "Common",
-		cards: []int{0, 2, 4, 10, 20, 50, 100, 200, X, X, X, X},
-		gold:  []int{0, 5, 20, 50, 150, 400, 1000, 2000, X, X, X, X},
-		exp:   []int{0, 4, 5, 6, 10, 25, 50, 100, X, X, X, X},
-	}
-	RARE = &Rarity{
-		name:  "Rare",
-		cards: []int{0, 2, 4, 10, 20, 50, 100, 200, X, X},
-		gold:  []int{0, 50, 150, 400, 1000, 2000, X, X, X, X},
-		exp:   []int{0, 6, 10, 25, 50, 100, X, X, X, X},
-	}
-	EPIC = &Rarity{
-		name:  "Epic",
-		cards: []int{0, 2, 4, 10, 20, 50, 100, 200},
-		gold:  []int{0, 400, 1000, 2000, X, X, X, X},
-		exp:   []int{0, 25, 50, 100, X, X, X, X},
-	}
-	LEGENDARY = &Rarity{
-		name:  "Legendary",
-		cards: []int{0, 2, 4, 10, 20, 50},
-		gold:  []int{0, 2000, X, X, X, X},
-		exp:   []int{0, 100, X, X, X, X},
-	}
-)
-
-var RARITIES = [...]*Rarity{
-	COMMON,
-	RARE,
-	EPIC,
-	LEGENDARY,
-}
-
-// --- Type ---
-
-type Type string
-
-const (
-	TROOP    = Type("Troop")
-	BUILDING = Type("Building")
-	SPELL    = Type("Spell")
-)
-
-var TYPES = [...]Type{
-	TROOP,
-	BUILDING,
-	SPELL,
-}
-
-// --- Targets ---
-
-type Targets string
-
-const (
-	GROUND         = Targets("Ground")
-	AIR_AND_GROUND = Targets("Air & Ground")
-	BUILDINGS      = Targets("Buildings")
-)
-
-var TARGETSES = [...]Targets{
-	GROUND,
-	AIR_AND_GROUND,
-	BUILDINGS,
-}
-
-// --- Speed ---
-
-type Speed string
-
-const (
-	SLOW      = Speed("Slow")
-	MEDIUM    = Speed("Medium")
-	FAST      = Speed("Fast")
-	VERY_FAST = Speed("Very Fast")
-)
-
-var SPEEDS = [...]Speed{
-	SLOW,
-	MEDIUM,
-	FAST,
-	VERY_FAST,
-}
-
-// --- Range ---
-
-const MELEE = 0
-
-// --- Card ---
 
 type CardAttribute interface {
 	CardAttribute() // Tag
@@ -167,7 +11,7 @@ type CardAttribute interface {
 
 type FixedCardAttribute struct {
 	name        string
-	formatValue func(value interface{}) string
+	FormatValue func(value interface{}) string
 }
 
 func (attr *FixedCardAttribute) CardAttribute() {
@@ -179,7 +23,7 @@ func (attr *FixedCardAttribute) String() string {
 
 type UpgradableCardAttribute struct {
 	name         string
-	formatValues func(values interface{}) []string
+	FormatValues func(values interface{}) []string
 }
 
 func (attr *UpgradableCardAttribute) CardAttribute() {
@@ -191,18 +35,18 @@ func (attr *UpgradableCardAttribute) String() string {
 
 // --- Format Functions ---
 
-func formatString(value interface{}) string {
+func FormatString(value interface{}) string {
 	return value.(string)
 }
 
-func formatInt(value interface{}) string {
+func FormatInt(value interface{}) string {
 	if X == value.(int) {
 		return ""
 	}
 	return fmt.Sprintf("%d", value.(int))
 }
 
-func formatTime(value interface{}) string {
+func FormatTime(value interface{}) string {
 	switch value.(type) {
 	case int:
 		return fmt.Sprintf("%dsec", value)
@@ -213,20 +57,20 @@ func formatTime(value interface{}) string {
 	}
 }
 
-func formatInts(values interface{}) []string {
+func FormatInts(values interface{}) []string {
 	ints := values.([]int)
 	strings := make([]string, len(ints))
 	for i, v := range ints {
-		strings[i] = formatInt(v)
+		strings[i] = FormatInt(v)
 	}
 	return strings
 }
 
-func formatTimes(values interface{}) []string {
+func FormatTimes(values interface{}) []string {
 	ints := values.([]int)
 	strings := make([]string, len(ints))
 	for i, v := range ints {
-		strings[i] = formatTime(v)
+		strings[i] = FormatTime(v)
 	}
 	return strings
 }
@@ -234,7 +78,7 @@ func formatTimes(values interface{}) []string {
 var (
 	NAME = &FixedCardAttribute{
 		"Name",
-		formatString,
+		FormatString,
 	}
 	ARENA = &FixedCardAttribute{
 		"Arena",
@@ -256,47 +100,47 @@ var (
 	}
 	DESC = &FixedCardAttribute{
 		"Description",
-		formatString,
+		FormatString,
 	}
 	COST = &FixedCardAttribute{
 		"Elixir Cost",
-		formatInt,
+		FormatInt,
 	}
 	HP = &UpgradableCardAttribute{
 		"Hitpoints",
-		formatInts,
+		FormatInts,
 	}
 	DPS = &UpgradableCardAttribute{
 		"Damage per Second",
-		formatInts,
+		FormatInts,
 	}
 	DAM = &UpgradableCardAttribute{
 		"Damage",
-		formatInts,
+		FormatInts,
 	}
 	ADAM = &UpgradableCardAttribute{
 		"Area Damage",
-		formatInts,
+		FormatInts,
 	}
 	DDAM = &UpgradableCardAttribute{
 		"Death Damage",
-		formatInts,
+		FormatInts,
 	}
 	SKE_LV = &UpgradableCardAttribute{
 		"Skeleton Level",
-		formatInts,
+		FormatInts,
 	}
 	SGO_LV = &UpgradableCardAttribute{
 		"Spear Goblin Level",
-		formatInts,
+		FormatInts,
 	}
 	SSPD = &FixedCardAttribute{
 		"Spawn Speed",
-		formatTime,
+		FormatTime,
 	}
 	HSPD = &FixedCardAttribute{
 		"Hit Speed",
-		formatTime,
+		FormatTime,
 	}
 	TGTS = &FixedCardAttribute{
 		"Targets",
@@ -328,7 +172,7 @@ var (
 	}
 	DTIME = &FixedCardAttribute{
 		"Deploy Time",
-		formatTime,
+		FormatTime,
 	}
 	COUNT = &FixedCardAttribute{
 		"Count",
@@ -723,222 +567,4 @@ var CARDS = [...]Card{
 	SKELETON_ARMY,
 	BABY_DRAGON,
 	PRINCE,
-}
-
-// --- Table ---
-
-type Table struct {
-	headers                        map[int]string
-	contents                       map[int]map[int]string
-	maxLens                        map[int]int
-	minRow, maxRow, minCol, maxCol int
-}
-
-func NewTable() *Table {
-	return &Table{
-		make(map[int]string),
-		make(map[int]map[int]string),
-		make(map[int]int),
-		0, 0, 0, 0,
-	}
-}
-
-func (t *Table) SetHeader(col int, header string) {
-	t.headers[col] = header
-	if length := len(header); length > t.maxLens[col] {
-		t.maxLens[col] = length
-	}
-}
-
-func (t *Table) GetHeader(col int) string {
-	header, ok := t.headers[col]
-	if !ok {
-		return ""
-	}
-	return header
-}
-
-func (t *Table) SetContent(row, col int, content string) {
-	t2, ok := t.contents[row]
-	if !ok {
-		t2 = make(map[int]string)
-		t.contents[row] = t2
-	}
-	t2[col] = content
-	if length := len(content); length > t.maxLens[col] {
-		t.maxLens[col] = length
-	}
-	if row < t.minRow {
-		t.minRow = row
-	}
-	if row > t.maxRow {
-		t.maxRow = row
-	}
-	if col < t.minCol {
-		t.minCol = col
-	}
-	if col > t.maxCol {
-		t.maxCol = col
-	}
-}
-
-func (t *Table) GetContent(row, col int) string {
-	t2, ok := t.contents[row]
-	if !ok {
-		return ""
-	}
-	content, ok := t2[col]
-	if !ok {
-		return ""
-	}
-	return content
-}
-
-func (t *Table) GetMaxLen(col int) int {
-	maxLen, ok := t.maxLens[col]
-	if !ok {
-		return 0
-	}
-	return maxLen
-}
-
-func (t *Table) Print() {
-	for col, sep := t.minCol, ""; col <= t.maxCol; col++ {
-		fmt.Printf("%s%*s", sep, -t.GetMaxLen(col), t.GetHeader(col))
-		sep = " | "
-	}
-	fmt.Println()
-	for col, sep := t.minCol, ""; col <= t.maxCol; col++ {
-		fmt.Printf("%s%s", sep, strings.Repeat("-", t.GetMaxLen(col)))
-		sep = " | "
-	}
-	fmt.Println()
-	for row := t.minRow; row <= t.maxRow; row++ {
-		for col, sep := t.minCol, ""; col <= t.maxCol; col++ {
-			fmt.Printf("%s%*s", sep, -t.GetMaxLen(col), t.GetContent(row, col))
-			sep = " | "
-		}
-		fmt.Println()
-	}
-	fmt.Println()
-}
-
-/*
-func main() {
-	t := NewTable()
-	t.SetHeader(0, "Attribute")
-	t.SetHeader(1, "Value")
-	t.SetContent(0, 0, "Name")
-	t.SetContent(0, 1, "Knight")
-	t.Print()
-}
-*/
-
-// --- Main ---
-
-const (
-	attrTitle     = "Attribute"
-	valueTitle    = "Value"
-	attrTitleLen  = len(attrTitle)
-	valueTitleLen = len(valueTitle)
-	attrValueLen  = 4
-)
-
-func main() {
-	fixedAttrNameLen := attrTitleLen
-	upgradableAttrNameLen := attrTitleLen
-	for _, attr := range CARD_ATTRIBUTES {
-		attrNameLen := len(attr.String())
-		switch attr.(type) {
-		case *FixedCardAttribute:
-			if attrNameLen > fixedAttrNameLen {
-				fixedAttrNameLen = attrNameLen
-			}
-		case *UpgradableCardAttribute:
-			if attrNameLen > upgradableAttrNameLen {
-				upgradableAttrNameLen = attrNameLen
-			}
-		}
-	}
-	for _, attr := range RARITY_ATTRIBUTES {
-		attrNameLen := len(attr)
-		if attrNameLen > upgradableAttrNameLen {
-			upgradableAttrNameLen = attrNameLen
-		}
-	}
-
-	for _, card := range CARDS {
-		// Header
-		fmt.Printf("### %s\n", card[NAME])
-		fmt.Println()
-
-		// Fixed Attribute Table
-		fmt.Printf("%*s | %s\n", -fixedAttrNameLen, attrTitle, valueTitle)
-		fmt.Printf("%*s | %s\n", fixedAttrNameLen, strings.Repeat("-", fixedAttrNameLen), strings.Repeat("-", valueTitleLen))
-		for _, attr := range CARD_ATTRIBUTES {
-			fattr, ok := attr.(*FixedCardAttribute)
-			if !ok {
-				continue
-			}
-			if value, ok := card[fattr]; ok {
-				fmt.Printf("%*s | %s\n", -fixedAttrNameLen, fattr, fattr.formatValue(value))
-			}
-		}
-		fmt.Println()
-
-		// Upgradable Attribute Table
-		// Header 1
-		fmt.Printf("%*s", -upgradableAttrNameLen, attrTitle)
-		// Any field will do, not just "cards".
-		for level := range card[RARITY].(*Rarity).cards {
-			fmt.Printf(" | %*s", -attrValueLen, fmt.Sprintf("LV%d", level+1))
-		}
-		fmt.Println()
-
-		// Header 2
-		fmt.Printf("%*s", upgradableAttrNameLen, strings.Repeat("-", upgradableAttrNameLen))
-		// Any field will do, not just "cards".
-		for range card[RARITY].(*Rarity).cards {
-			fmt.Printf(" | %*s", attrValueLen, strings.Repeat("-", attrValueLen))
-		}
-		fmt.Println()
-
-		// Content
-		for _, attr := range CARD_ATTRIBUTES {
-			uattr, ok := attr.(*UpgradableCardAttribute)
-			if !ok {
-				continue
-			}
-			if values, ok := card[attr]; ok {
-				fmt.Printf("%*s", -upgradableAttrNameLen, uattr)
-				for _, fvalue := range uattr.formatValues(values) {
-					fmt.Printf(" | %*s", attrValueLen, fvalue)
-				}
-				fmt.Println()
-			}
-		}
-
-		// Footer 1
-		fmt.Printf("%*s", -upgradableAttrNameLen, CARDS_REQ)
-		for _, cardsReq := range card[RARITY].(*Rarity).cards {
-			fmt.Printf(" | %*s", attrValueLen, formatInt(cardsReq))
-		}
-		fmt.Println()
-
-		// Footer 2
-		fmt.Printf("%*s", -upgradableAttrNameLen, GOLD_REQ)
-		for _, goldReq := range card[RARITY].(*Rarity).gold {
-			fmt.Printf(" | %*s", attrValueLen, formatInt(goldReq))
-		}
-		fmt.Println()
-
-		// Footer 3
-		fmt.Printf("%*s", -upgradableAttrNameLen, EXP_GAIN)
-		for _, expGain := range card[RARITY].(*Rarity).exp {
-			fmt.Printf(" | %*s", attrValueLen, formatInt(expGain))
-		}
-		fmt.Println()
-
-		fmt.Println()
-	}
 }
