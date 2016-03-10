@@ -143,7 +143,19 @@ func main() {
 		}
 	}
 
+	var emptyType = lib.Type("")
+	var _type lib.Type = emptyType
+
 	for _, card := range lib.CARDS {
+		if cardType := card.GetValue(lib.TYPE).(lib.Type); cardType != _type {
+			if _type != emptyType {
+				fmt.Printf("\n\n\n\n")
+			}
+			fmt.Printf("## %s\n", cardType)
+			fmt.Println()
+			_type = cardType
+		}
+
 		// Header
 		fmt.Printf("### %s\n", card.GetValue(lib.NAME))
 		fmt.Println()
