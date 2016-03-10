@@ -562,13 +562,13 @@ Deploy Time | 1sec
 
 Attribute          | LV1  | LV2  | LV3  | LV4  | LV5  | LV6  | LV7  | LV8
 ------------------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
-Hitpoints          | 1800 | 1980 |      |      |      |      |      |
-Damage per Second  |   66 |   73 |      |      |      |      |      |
-Damage             |  100 |  110 |      |      |      |      |      |
-Death Damage       |  720 |  792 |      |      |      |      |      |
-Cards Required     |    0 |    2 |    4 |   10 |   20 |   50 |  100 |
+Hitpoints          | 2000 | 2200 | 2420 |      |      | 3200 | 3520 |
+Damage per Second  |   66 |      |   80 |      |      |  106 |  117 |
+Damage             |  100 |  110 |  121 |      |  160 |  176 |
+Death Damage       |  720 |  792 |  871 |      | 1152 | 1267 |
+Cards Required     |    0 |    2 |    4 |   10 |   20 |   50 |  100 |  200
 Gold Required      |    0 |  400 | 1000 | 2000 |      |      |      |
-Experience Gained  |    0 |   25 |   50 |      |      |      |      |
+Experience Gained  |    0 |   25 |   50 |  100 |      |      |      |
 
 ### Balloon
 
@@ -588,19 +588,66 @@ Deploy Time | 1sec
 
 Attribute          | LV1  | LV2  | LV3  | LV4  | LV5  | LV6  | LV7  | LV8
 ------------------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
-Hitpoints          | 1000 | 1100 |      |      |      |      |      |
-Damage per Second  |  200 |  220 |      |      |      |      |      |
-Damage             |  600 |  660 |      |      |      |      |      |
-Death Damage       |  100 |  110 |      |      |      |      |      |
-Cards Required     |    0 |    2 |    4 |   10 |   20 |   50 |  100 |
+Hitpoints          | 1000 | 1100 |      |      | 1460 |      | 1760 |
+Damage per Second  |  200 |  220 |      |      |  292 |      |  352 |
+Damage             |  600 |  660 |      |      |  876 |      | 1056 |
+Death Damage       |  100 |  110 |      |      |  146 |      |  176 |
+Cards Required     |    0 |    2 |    4 |   10 |   20 |   50 |  100 |  200
 Gold Required      |    0 |  400 | 1000 | 2000 |      |      |      |
-Experience Gained  |    0 |   25 |   50 |      |      |      |      |
+Experience Gained  |    0 |   25 |   50 |  100 |      |      |      |
 
 ### P.E.K.K.A
-- Arena 4: P.E.K.K.A's Playhouse
+
+Attribute   | Value
+----------- | -----
+Name        | P.E.K.K.A
+Arena       | Arena 4: P.E.K.K.A's Playhouse
+Rarity      | Epic
+Type        | Troop
+Description | A heavily...
+Elixir Cost | 7
+Hit Speed   | 1.8sec
+Targets     | Ground
+Speed       | Slow
+Range       | Melee
+Deploy Time | 3sec
+
+Attribute          | LV1  | LV2  | LV3  | LV4  | LV5  | LV6  | LV7  | LV8
+------------------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
+Hitpoints          | 2600 | 2860 |      |      |      |      | 4576 |
+Damage per Second  |  250 |  275 |      |      |      |      |  440 |
+Damage             |  450 |  495 |      |      |      |      |  792 |
+Cards Required     |    0 |    2 |    4 |   10 |   20 |   50 |  100 |  200
+Gold Required      |    0 |  400 | 1000 | 2000 |      |      |      |
+Experience Gained  |    0 |   25 |   50 |  100 |      |      |      |
 
 ### Golem
-- Arena 6: Royal Arena
+
+Attribute   | Value
+----------- | -----
+Name        | Golem
+Arena       | Arena 6: Builder's Workshop
+Rarity      | Epic
+Type        | Troop
+Description | Slow but...
+Elixir Cost | 8
+Hit Speed   | 2.5sec
+Targets     | Buildings
+Speed       | Slow
+Range       | Melee
+Deploy Time | 3sec
+
+Attribute          | LV1  | LV2  | LV3  | LV4  | LV5  | LV6  | LV7  | LV8
+------------------ | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ----
+Hitpoints          | 3000 |      |      |      | 4380 | 4800 | 5280 | 5790
+Damage per Second  |   74 |      |      |      |  108 |  118 |  130 |  143
+Damage             |  186 |      |      |      |  271 |  297 |  327 |  358
+Death Damage       |  186 |      |      |      |  271 |  297 |  327 |  358
+Cards Required     |    0 |    2 |    4 |   10 |   20 |   50 |  100 |  200
+Gold Required      |    0 |  400 | 1000 | 2000 |      |      |      |
+Experience Gained  |    0 |   25 |   50 |  100 |      |      |      |
+
+
 
 
 
