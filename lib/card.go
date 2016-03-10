@@ -6,7 +6,7 @@ func (c *Card) GetValue(attr Attribute) interface{} {
 	if cattr, ok := (*c)[attr]; ok {
 		return cattr
 	}
-	return (*c)[RARITY].(*Rarity).GetValue(attr);
+	return (*c)[RARITY].(*Rarity).GetValue(attr)
 }
 
 func (c *Card) GetFormattedValue(fattr *FixedAttribute) string {

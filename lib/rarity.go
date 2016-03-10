@@ -12,7 +12,7 @@ func (r *Rarity) String() string {
 }
 
 func (r *Rarity) GetValue(attr Attribute) interface{} {
-	switch (attr) {
+	switch attr {
 	case CARDS_REQ:
 		return r.cards
 	case GOLD_REQ:
