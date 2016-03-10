@@ -62,8 +62,24 @@ var (
 		"Damage per Second",
 		formatInts,
 	}
+	DPSL = &UpgradableAttribute{
+		"Damage per Second (Lowest)",
+		formatInts,
+	}
+	DPSH = &UpgradableAttribute{
+		"Damage per Second (Highest)",
+		formatInts,
+	}
 	DAM = &UpgradableAttribute{
 		"Damage",
+		formatInts,
+	}
+	DAML = &UpgradableAttribute{
+		"Damage (Lowest)",
+		formatInts,
+	}
+	DAMH = &UpgradableAttribute{
+		"Damage (Highest)",
 		formatInts,
 	}
 	ADAM = &UpgradableAttribute{
@@ -145,17 +161,24 @@ var ATTRIBUTES = [...]Attribute{
 	COST,
 	HP,
 	DPS,
+	DPSL,
+	DPSH,
 	DAM,
+	DAML,
+	DAMH,
 	ADAM,
 	DDAM,
-	SKE_LV,
 	SGO_LV,
+	SKE_LV,
+	BAR_LV,
 	SSPD,
+	PSPD,
 	HSPD,
 	TGTS,
 	SPD,
 	RNG,
 	DTIME,
+	LTIME,
 	COUNT,
 	CARDS_REQ,
 	GOLD_REQ,
