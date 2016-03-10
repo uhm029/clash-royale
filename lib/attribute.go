@@ -74,16 +74,24 @@ var (
 		"Death Damage",
 		formatInts,
 	}
-	SKE_LV = &UpgradableAttribute{
-		"Skeleton Level",
-		formatInts,
-	}
 	SGO_LV = &UpgradableAttribute{
 		"Spear Goblin Level",
 		formatInts,
 	}
+	SKE_LV = &UpgradableAttribute{
+		"Skeleton Level",
+		formatInts,
+	}
+	BAR_LV = &UpgradableAttribute{
+		"Barbarian Level",
+		formatInts,
+	}
 	SSPD = &FixedAttribute{
 		"Spawn Speed",
+		formatTime,
+	}
+	PSPD = &FixedAttribute{
+		"Production Speed",
 		formatTime,
 	}
 	HSPD = &FixedAttribute{
@@ -106,6 +114,10 @@ var (
 		"Deploy Time",
 		formatTime,
 	}
+	LTIME = &FixedAttribute{
+		"Lifetime",
+		formatTime,
+	}
 	COUNT = &FixedAttribute{
 		"Count",
 		formatCount,
@@ -114,11 +126,11 @@ var (
 		"Cards Required",
 		formatInts,
 	}
-	GOLD_REQ  = &UpgradableAttribute{
+	GOLD_REQ = &UpgradableAttribute{
 		"Gold Required",
 		formatInts,
 	}
-	EXP_GAIN  = &UpgradableAttribute{
+	EXP_GAIN = &UpgradableAttribute{
 		"Experience Gained",
 		formatInts,
 	}
