@@ -19,7 +19,11 @@ func formatInt(value interface{}) string {
 func formatTime(value interface{}) string {
 	switch value.(type) {
 	case int:
-		return fmt.Sprintf("%dsec", value)
+		v := value.(int)
+		if value.(int) < 60 {
+			return fmt.Sprintf("%dsec", v)
+		}
+		return fmt.Sprintf("%dmin %dsec", v/60, v%60)
 	case float64:
 		return fmt.Sprintf("%.1fsec", value)
 	default:
