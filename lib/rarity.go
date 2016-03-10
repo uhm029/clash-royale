@@ -1,54 +1,53 @@
 package lib
 
-type RarityAttribute string
-
-const (
-	CARDS_REQ = RarityAttribute("Cards Required")
-	GOLD_REQ  = RarityAttribute("Gold Required")
-	EXP_GAIN  = RarityAttribute("Experience Gained")
-)
-
-var RARITY_ATTRIBUTES = [...]RarityAttribute{
-	CARDS_REQ,
-	GOLD_REQ,
-	EXP_GAIN,
-}
-
 type Rarity struct {
-	Name  string
-	Cards []int
-	Gold  []int
-	Exp   []int
+	name  string
+	cards []int
+	gold  []int
+	exp   []int
 }
 
 func (r *Rarity) String() string {
-	return r.Name
+	return r.name
+}
+
+func (r *Rarity) GetValue(attr Attribute) interface{} {
+	switch (attr) {
+	case CARDS_REQ:
+		return r.cards
+	case GOLD_REQ:
+		return r.gold
+	case EXP_GAIN:
+		return r.exp
+	default:
+		return nil
+	}
 }
 
 var (
 	COMMON = &Rarity{
-		Name:  "Common",
-		Cards: []int{0, 2, 4, 10, 20, 50, 100, 200, X, X, X, X},
-		Gold:  []int{0, 5, 20, 50, 150, 400, 1000, 2000, X, X, X, X},
-		Exp:   []int{0, 4, 5, 6, 10, 25, 50, 100, X, X, X, X},
+		name:  "Common",
+		cards: []int{0, 2, 4, 10, 20, 50, 100, 200, X, X, X, X},
+		gold:  []int{0, 5, 20, 50, 150, 400, 1000, 2000, X, X, X, X},
+		exp:   []int{0, 4, 5, 6, 10, 25, 50, 100, X, X, X, X},
 	}
 	RARE = &Rarity{
-		Name:  "Rare",
-		Cards: []int{0, 2, 4, 10, 20, 50, 100, 200, X, X},
-		Gold:  []int{0, 50, 150, 400, 1000, 2000, X, X, X, X},
-		Exp:   []int{0, 6, 10, 25, 50, 100, X, X, X, X},
+		name:  "Rare",
+		cards: []int{0, 2, 4, 10, 20, 50, 100, 200, X, X},
+		gold:  []int{0, 50, 150, 400, 1000, 2000, X, X, X, X},
+		exp:   []int{0, 6, 10, 25, 50, 100, X, X, X, X},
 	}
 	EPIC = &Rarity{
-		Name:  "Epic",
-		Cards: []int{0, 2, 4, 10, 20, 50, 100, 200},
-		Gold:  []int{0, 400, 1000, 2000, X, X, X, X},
-		Exp:   []int{0, 25, 50, 100, X, X, X, X},
+		name:  "Epic",
+		cards: []int{0, 2, 4, 10, 20, 50, 100, 200},
+		gold:  []int{0, 400, 1000, 2000, X, X, X, X},
+		exp:   []int{0, 25, 50, 100, X, X, X, X},
 	}
 	LEGENDARY = &Rarity{
-		Name:  "Legendary",
-		Cards: []int{0, 2, 4, 10, 20, 50},
-		Gold:  []int{0, 2000, X, X, X, X},
-		Exp:   []int{0, 100, X, X, X, X},
+		name:  "Legendary",
+		cards: []int{0, 2, 4, 10, 20, 50},
+		gold:  []int{0, 2000, X, X, X, X},
+		exp:   []int{0, 100, X, X, X, X},
 	}
 )
 

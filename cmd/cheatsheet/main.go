@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/asukakenji/clash-royale/lib"
+
 	"fmt"
 	"strings"
 )
@@ -128,41 +129,35 @@ const (
 func main() {
 	fixedAttrNameLen := attrTitleLen
 	upgradableAttrNameLen := attrTitleLen
-	for _, attr := range lib.CARD_ATTRIBUTES {
+	for _, attr := range lib.ATTRIBUTES {
 		attrNameLen := len(attr.String())
 		switch attr.(type) {
-		case *lib.FixedCardAttribute:
+		case *lib.FixedAttribute:
 			if attrNameLen > fixedAttrNameLen {
 				fixedAttrNameLen = attrNameLen
 			}
-		case *lib.UpgradableCardAttribute:
+		case *lib.UpgradableAttribute:
 			if attrNameLen > upgradableAttrNameLen {
 				upgradableAttrNameLen = attrNameLen
 			}
 		}
 	}
-	for _, attr := range lib.RARITY_ATTRIBUTES {
-		attrNameLen := len(attr)
-		if attrNameLen > upgradableAttrNameLen {
-			upgradableAttrNameLen = attrNameLen
-		}
-	}
 
 	for _, card := range lib.CARDS {
 		// Header
-		fmt.Printf("### %s\n", card[lib.NAME])
+		fmt.Printf("### %s\n", card.GetValue(lib.NAME))
 		fmt.Println()
 
 		// Fixed Attribute Table
 		fmt.Printf("%*s | %s\n", -fixedAttrNameLen, attrTitle, valueTitle)
 		fmt.Printf("%*s | %s\n", fixedAttrNameLen, strings.Repeat("-", fixedAttrNameLen), strings.Repeat("-", valueTitleLen))
-		for _, attr := range lib.CARD_ATTRIBUTES {
-			fattr, ok := attr.(*lib.FixedCardAttribute)
+		for _, attr := range lib.ATTRIBUTES {
+			fattr, ok := attr.(*lib.FixedAttribute)
 			if !ok {
 				continue
 			}
-			if value, ok := card[fattr]; ok {
-				fmt.Printf("%*s | %s\n", -fixedAttrNameLen, fattr, fattr.FormatValue(value))
+			if value := card.GetFormattedValue(fattr); value != "" {
+				fmt.Printf("%*s | %s\n", -fixedAttrNameLen, fattr, value)
 			}
 		}
 		fmt.Println()
@@ -171,7 +166,7 @@ func main() {
 		// Header 1
 		fmt.Printf("%*s", -upgradableAttrNameLen, attrTitle)
 		// Any field will do, not just "cards".
-		for level := range card[lib.RARITY].(*lib.Rarity).Cards {
+		for level := range card.GetFormattedValues(lib.CARDS_REQ) {
 			fmt.Printf(" | %*s", -attrValueLen, fmt.Sprintf("LV%d", level+1))
 		}
 		fmt.Println()
@@ -179,47 +174,25 @@ func main() {
 		// Header 2
 		fmt.Printf("%*s", upgradableAttrNameLen, strings.Repeat("-", upgradableAttrNameLen))
 		// Any field will do, not just "cards".
-		for range card[lib.RARITY].(*lib.Rarity).Cards {
+		for range card.GetFormattedValues(lib.CARDS_REQ) {
 			fmt.Printf(" | %*s", attrValueLen, strings.Repeat("-", attrValueLen))
 		}
 		fmt.Println()
 
 		// Content
-		for _, attr := range lib.CARD_ATTRIBUTES {
-			uattr, ok := attr.(*lib.UpgradableCardAttribute)
+		for _, attr := range lib.ATTRIBUTES {
+			uattr, ok := attr.(*lib.UpgradableAttribute)
 			if !ok {
 				continue
 			}
-			if values, ok := card[attr]; ok {
+			if values := card.GetFormattedValues(uattr); values != nil {
 				fmt.Printf("%*s", -upgradableAttrNameLen, uattr)
-				for _, fvalue := range uattr.FormatValues(values) {
-					fmt.Printf(" | %*s", attrValueLen, fvalue)
+				for _, value := range values {
+					fmt.Printf(" | %*s", attrValueLen, value)
 				}
 				fmt.Println()
 			}
 		}
-
-		// Footer 1
-		fmt.Printf("%*s", -upgradableAttrNameLen, lib.CARDS_REQ)
-		for _, cardsReq := range card[lib.RARITY].(*lib.Rarity).Cards {
-			fmt.Printf(" | %*s", attrValueLen, lib.FormatInt(cardsReq))
-		}
-		fmt.Println()
-
-		// Footer 2
-		fmt.Printf("%*s", -upgradableAttrNameLen, lib.GOLD_REQ)
-		for _, goldReq := range card[lib.RARITY].(*lib.Rarity).Gold {
-			fmt.Printf(" | %*s", attrValueLen, lib.FormatInt(goldReq))
-		}
-		fmt.Println()
-
-		// Footer 3
-		fmt.Printf("%*s", -upgradableAttrNameLen, lib.EXP_GAIN)
-		for _, expGain := range card[lib.RARITY].(*lib.Rarity).Exp {
-			fmt.Printf(" | %*s", attrValueLen, lib.FormatInt(expGain))
-		}
-		fmt.Println()
-
 		fmt.Println()
 	}
 }

@@ -4,49 +4,50 @@ import (
 	"fmt"
 )
 
-type CardAttribute interface {
-	CardAttribute() // Tag
+type Attribute interface {
+	Attribute() // Tag
 	String() string
 }
 
-type FixedCardAttribute struct {
+type FixedAttribute struct {
 	name        string
 	FormatValue func(value interface{}) string
 }
 
-func (attr *FixedCardAttribute) CardAttribute() {
+func (attr *FixedAttribute) Attribute() {
 }
 
-func (attr *FixedCardAttribute) String() string {
+func (attr *FixedAttribute) String() string {
 	return attr.name
 }
 
-type UpgradableCardAttribute struct {
+type UpgradableAttribute struct {
 	name         string
 	FormatValues func(values interface{}) []string
 }
 
-func (attr *UpgradableCardAttribute) CardAttribute() {
+func (attr *UpgradableAttribute) Attribute() {
 }
 
-func (attr *UpgradableCardAttribute) String() string {
+func (attr *UpgradableAttribute) String() string {
 	return attr.name
 }
 
 // --- Format Functions ---
 
-func FormatString(value interface{}) string {
-	return value.(string)
+func formatString(value interface{}) string {
+	return fmt.Sprintf("%s", value)
 }
 
-func FormatInt(value interface{}) string {
-	if X == value.(int) {
+func formatInt(value interface{}) string {
+	// Note: interface{} is comparable with const
+	if X == value {
 		return ""
 	}
-	return fmt.Sprintf("%d", value.(int))
+	return fmt.Sprintf("%d", value)
 }
 
-func FormatTime(value interface{}) string {
+func formatTime(value interface{}) string {
 	switch value.(type) {
 	case int:
 		return fmt.Sprintf("%dsec", value)
@@ -57,104 +58,94 @@ func FormatTime(value interface{}) string {
 	}
 }
 
-func FormatInts(values interface{}) []string {
+func formatInts(values interface{}) []string {
 	ints := values.([]int)
 	strings := make([]string, len(ints))
 	for i, v := range ints {
-		strings[i] = FormatInt(v)
+		strings[i] = formatInt(v)
 	}
 	return strings
 }
 
-func FormatTimes(values interface{}) []string {
+func formatTimes(values interface{}) []string {
 	ints := values.([]int)
 	strings := make([]string, len(ints))
 	for i, v := range ints {
-		strings[i] = FormatTime(v)
+		strings[i] = formatTime(v)
 	}
 	return strings
 }
 
 var (
-	NAME = &FixedCardAttribute{
+	NAME = &FixedAttribute{
 		"Name",
-		FormatString,
+		formatString,
 	}
-	ARENA = &FixedCardAttribute{
+	ARENA = &FixedAttribute{
 		"Arena",
-		func(value interface{}) string {
-			return value.(*Arena).String()
-		},
+		formatString,
 	}
-	RARITY = &FixedCardAttribute{
+	RARITY = &FixedAttribute{
 		"Rarity",
-		func(value interface{}) string {
-			return value.(*Rarity).String()
-		},
+		formatString,
 	}
-	TYPE = &FixedCardAttribute{
+	TYPE = &FixedAttribute{
 		"Type",
-		func(value interface{}) string {
-			return string(value.(Type))
-		},
+		formatString,
 	}
-	DESC = &FixedCardAttribute{
+	DESC = &FixedAttribute{
 		"Description",
-		FormatString,
+		formatString,
 	}
-	COST = &FixedCardAttribute{
+	COST = &FixedAttribute{
 		"Elixir Cost",
-		FormatInt,
+		formatInt,
 	}
-	HP = &UpgradableCardAttribute{
+	HP = &UpgradableAttribute{
 		"Hitpoints",
-		FormatInts,
+		formatInts,
 	}
-	DPS = &UpgradableCardAttribute{
+	DPS = &UpgradableAttribute{
 		"Damage per Second",
-		FormatInts,
+		formatInts,
 	}
-	DAM = &UpgradableCardAttribute{
+	DAM = &UpgradableAttribute{
 		"Damage",
-		FormatInts,
+		formatInts,
 	}
-	ADAM = &UpgradableCardAttribute{
+	ADAM = &UpgradableAttribute{
 		"Area Damage",
-		FormatInts,
+		formatInts,
 	}
-	DDAM = &UpgradableCardAttribute{
+	DDAM = &UpgradableAttribute{
 		"Death Damage",
-		FormatInts,
+		formatInts,
 	}
-	SKE_LV = &UpgradableCardAttribute{
+	SKE_LV = &UpgradableAttribute{
 		"Skeleton Level",
-		FormatInts,
+		formatInts,
 	}
-	SGO_LV = &UpgradableCardAttribute{
+	SGO_LV = &UpgradableAttribute{
 		"Spear Goblin Level",
-		FormatInts,
+		formatInts,
 	}
-	SSPD = &FixedCardAttribute{
+	SSPD = &FixedAttribute{
 		"Spawn Speed",
-		FormatTime,
+		formatTime,
 	}
-	HSPD = &FixedCardAttribute{
+	HSPD = &FixedAttribute{
 		"Hit Speed",
-		FormatTime,
+		formatTime,
 	}
-	TGTS = &FixedCardAttribute{
+	TGTS = &FixedAttribute{
 		"Targets",
-		func(value interface{}) string {
-			return string(value.(Targets))
-		},
+		formatString,
 	}
-	SPD = &FixedCardAttribute{
+	SPD = &FixedAttribute{
 		"Speed",
-		func(value interface{}) string {
-			return string(value.(Speed))
-		},
+		formatString,
 	}
-	RNG = &FixedCardAttribute{
+	RNG = &FixedAttribute{
 		"Range",
 		func(value interface{}) string {
 			switch value.(type) {
@@ -170,19 +161,31 @@ var (
 			}
 		},
 	}
-	DTIME = &FixedCardAttribute{
+	DTIME = &FixedAttribute{
 		"Deploy Time",
-		FormatTime,
+		formatTime,
 	}
-	COUNT = &FixedCardAttribute{
+	COUNT = &FixedAttribute{
 		"Count",
 		func(value interface{}) string {
 			return fmt.Sprintf("x %d", value.(int))
 		},
 	}
+	CARDS_REQ = &UpgradableAttribute{
+		"Cards Required",
+		formatInts,
+	}
+	GOLD_REQ  = &UpgradableAttribute{
+		"Gold Required",
+		formatInts,
+	}
+	EXP_GAIN  = &UpgradableAttribute{
+		"Experience Gained",
+		formatInts,
+	}
 )
 
-var CARD_ATTRIBUTES = [...]CardAttribute{
+var ATTRIBUTES = [...]Attribute{
 	NAME,
 	ARENA,
 	RARITY,
@@ -203,4 +206,7 @@ var CARD_ATTRIBUTES = [...]CardAttribute{
 	RNG,
 	DTIME,
 	COUNT,
+	CARDS_REQ,
+	GOLD_REQ,
+	EXP_GAIN,
 }
