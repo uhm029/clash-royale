@@ -50,4 +50,17 @@ var CARDS = [...]Card{
 	BALLOON,
 	PEKKA,
 	GOLEM,
+	// --- Common Buildings ---
+	CANNON,
+	TESLA,
+	MORTAR,
+	// --- Rare Buildings ---
+	GOBLIN_HUT,
+	BOMB_TOWER,
+	TOMBSTONE,
+	BARBARIAN_HUT,
+	INFERNO_TOWER,
+	ELIXIR_COLLECTOR,
+	// --- Epic Buildings ---
+	X_BOW,
 }
