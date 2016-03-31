@@ -1,6 +1,7 @@
 package lib
 
 var (
+	// Common
 	CANNON = Card{
 		NAME:   "Cannon",
 		ARENA:  ARENA_3,
@@ -40,7 +41,7 @@ var (
 		TYPE:   BUILDING,
 		DESC:   `Defensive building...`,
 		COST:   4,
-		HP:     []int{600, X, X, X, X, X, X, X, X, X, X, 1686},
+		HP:     V600[0:12:12],
 		DPS:    []int{24, X, X, X, X, X, X, X, X, X, X, 67},
 		ADAM:   []int{120, X, X, X, X, X, X, X, X, X, X, 337},
 		HSPD:   5,
@@ -50,6 +51,7 @@ var (
 		LTIME:  30,
 	}
 
+	// Rare
 	GOBLIN_HUT = Card{
 		NAME:   "Goblin Hut",
 		ARENA:  ARENA_1,
@@ -72,7 +74,7 @@ var (
 		COST:   5,
 		HP:     []int{900, 990, 1089, 1197, 1314, X, X, X, 1908, 2097},
 		DPS:    []int{62, 68, 75, 83, 91, X, X, X, 132, 145},
-		ADAM:   []int{100, 110, 121, 133, 146, X, X, X, 212, 233},
+		ADAM:   V100[0:10:10],
 		HSPD:   1.6,
 		TGTS:   GROUND,
 		RNG:    6.5,
@@ -136,6 +138,7 @@ var (
 		LTIME:  70,
 	}
 
+	// Epic
 	X_BOW = Card{
 		NAME:   "X-Bow",
 		ARENA:  ARENA_3,
