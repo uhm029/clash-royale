@@ -154,7 +154,7 @@ Count            | x 3
 
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11    | LV12
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
-Hitpoints                |      80 |      88 |      96 |     106 |     116 |     128 |     140 |         |     169 |     186 |     204 |     224
+Hitpoints                |      80 |      88 |      96 |     106 |     116 |     128 |     140 |     154 |     169 |     186 |     204 |     224
 Damage per Second        |      45 |      50 |      54 |      60 |      66 |      72 |      80 |         |      96 |     105 |     116 |     127
 Damage                   |      50 |      55 |      60 |      66 |      73 |      80 |      88 |         |     106 |     116 |     128 |     140
 Cards Required           |       1 |       2 |       4 |      10 |      20 |      50 |     100 |     200 |     400 |    1000 |    2000 |    4000
@@ -661,13 +661,13 @@ Name             | Cannon
 Arena            | Arena 3: Barbarian Bowl
 Rarity           | Common
 Type             | Building
-Description      | Defensive building...
+Description      | Defensive building. Shoots cannonballs with deadly effect, but cannot target flying troops.
 Elixir Cost      | 3
 Hit Speed        | 0.8sec
 Targets          | Ground
 Range            | 6
 Deploy Time      | 1sec
-Lifetime         | 40sec
+Lifetime         | 30sec
 
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11    | LV12
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
@@ -686,18 +686,18 @@ Name             | Tesla
 Arena            | Arena 4: P.E.K.K.A's Playhouse
 Rarity           | Common
 Type             | Building
-Description      | Defensive building...
+Description      | Defensive building. Whenever it's not zapping the enemy, the power of Electrickery is best kept grounded.
 Elixir Cost      | 4
-Hit Speed        | 0.7sec
+Hit Speed        | 0.8sec
 Targets          | Air & Ground
 Range            | 6
 Deploy Time      | 1sec
-Lifetime         | 1min 0sec
+Lifetime         | 40sec
 
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11    | LV12
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |     400 |         |         |         |         |         |         |         |         |         |    1024 |    1124
-Damage per Second        |      91 |         |         |         |     132 |     145 |     160 |         |         |     212 |     232 |     255
+Damage per Second        |      80 |         |         |         |         |         |         |         |         |         |         |
 Damage                   |      64 |         |         |         |      93 |     102 |     112 |         |         |     149 |     163 |     179
 Cards Required           |       1 |       2 |       4 |      10 |      20 |      50 |     100 |     200 |     400 |    1000 |    2000 |    4000
 Gold Required            |       0 |       5 |      20 |      50 |     150 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
@@ -711,7 +711,7 @@ Name             | Mortar
 Arena            | Arena 6: Builder's Workshop
 Rarity           | Common
 Type             | Building
-Description      | Defensive building...
+Description      | Defensive building with a long range. Shoots exploding shells that deal area damage. Cannot shoot at targets that get very close!
 Elixir Cost      | 4
 Hit Speed        | 5sec
 Targets          | Ground
@@ -744,7 +744,7 @@ Lifetime         | 1min 0sec
 
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
-Hitpoints                |     700 |     770 |     847 |     931 |    1022 |         |    1232 |    1351 |    1484 |    1631
+Hitpoints                |     700 |     770 |     847 |     931 |    1022 |    1120 |    1232 |    1351 |    1484 |    1631
 Spear Goblin Level       |       3 |       4 |       5 |       6 |       7 |       8 |       9 |      10 |      11 |      12
 Cards Required           |       1 |       2 |       4 |      10 |      20 |      50 |     100 |     200 |     400 |    1000
 Gold Required            |       0 |      50 |     150 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
@@ -758,7 +758,7 @@ Name             | Bomb Tower
 Arena            | Arena 2: Bone Pit
 Rarity           | Rare
 Type             | Building
-Description      | Defensive building...
+Description      | Defensive building that houses a Bomber. Deals area damage to anything dumb enough to stand near it.
 Elixir Cost      | 5
 Hit Speed        | 1.6sec
 Targets          | Ground
@@ -783,7 +783,7 @@ Name             | Tombstone
 Arena            | Arena 2: Bone Pit
 Rarity           | Rare
 Type             | Building
-Description      | Troop building...
+Description      | Troop building that periodically deploys Skeletons to fight the enemy. When destroyed, spawns 4 Skeletons. Creepy!
 Elixir Cost      | 3
 Spawn Speed      | 2.9sec
 Deploy Time      | 1sec
@@ -805,7 +805,7 @@ Name             | Barbarian Hut
 Arena            | Arena 3: Barbarian Bowl
 Rarity           | Rare
 Type             | Building
-Description      | Troop building...
+Description      | Troop building that periodically deploys Barbarians to fight the enemy. Time to make the Barbarians.
 Elixir Cost      | 7
 Spawn Speed      | 14sec
 Deploy Time      | 1sec
@@ -813,7 +813,7 @@ Lifetime         | 1min 0sec
 
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
-Hitpoints                |    1100 |         |         |         |         |         |         |         |         |    2563
+Hitpoints                |    1100 |    1210 |    1331 |    1463 |    1606 |    1760 |    1936 |    2123 |         |    2563
 Barbarian Level          |       3 |       4 |       5 |       6 |       7 |       8 |       9 |      10 |      11 |      12
 Cards Required           |       1 |       2 |       4 |      10 |      20 |      50 |     100 |     200 |     400 |    1000
 Gold Required            |       0 |      50 |     150 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
@@ -827,7 +827,7 @@ Name             | Inferno Tower
 Arena            | Arena 6: Builder's Workshop
 Rarity           | Rare
 Type             | Building
-Description      | Defensive building...
+Description      | Defensive building, roasts targets for damage that increases over time. Burns through even the biggest and toughest enemies!
 Elixir Cost      | 5
 Hit Speed        | 0.4sec
 Targets          | Air & Ground
@@ -837,7 +837,7 @@ Lifetime         | 40sec
 
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
-Hitpoints                |     800 |     880 |     968 |    1064 |         |         |         |    1544 |    1696 |    1864
+Hitpoints                |     800 |     880 |     968 |    1064 |    1168 |    1280 |    1408 |    1544 |    1696 |    1864
 Damage per Second (L)    |      50 |      55 |      60 |      65 |         |         |         |      95 |     105 |     115
 Damage per Second (H)    |    1000 |    1100 |    1210 |    1330 |         |         |         |    1930 |    2120 |    2330
 Damage (L)               |      20 |      22 |      24 |      26 |         |         |         |      38 |      42 |      46
@@ -854,7 +854,7 @@ Name             | Elixir Collector
 Arena            | Arena 6: Builder's Workshop
 Rarity           | Rare
 Type             | Building
-Description      | You gotta...
+Description      | You gotta spend Elixir to make Elixir.
 Elixir Cost      | 5
 Production Speed | 9.8sec
 Deploy Time      | 1sec
@@ -862,7 +862,7 @@ Lifetime         | 1min 10sec
 
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
-Hitpoints                |     800 |     880 |     968 |    1064 |    1168 |         |    1408 |    1544 |    1696 |    1864
+Hitpoints                |     800 |     880 |     968 |    1064 |    1168 |    1280 |    1408 |    1544 |    1696 |    1864
 Cards Required           |       1 |       2 |       4 |      10 |      20 |      50 |     100 |     200 |     400 |    1000
 Gold Required            |       0 |      50 |     150 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
 Experience Gained        |       0 |       6 |      10 |      25 |      50 |     100 |     200 |     400 |     800 |    1600
@@ -875,11 +875,11 @@ Name             | X-Bow
 Arena            | Arena 3: Barbarian Bowl
 Rarity           | Epic
 Type             | Building
-Description      | Nice tower...
+Description      | Nice tower you got there. Would be a shame if this X-Bow whittled it down from this side of the arena...
 Elixir Cost      | 6
 Hit Speed        | 0.3sec
 Targets          | Ground
-Range            | 13
+Range            | 12
 Deploy Time      | 5sec
 Lifetime         | 40sec
 
@@ -928,6 +928,7 @@ Rarity           | Common
 Type             | Spell
 Description      | Zaps enemies, briefly stunning them and dealing damage inside a small radius. Reduced damage to Crown Towers.
 Elixir Cost      | 2
+Duration         | 1sec
 Radius           | 2.5
 
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11    | LV12
@@ -1096,7 +1097,7 @@ Radius           | 3.5
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Damage per Second        |      42 |      46 |      50 |      55 |      62 |      67 |      73 |      81
-Crown Tower Damage       |      17 |      19 |      20 |      22 |      25 |      27 |      30 |      33
+Crown Tower Damage/sec   |      17 |      19 |      20 |      22 |      25 |      27 |      30 |      33
 Cards Required           |       1 |       2 |       4 |      10 |      20 |      50 |     100 |     200
 Gold Required            |       0 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
 Experience Gained        |       0 |      25 |      50 |     100 |     200 |     400 |     800 |    1600
