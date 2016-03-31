@@ -22,6 +22,7 @@ var (
 		COST:   2,
 		ADAM:   []int{80, 88, 96, 106, 116, 128, 140, 154, 169, 186, 204, 224},
 		CTDAM:  []int{32, 36, 39, 43, 47, 52, 56, 62, 68, 75, 82, 90},
+		DUR_F:  1,
 		RAD:    2.5,
 	}
 
@@ -116,7 +117,7 @@ var (
 		DESC:   `Covers the target area in a sticky toxin, damaging and slowing down troops and buildings. Remember: solvent abuse can kill!`,
 		COST:   4,
 		DPS:    []int{42, 46, 50, 55, 62, 67, 73, 81},
-		CTDAM:  []int{17, 19, 20, 22, 25, 27, 30, 33},
+		CTDPS:  []int{17, 19, 20, 22, 25, 27, 30, 33},
 		DUR_F:  10,
 		RAD:    3.5,
 	}
