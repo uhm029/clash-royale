@@ -70,6 +70,10 @@ var (
 		"Damage per Second (H)",
 		formatInts,
 	}
+	CTDPS = &UpgradableAttribute{
+		"Crown Tower Damage/sec",
+		formatInts,
+	}
 	DAM = &UpgradableAttribute{
 		"Damage",
 		formatInts,
