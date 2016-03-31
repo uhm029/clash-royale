@@ -207,6 +207,7 @@ var ATTRIBUTES = [...]Attribute{
 	DPS,
 	DPSL,
 	DPSH,
+	CTDPS,
 	DAM,
 	DAML,
 	DAMH,
