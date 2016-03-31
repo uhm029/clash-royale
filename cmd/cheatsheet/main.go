@@ -123,7 +123,7 @@ const (
 	valueTitle    = "Value"
 	attrTitleLen  = len(attrTitle)
 	valueTitleLen = len(valueTitle)
-	attrValueLen  = 4
+	attrValueLen  = 7
 )
 
 func main() {
