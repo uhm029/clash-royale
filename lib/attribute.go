@@ -63,11 +63,11 @@ var (
 		formatInts,
 	}
 	DPSL = &UpgradableAttribute{
-		"Damage per Second (Lowest)",
+		"Damage per Second (L)",
 		formatInts,
 	}
 	DPSH = &UpgradableAttribute{
-		"Damage per Second (Highest)",
+		"Damage per Second (H)",
 		formatInts,
 	}
 	DAM = &UpgradableAttribute{
@@ -75,11 +75,11 @@ var (
 		formatInts,
 	}
 	DAML = &UpgradableAttribute{
-		"Damage (Lowest)",
+		"Damage (L)",
 		formatInts,
 	}
 	DAMH = &UpgradableAttribute{
-		"Damage (Highest)",
+		"Damage (H)",
 		formatInts,
 	}
 	ADAM = &UpgradableAttribute{
@@ -88,6 +88,14 @@ var (
 	}
 	DDAM = &UpgradableAttribute{
 		"Death Damage",
+		formatInts,
+	}
+	CTDAM = &UpgradableAttribute{
+		"Crown Tower Damage",
+		formatInts,
+	}
+	GOB_LV = &UpgradableAttribute{
+		"Goblin Level",
 		formatInts,
 	}
 	SGO_LV = &UpgradableAttribute{
@@ -134,9 +142,41 @@ var (
 		"Lifetime",
 		formatTime,
 	}
+	DUR_F = &FixedAttribute{
+		"Duration",
+		formatTime,
+	}
+	DUR_U = &UpgradableAttribute{
+		"Duration",
+		formatTimes,
+	}
+	RAD = &FixedAttribute{
+		"Radius",
+		formatFloat,
+	}
 	COUNT = &FixedAttribute{
 		"Count",
 		formatCount,
+	}
+	GOB_COUNT = &FixedAttribute{
+		"Goblin Count",
+		formatCount,
+	}
+	MC_LV = &UpgradableAttribute{
+		"Mirrored Common Level",
+		formatInts,
+	}
+	MR_LV = &UpgradableAttribute{
+		"Mirrored Rare Level",
+		formatInts,
+	}
+	ME_LV = &UpgradableAttribute{
+		"Mirrored Epic Level",
+		formatInts,
+	}
+	ML_LV = &UpgradableAttribute{
+		"Mirrored Ledendary Level",
+		formatInts,
 	}
 	CARDS_REQ = &UpgradableAttribute{
 		"Cards Required",
@@ -168,6 +208,8 @@ var ATTRIBUTES = [...]Attribute{
 	DAMH,
 	ADAM,
 	DDAM,
+	CTDAM,
+	GOB_LV,
 	SGO_LV,
 	SKE_LV,
 	BAR_LV,
@@ -179,7 +221,15 @@ var ATTRIBUTES = [...]Attribute{
 	RNG,
 	DTIME,
 	LTIME,
+	DUR_F,
+	DUR_U,
+	RAD,
 	COUNT,
+	GOB_COUNT,
+	MC_LV,
+	MR_LV,
+	ME_LV,
+	ML_LV,
 	CARDS_REQ,
 	GOLD_REQ,
 	EXP_GAIN,

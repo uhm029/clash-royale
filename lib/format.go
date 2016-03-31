@@ -4,6 +4,21 @@ import (
 	"fmt"
 )
 
+func convertNumber(value interface{}) interface{} {
+	switch value.(type) {
+	case int:
+		return value
+	case float64:
+		v := int(value.(float64))
+		if float64(v) == value.(float64) {
+			return v
+		}
+		return value
+	default:
+		panic("Unknown value type")
+	}
+}
+
 func formatString(value interface{}) string {
 	return fmt.Sprintf("%s", value)
 }
@@ -16,11 +31,28 @@ func formatInt(value interface{}) string {
 	return fmt.Sprintf("%d", value)
 }
 
-func formatTime(value interface{}) string {
-	switch value.(type) {
+func formatFloat(value interface{}) string {
+	// Note: interface{} is comparable with const
+	if X == value {
+		return ""
+	}
+	number := convertNumber(value)
+	switch number.(type) {
 	case int:
-		v := value.(int)
-		if value.(int) < 60 {
+		return fmt.Sprintf("%d", value)
+	case float64:
+		return fmt.Sprintf("%.1f", value)
+	default:
+		panic("Unknown value type")
+	}
+}
+
+func formatTime(value interface{}) string {
+	number := convertNumber(value)
+	switch number.(type) {
+	case int:
+		v := number.(int)
+		if v < 60 {
 			return fmt.Sprintf("%dsec", v)
 		}
 		return fmt.Sprintf("%dmin %dsec", v/60, v%60)
@@ -59,10 +91,19 @@ func formatInts(values interface{}) []string {
 }
 
 func formatTimes(values interface{}) []string {
-	ints := values.([]int)
-	strings := make([]string, len(ints))
-	for i, v := range ints {
-		strings[i] = formatTime(v)
+	if ints, ok := values.([]int); ok {
+		strings := make([]string, len(ints))
+		for i, v := range ints {
+			strings[i] = formatTime(v)
+		}
+		return strings
+	} else if floats, ok := values.([]float64); ok {
+		strings := make([]string, len(floats))
+		for i, v := range floats {
+			strings[i] = formatTime(v)
+		}
+		return strings
+	} else {
+		panic("Unknown value type")
 	}
-	return strings
 }
