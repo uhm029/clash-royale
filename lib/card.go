@@ -34,6 +34,7 @@ var CARDS = [...]Card{
 	MINIONS,
 	BARBARIANS,
 	MINION_HORDE,
+
 	// --- Rare Troops ---
 	GIANT,
 	MUSKETEER,
@@ -41,6 +42,7 @@ var CARDS = [...]Card{
 	VALKYRIE,
 	HOG_RIDER,
 	WIZARD,
+
 	// --- Epic Troops ---
 	WITCH,
 	SKELETON_ARMY,
@@ -50,10 +52,12 @@ var CARDS = [...]Card{
 	BALLOON,
 	PEKKA,
 	GOLEM,
+
 	// --- Common Buildings ---
 	CANNON,
 	TESLA,
 	MORTAR,
+
 	// --- Rare Buildings ---
 	GOBLIN_HUT,
 	BOMB_TOWER,
@@ -61,6 +65,23 @@ var CARDS = [...]Card{
 	BARBARIAN_HUT,
 	INFERNO_TOWER,
 	ELIXIR_COLLECTOR,
+
 	// --- Epic Buildings ---
 	X_BOW,
+
+	// --- Common Spells ---
+	ARROWS,
+	ZAP,
+
+	// --- Rare Spells ---
+	FIREBALL,
+	ROCKET,
+
+	// --- Epic Spells ---
+	LIGHTNING,
+	GOBLIN_BARREL,
+	RAGE,
+	FREEZE,
+	MIRROR,
+	POISON,
 }
