@@ -1,4 +1,4 @@
-# Clash Royale
+# Clash Royale Cheatsheet
 
 ## King Level (Player Level)
 
