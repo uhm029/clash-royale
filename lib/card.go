@@ -2,6 +2,37 @@ package lib
 
 type Card map[Attribute]interface{}
 
+func (c *Card) HasAttribute(attr Attribute) bool {
+	if _, ok := (*c)[attr]; ok {
+		return true
+	}
+	return (*c)[RARITY].(*Rarity).HasAttribute(attr)
+}
+
+func (c *Card) GetFixedAttributes() []*FixedAttribute {
+	fas := []*FixedAttribute{}
+	for _, attr := range ATTRIBUTES {
+		if c.HasAttribute(attr) {
+			if fa, ok := attr.(*FixedAttribute); ok {
+				fas = append(fas, fa)
+			}
+		}
+	}
+	return fas
+}
+
+func (c *Card) GetUpgradableAttributes() []*UpgradableAttribute {
+	uas := []*UpgradableAttribute{}
+	for _, attr := range ATTRIBUTES {
+		if c.HasAttribute(attr) {
+			if ua, ok := attr.(*UpgradableAttribute); ok {
+				uas = append(uas, ua)
+			}
+		}
+	}
+	return uas
+}
+
 func (c *Card) GetValue(attr Attribute) interface{} {
 	if cattr, ok := (*c)[attr]; ok {
 		return cattr
@@ -21,6 +52,10 @@ func (c *Card) GetFormattedValues(uattr *UpgradableAttribute) []string {
 		return uattr.FormatValues(values)
 	}
 	return nil
+}
+
+func (c *Card) GetMaxLevel() int {
+	return (*c)[RARITY].(*Rarity).GetMaxLevel()
 }
 
 var CARDS = [...]Card{

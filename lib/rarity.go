@@ -12,6 +12,19 @@ func (r *Rarity) String() string {
 	return r.name
 }
 
+func (r *Rarity) HasAttribute(attr Attribute) bool {
+	switch attr {
+	case CARDS_REQ:
+		return true
+	case GOLD_REQ:
+		return true
+	case EXP_GAIN:
+		return true
+	default:
+		return false
+	}
+}
+
 func (r *Rarity) GetValue(attr Attribute) interface{} {
 	switch attr {
 	case CARDS_REQ:
@@ -25,10 +38,14 @@ func (r *Rarity) GetValue(attr Attribute) interface{} {
 	}
 }
 
+func (r *Rarity) GetMaxLevel() int {
+	return len(r.cardsReq)
+}
+
 var (
 	COMMON = &Rarity{
 		name:     "Common",
-		cardsReq: []int{1, 2, 4, 10, 20, 50, 100, 200, 400, 1000, 2000, 4000},
+		cardsReq: []int{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000, 2000, 4000},
 		goldReq:  []int{0, 5, 20, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
 		expGain:  []int{0, 4, 5, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
 		goldCost: []int{
@@ -41,7 +58,7 @@ var (
 	}
 	RARE = &Rarity{
 		name:     "Rare",
-		cardsReq: []int{1, 2, 4, 10, 20, 50, 100, 200, 400, 1000},
+		cardsReq: []int{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000},
 		goldReq:  []int{0, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
 		expGain:  []int{0, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
 		goldCost: []int{
@@ -51,7 +68,7 @@ var (
 	}
 	EPIC = &Rarity{
 		name:     "Epic",
-		cardsReq: []int{1, 2, 4, 10, 20, 50, 100, 200},
+		cardsReq: []int{0, 2, 4, 10, 20, 50, 100, 200},
 		goldReq:  []int{0, 400, 1000, 2000, 4000, 8000, 20000, 50000},
 		expGain:  []int{0, 25, 50, 100, 200, 400, 800, 1600},
 		goldCost: []int{
@@ -60,7 +77,7 @@ var (
 	}
 	LEGENDARY = &Rarity{
 		name:     "Legendary",
-		cardsReq: []int{1, 2, 4, 10, 20, 50},
+		cardsReq: []int{0, 2, 4, 10, 20, 50},
 		goldReq:  []int{0, 5000, 20000, 50000, 100000, 250000},
 		expGain:  []int{0, 200, 400, 800, 1600, 3200},
 		goldCost: []int{},
