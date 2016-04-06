@@ -61,6 +61,10 @@ var (
 		"Hitpoints",
 		formatInts,
 	}
+	SHP = &UpgradableAttribute{
+		"Shield Hitpoints",
+		formatInts,
+	}
 	DPS = &UpgradableAttribute{
 		"Damage per Second",
 		formatInts,
@@ -207,6 +211,7 @@ var ATTRIBUTES = [...]Attribute{
 	DESC,
 	COST,
 	HP,
+	SHP,
 	DPS,
 	DPSL,
 	DPSH,

@@ -88,6 +88,7 @@ var CARDS = [...]*Card{
 	MINIONS,
 	BARBARIANS,
 	MINION_HORDE,
+	ROYALE_GIANT,
 
 	// --- Rare Troops ---
 	GIANT,
@@ -96,6 +97,7 @@ var CARDS = [...]*Card{
 	VALKYRIE,
 	HOG_RIDER,
 	WIZARD,
+	THREE_MUSKETEERS,
 
 	// --- Epic Troops ---
 	WITCH,
@@ -106,6 +108,11 @@ var CARDS = [...]*Card{
 	BALLOON,
 	PEKKA,
 	GOLEM,
+	DARK_PRINCE,
+
+	// --- Legendary Troops ---
+	ICE_WIZARD,
+	PRINCESS,
 
 	// --- Common Buildings ---
 	CANNON,

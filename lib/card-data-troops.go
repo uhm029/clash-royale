@@ -153,6 +153,22 @@ var (
 		DTIME:  1,
 		COUNT:  6,
 	})
+	ROYALE_GIANT = NewCard(map[Attribute]interface{}{
+		NAME:   "Royale Giant",
+		ARENA:  ARENA_7,
+		RARITY: COMMON,
+		TYPE:   TROOP,
+		DESC:   `Sighting his massive cannon at enemy buildings, the Royal Giant comes in like a wrecking ball.`,
+		COST:   6,
+		HP:     generateHp(1200),
+		DPS:    []int{52, 56, 62, 68, 75, 83, 91, 100, 110, 122, 133, 146},
+		DAM:    generateDam(78),
+		HSPD:   1.5,
+		TGTS:   BUILDINGS,
+		SPD:    SLOW,
+		RNG:    6,
+		DTIME:  1,
+	})
 
 	// Rare
 	GIANT = NewCard(map[Attribute]interface{}{
@@ -250,6 +266,23 @@ var (
 		SPD:    MEDIUM,
 		RNG:    5.5,
 		DTIME:  1,
+	})
+	THREE_MUSKETEERS = NewCard(map[Attribute]interface{}{
+		NAME:   "Three Musketeers",
+		ARENA:  ARENA_7,
+		RARITY: RARE,
+		TYPE:   TROOP,
+		DESC:   `Trio of powerful, independent markswomen, fighting for justice and honor. Disrespecting them would not be just a mistake, it would be a cardinal sin!`,
+		COST:   9,
+		HP:     generateHp(340),
+		DPS:    []int{90, 100, 110, 120, 132, 145, 160, 175, 192, 211},
+		DAM:    generateDam(100),
+		HSPD:   1.1,
+		TGTS:   AIR_AND_GROUND,
+		SPD:    MEDIUM,
+		RNG:    6.5,
+		DTIME:  1,
+		COUNT:  3,
 	})
 
 	// Epic
@@ -386,5 +419,56 @@ var (
 		SPD:    SLOW,
 		RNG:    MELEE,
 		DTIME:  3,
+	})
+	DARK_PRINCE = NewCard(map[Attribute]interface{}{
+		NAME:   "Dark Prince",
+		ARENA:  ARENA_7,
+		RARITY: EPIC,
+		TYPE:   TROOP,
+		DESC:   `Dealing area damage with each swing and double after charging, the Dark Prince is a formidable fighter. To harm his squishy core, break his shield first.`,
+		COST:   4,
+		HP:     generateHp(700),
+		SHP:    generateHp(200),
+		DPS:    []int{83, 91, 100, 110, 121, 133, 146, 159},
+		ADAM:   generateDam(125),
+		HSPD:   1.5,
+		TGTS:   GROUND,
+		SPD:    MEDIUM,
+		RNG:    MELEE,
+		DTIME:  1,
+	})
+
+	// Legendary
+	ICE_WIZARD = NewCard(map[Attribute]interface{}{
+		NAME:   "Ice Wizard",
+		ARENA:  ARENA_5,
+		RARITY: LEGENDARY,
+		TYPE:   TROOP,
+		DESC:   `This chill caster hails from the far North. He shoots ice shards at enemies, slowing down their movement and attack speed.`,
+		COST:   3,
+		HP:     generateHp(700),
+		DPS:    []int{42, 46, 50, 55, 60, 67},
+		ADAM:   generateDam(63),
+		HSPD:   1.5,
+		TGTS:   AIR_AND_GROUND,
+		SPD:    MEDIUM,
+		RNG:    6,
+		DTIME:  1,
+	})
+	PRINCESS = NewCard(map[Attribute]interface{}{
+		NAME:   "Princess",
+		ARENA:  ARENA_7,
+		RARITY: LEGENDARY,
+		TYPE:   TROOP,
+		DESC:   `Shoots a volley of flaming arrows halfway across the Arena. The Princess is afraid of germs, so keep the rabble away from her!`,
+		COST:   3,
+		HP:     generateHp(216),
+		DPS:    []int{46, 51, 56, 62, 68, 74},
+		ADAM:   generateDam(140),
+		HSPD:   3,
+		TGTS:   AIR_AND_GROUND,
+		SPD:    MEDIUM,
+		RNG:    9.5,
+		DTIME:  1,
 	})
 )

@@ -291,6 +291,31 @@ Cards Required           |       0 |       2 |       4 |      10 |      20 |    
 Gold Required            |       0 |       5 |      20 |      50 |     150 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
 Experience Gained        |       0 |       4 |       5 |       6 |      10 |      25 |      50 |     100 |     200 |     400 |     800 |    1600
 
+### Royale Giant
+
+Attribute        | Value
+---------------- | -----
+Name             | Royale Giant
+Arena            | Arena 7: Royal Arena
+Rarity           | Common
+Type             | Troop
+Description      | Sighting his massive cannon at enemy buildings, the Royal Giant comes in like a wrecking ball.
+Elixir Cost      | 6
+Hit Speed        | 1.5sec
+Targets          | Buildings
+Speed            | Slow
+Range            | 6
+Deploy Time      | 1sec
+
+Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11    | LV12
+------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
+Hitpoints                |    1200 |    1320 |    1452 |    1596 |    1752 |    1920 |    2112 |    2316 |    2544 |    2796 |    3072 |    3372
+Damage per Second        |      52 |      56 |      62 |      68 |      75 |      83 |      91 |     100 |     110 |     122 |     133 |     146
+Damage                   |      78 |      85 |      94 |     103 |     113 |     124 |     137 |     150 |     165 |     181 |     199 |     219
+Cards Required           |       0 |       2 |       4 |      10 |      20 |      50 |     100 |     200 |     400 |    1000 |    2000 |    4000
+Gold Required            |       0 |       5 |      20 |      50 |     150 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
+Experience Gained        |       0 |       4 |       5 |       6 |      10 |      25 |      50 |     100 |     200 |     400 |     800 |    1600
+
 ### Giant
 
 Attribute        | Value
@@ -437,6 +462,32 @@ Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6
 Hitpoints                |     340 |     374 |     411 |     452 |     496 |     544 |     598 |     656 |     720 |     792
 Damage per Second        |      76 |      84 |      92 |     101 |     111 |     122 |     134 |     147 |     161 |     177
 Area Damage              |     130 |     143 |     157 |     172 |     189 |     208 |     228 |     250 |     275 |     302
+Cards Required           |       0 |       2 |       4 |      10 |      20 |      50 |     100 |     200 |     400 |    1000
+Gold Required            |       0 |      50 |     150 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
+Experience Gained        |       0 |       6 |      10 |      25 |      50 |     100 |     200 |     400 |     800 |    1600
+
+### Three Musketeers
+
+Attribute        | Value
+---------------- | -----
+Name             | Three Musketeers
+Arena            | Arena 7: Royal Arena
+Rarity           | Rare
+Type             | Troop
+Description      | Trio of powerful, independent markswomen, fighting for justice and honor. Disrespecting them would not be just a mistake, it would be a cardinal sin!
+Elixir Cost      | 9
+Hit Speed        | 1.1sec
+Targets          | Air & Ground
+Speed            | Medium
+Range            | 6.5
+Deploy Time      | 1sec
+Count            | x 3
+
+Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10
+------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
+Hitpoints                |     340 |     374 |     411 |     452 |     496 |     544 |     598 |     656 |     720 |     792
+Damage per Second        |      90 |     100 |     110 |     120 |     132 |     145 |     160 |     175 |     192 |     211
+Damage                   |     100 |     110 |     121 |     133 |     146 |     160 |     176 |     193 |     212 |     233
 Cards Required           |       0 |       2 |       4 |      10 |      20 |      50 |     100 |     200 |     400 |    1000
 Gold Required            |       0 |      50 |     150 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
 Experience Gained        |       0 |       6 |      10 |      25 |      50 |     100 |     200 |     400 |     800 |    1600
@@ -646,6 +697,82 @@ Death Damage             |     186 |     204 |     225 |     247 |     271 |    
 Cards Required           |       0 |       2 |       4 |      10 |      20 |      50 |     100 |     200
 Gold Required            |       0 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
 Experience Gained        |       0 |      25 |      50 |     100 |     200 |     400 |     800 |    1600
+
+### Dark Prince
+
+Attribute        | Value
+---------------- | -----
+Name             | Dark Prince
+Arena            | Arena 7: Royal Arena
+Rarity           | Epic
+Type             | Troop
+Description      | Dealing area damage with each swing and double after charging, the Dark Prince is a formidable fighter. To harm his squishy core, break his shield first.
+Elixir Cost      | 4
+Hit Speed        | 1.5sec
+Targets          | Ground
+Speed            | Medium
+Range            | Melee
+Deploy Time      | 1sec
+
+Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8
+------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
+Hitpoints                |     700 |     770 |     847 |     931 |    1022 |    1120 |    1232 |    1351
+Shield Hitpoints         |     200 |     220 |     242 |     266 |     292 |     320 |     352 |     386
+Damage per Second        |      83 |      91 |     100 |     110 |     121 |     133 |     146 |     159
+Area Damage              |     125 |     137 |     151 |     166 |     182 |     200 |     220 |     241
+Cards Required           |       0 |       2 |       4 |      10 |      20 |      50 |     100 |     200
+Gold Required            |       0 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
+Experience Gained        |       0 |      25 |      50 |     100 |     200 |     400 |     800 |    1600
+
+### Ice Wizard
+
+Attribute        | Value
+---------------- | -----
+Name             | Ice Wizard
+Arena            | Arena 5: Spell Valley
+Rarity           | Legendary
+Type             | Troop
+Description      | This chill caster hails from the far North. He shoots ice shards at enemies, slowing down their movement and attack speed.
+Elixir Cost      | 3
+Hit Speed        | 1.5sec
+Targets          | Air & Ground
+Speed            | Medium
+Range            | 6
+Deploy Time      | 1sec
+
+Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6
+------------------------ | ------- | ------- | ------- | ------- | ------- | -------
+Hitpoints                |     700 |     770 |     847 |     931 |    1022 |    1120
+Damage per Second        |      42 |      46 |      50 |      55 |      60 |      67
+Area Damage              |      63 |      69 |      76 |      83 |      91 |     100
+Cards Required           |       0 |       2 |       4 |      10 |      20 |      50
+Gold Required            |       0 |    5000 |   20000 |   50000 |  100000 |  250000
+Experience Gained        |       0 |     200 |     400 |     800 |    1600 |    3200
+
+### Princess
+
+Attribute        | Value
+---------------- | -----
+Name             | Princess
+Arena            | Arena 7: Royal Arena
+Rarity           | Legendary
+Type             | Troop
+Description      | Shoots a volley of flaming arrows halfway across the Arena. The Princess is afraid of germs, so keep the rabble away from her!
+Elixir Cost      | 3
+Hit Speed        | 3sec
+Targets          | Air & Ground
+Speed            | Medium
+Range            | 9.5
+Deploy Time      | 1sec
+
+Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6
+------------------------ | ------- | ------- | ------- | ------- | ------- | -------
+Hitpoints                |     216 |     237 |     261 |     287 |     315 |     345
+Damage per Second        |      46 |      51 |      56 |      62 |      68 |      74
+Area Damage              |     140 |     154 |     169 |     186 |     204 |     224
+Cards Required           |       0 |       2 |       4 |      10 |      20 |      50
+Gold Required            |       0 |    5000 |   20000 |   50000 |  100000 |  250000
+Experience Gained        |       0 |     200 |     400 |     800 |    1600 |    3200
 
 
 
