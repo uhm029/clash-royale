@@ -1,16 +1,38 @@
 package lib
 
-type Card map[Attribute]interface{}
+type Card struct {
+	fieldMap map[Attribute]interface{}
+}
+
+func NewCard(fieldMap map[Attribute]interface{}) *Card {
+	return &Card{fieldMap}
+}
+
+func (c *Card) GetName() string {
+	return (c.fieldMap)[NAME].(string)
+}
+
+func (c *Card) GetRarity() *Rarity {
+	return (c.fieldMap)[RARITY].(*Rarity)
+}
+
+func (c *Card) GetType() Type {
+	return (c.fieldMap)[TYPE].(Type)
+}
+
+func (c *Card) GetMaxLevel() int {
+	return c.GetRarity().GetMaxLevel()
+}
 
 func (c *Card) HasAttribute(attr Attribute) bool {
-	if _, ok := (*c)[attr]; ok {
+	if _, ok := c.fieldMap[attr]; ok {
 		return true
 	}
-	return (*c)[RARITY].(*Rarity).HasAttribute(attr)
+	return c.GetRarity().HasAttribute(attr)
 }
 
 func (c *Card) GetFixedAttributes() []*FixedAttribute {
-	fas := []*FixedAttribute{}
+	fas := make([]*FixedAttribute, 0)
 	for _, attr := range ATTRIBUTES {
 		if c.HasAttribute(attr) {
 			if fa, ok := attr.(*FixedAttribute); ok {
@@ -22,7 +44,7 @@ func (c *Card) GetFixedAttributes() []*FixedAttribute {
 }
 
 func (c *Card) GetUpgradableAttributes() []*UpgradableAttribute {
-	uas := []*UpgradableAttribute{}
+	uas := make([]*UpgradableAttribute, 0)
 	for _, attr := range ATTRIBUTES {
 		if c.HasAttribute(attr) {
 			if ua, ok := attr.(*UpgradableAttribute); ok {
@@ -34,10 +56,10 @@ func (c *Card) GetUpgradableAttributes() []*UpgradableAttribute {
 }
 
 func (c *Card) GetValue(attr Attribute) interface{} {
-	if cattr, ok := (*c)[attr]; ok {
-		return cattr
+	if value, ok := c.fieldMap[attr]; ok {
+		return value
 	}
-	return (*c)[RARITY].(*Rarity).GetValue(attr)
+	return c.GetRarity().GetValue(attr)
 }
 
 func (c *Card) GetFormattedValue(fattr *FixedAttribute) string {
@@ -54,11 +76,7 @@ func (c *Card) GetFormattedValues(uattr *UpgradableAttribute) []string {
 	return nil
 }
 
-func (c *Card) GetMaxLevel() int {
-	return (*c)[RARITY].(*Rarity).GetMaxLevel()
-}
-
-var CARDS = [...]Card{
+var CARDS = [...]*Card{
 	// --- Common Troops ---
 	KNIGHT,
 	ARCHERS,

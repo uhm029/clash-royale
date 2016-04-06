@@ -2,7 +2,7 @@ package lib
 
 var (
 	// Common
-	KNIGHT = Card{
+	KNIGHT = NewCard(map[Attribute]interface{}{
 		NAME:   "Knight",
 		ARENA:  ARENA_0,
 		RARITY: COMMON,
@@ -17,8 +17,8 @@ var (
 		SPD:    MEDIUM,
 		RNG:    MELEE,
 		DTIME:  1,
-	}
-	ARCHERS = Card{
+	})
+	ARCHERS = NewCard(map[Attribute]interface{}{
 		NAME:   "Archers",
 		ARENA:  ARENA_0,
 		RARITY: COMMON,
@@ -34,8 +34,8 @@ var (
 		RNG:    5.5,
 		DTIME:  1,
 		COUNT:  2,
-	}
-	BOMBER = Card{
+	})
+	BOMBER = NewCard(map[Attribute]interface{}{
 		NAME:   "Bomber",
 		ARENA:  ARENA_0,
 		RARITY: COMMON,
@@ -50,8 +50,8 @@ var (
 		SPD:    MEDIUM,
 		RNG:    5,
 		DTIME:  1,
-	}
-	GOBLINS = Card{
+	})
+	GOBLINS = NewCard(map[Attribute]interface{}{
 		NAME:   "Goblins",
 		ARENA:  ARENA_1,
 		RARITY: COMMON,
@@ -67,8 +67,8 @@ var (
 		RNG:    MELEE,
 		DTIME:  1,
 		COUNT:  3,
-	}
-	SPEAR_GOBLINS = Card{
+	})
+	SPEAR_GOBLINS = NewCard(map[Attribute]interface{}{
 		NAME:   "Spear Goblins",
 		ARENA:  ARENA_1,
 		RARITY: COMMON,
@@ -84,8 +84,8 @@ var (
 		RNG:    5.5,
 		DTIME:  1,
 		COUNT:  3,
-	}
-	SKELETONS = Card{
+	})
+	SKELETONS = NewCard(map[Attribute]interface{}{
 		NAME:   "Skeletons",
 		ARENA:  ARENA_2,
 		RARITY: COMMON,
@@ -101,8 +101,8 @@ var (
 		RNG:    MELEE,
 		DTIME:  1,
 		COUNT:  4,
-	}
-	MINIONS = Card{
+	})
+	MINIONS = NewCard(map[Attribute]interface{}{
 		NAME:   "Minions",
 		ARENA:  ARENA_2,
 		RARITY: COMMON,
@@ -118,8 +118,8 @@ var (
 		RNG:    2.5,
 		DTIME:  1,
 		COUNT:  3,
-	}
-	BARBARIANS = Card{
+	})
+	BARBARIANS = NewCard(map[Attribute]interface{}{
 		NAME:   "Barbarians",
 		ARENA:  ARENA_3,
 		RARITY: COMMON,
@@ -135,8 +135,8 @@ var (
 		RNG:    MELEE,
 		DTIME:  1,
 		COUNT:  4,
-	}
-	MINION_HORDE = Card{
+	})
+	MINION_HORDE = NewCard(map[Attribute]interface{}{
 		NAME:   "Minion Horde",
 		ARENA:  ARENA_4,
 		RARITY: COMMON,
@@ -152,10 +152,10 @@ var (
 		RNG:    2.5,
 		DTIME:  1,
 		COUNT:  6,
-	}
+	})
 
 	// Rare
-	GIANT = Card{
+	GIANT = NewCard(map[Attribute]interface{}{
 		NAME:   "Giant",
 		ARENA:  ARENA_0,
 		RARITY: RARE,
@@ -170,8 +170,8 @@ var (
 		SPD:    SLOW,
 		RNG:    MELEE,
 		DTIME:  1,
-	}
-	MUSKETEER = Card{
+	})
+	MUSKETEER = NewCard(map[Attribute]interface{}{
 		NAME:   "Musketeer",
 		ARENA:  ARENA_0,
 		RARITY: RARE,
@@ -186,8 +186,8 @@ var (
 		SPD:    MEDIUM,
 		RNG:    6.5,
 		DTIME:  1,
-	}
-	MINI_PEKKA = Card{
+	})
+	MINI_PEKKA = NewCard(map[Attribute]interface{}{
 		NAME:   "Mini P.E.K.K.A",
 		ARENA:  ARENA_0,
 		RARITY: RARE,
@@ -202,8 +202,8 @@ var (
 		SPD:    FAST,
 		RNG:    MELEE,
 		DTIME:  1,
-	}
-	VALKYRIE = Card{
+	})
+	VALKYRIE = NewCard(map[Attribute]interface{}{
 		NAME:   "Valkyrie",
 		ARENA:  ARENA_1,
 		RARITY: RARE,
@@ -218,8 +218,8 @@ var (
 		SPD:    MEDIUM,
 		RNG:    MELEE,
 		DTIME:  1,
-	}
-	HOG_RIDER = Card{
+	})
+	HOG_RIDER = NewCard(map[Attribute]interface{}{
 		NAME:   "Hog Rider",
 		ARENA:  ARENA_4,
 		RARITY: RARE,
@@ -234,8 +234,8 @@ var (
 		SPD:    VERY_FAST,
 		RNG:    MELEE,
 		DTIME:  1,
-	}
-	WIZARD = Card{
+	})
+	WIZARD = NewCard(map[Attribute]interface{}{
 		NAME:   "Wizard",
 		ARENA:  ARENA_5,
 		RARITY: RARE,
@@ -250,10 +250,10 @@ var (
 		SPD:    MEDIUM,
 		RNG:    5.5,
 		DTIME:  1,
-	}
+	})
 
 	// Epic
-	WITCH = Card{
+	WITCH = NewCard(map[Attribute]interface{}{
 		NAME:   "Witch",
 		ARENA:  ARENA_0,
 		RARITY: EPIC,
@@ -270,8 +270,8 @@ var (
 		SPD:    MEDIUM,
 		RNG:    5.5,
 		DTIME:  1,
-	}
-	SKELETON_ARMY = Card{
+	})
+	SKELETON_ARMY = NewCard(map[Attribute]interface{}{
 		NAME:   "Skeleton Army",
 		ARENA:  ARENA_0,
 		RARITY: EPIC,
@@ -287,8 +287,8 @@ var (
 		RNG:    MELEE,
 		DTIME:  1,
 		COUNT:  20,
-	}
-	BABY_DRAGON = Card{
+	})
+	BABY_DRAGON = NewCard(map[Attribute]interface{}{
 		NAME:   "Baby Dragon",
 		ARENA:  ARENA_0,
 		RARITY: EPIC,
@@ -303,8 +303,8 @@ var (
 		SPD:    FAST,
 		RNG:    3.5,
 		DTIME:  1,
-	}
-	PRINCE = Card{
+	})
+	PRINCE = NewCard(map[Attribute]interface{}{
 		NAME:   "Prince",
 		ARENA:  ARENA_0,
 		RARITY: EPIC,
@@ -319,8 +319,8 @@ var (
 		SPD:    MEDIUM,
 		RNG:    2.5,
 		DTIME:  1,
-	}
-	GIANT_SKELETON = Card{
+	})
+	GIANT_SKELETON = NewCard(map[Attribute]interface{}{
 		NAME:   "Giant Skeleton",
 		ARENA:  ARENA_2,
 		RARITY: EPIC,
@@ -336,8 +336,8 @@ var (
 		SPD:    MEDIUM,
 		RNG:    MELEE,
 		DTIME:  1,
-	}
-	BALLOON = Card{
+	})
+	BALLOON = NewCard(map[Attribute]interface{}{
 		NAME:   "Balloon",
 		ARENA:  ARENA_2,
 		RARITY: EPIC,
@@ -353,8 +353,8 @@ var (
 		SPD:    MEDIUM,
 		RNG:    MELEE,
 		DTIME:  1,
-	}
-	PEKKA = Card{
+	})
+	PEKKA = NewCard(map[Attribute]interface{}{
 		NAME:   "P.E.K.K.A",
 		ARENA:  ARENA_4,
 		RARITY: EPIC,
@@ -369,8 +369,8 @@ var (
 		SPD:    SLOW,
 		RNG:    MELEE,
 		DTIME:  3,
-	}
-	GOLEM = Card{
+	})
+	GOLEM = NewCard(map[Attribute]interface{}{
 		NAME:   "Golem",
 		ARENA:  ARENA_6,
 		RARITY: EPIC,
@@ -386,5 +386,5 @@ var (
 		SPD:    SLOW,
 		RNG:    MELEE,
 		DTIME:  3,
-	}
+	})
 )

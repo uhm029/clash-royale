@@ -2,7 +2,7 @@ package lib
 
 var (
 	// Common
-	CANNON = Card{
+	CANNON = NewCard(map[Attribute]interface{}{
 		NAME:   "Cannon",
 		ARENA:  ARENA_3,
 		RARITY: COMMON,
@@ -17,8 +17,8 @@ var (
 		RNG:    6,
 		DTIME:  1,
 		LTIME:  30,
-	}
-	TESLA = Card{
+	})
+	TESLA = NewCard(map[Attribute]interface{}{
 		NAME:   "Tesla",
 		ARENA:  ARENA_4,
 		RARITY: COMMON,
@@ -33,8 +33,8 @@ var (
 		RNG:    6,
 		DTIME:  1,
 		LTIME:  40,
-	}
-	MORTAR = Card{
+	})
+	MORTAR = NewCard(map[Attribute]interface{}{
 		NAME:   "Mortar",
 		ARENA:  ARENA_6,
 		RARITY: COMMON,
@@ -49,10 +49,10 @@ var (
 		RNG:    12,
 		DTIME:  3,
 		LTIME:  30,
-	}
+	})
 
 	// Rare
-	GOBLIN_HUT = Card{
+	GOBLIN_HUT = NewCard(map[Attribute]interface{}{
 		NAME:   "Goblin Hut",
 		ARENA:  ARENA_1,
 		RARITY: RARE,
@@ -64,8 +64,8 @@ var (
 		SSPD:   4.9,
 		DTIME:  1,
 		LTIME:  60,
-	}
-	BOMB_TOWER = Card{
+	})
+	BOMB_TOWER = NewCard(map[Attribute]interface{}{
 		NAME:   "Bomb Tower",
 		ARENA:  ARENA_2,
 		RARITY: RARE,
@@ -80,8 +80,8 @@ var (
 		RNG:    6.5,
 		DTIME:  1,
 		LTIME:  60,
-	}
-	TOMBSTONE = Card{
+	})
+	TOMBSTONE = NewCard(map[Attribute]interface{}{
 		NAME:   "Tombstone",
 		ARENA:  ARENA_2,
 		RARITY: RARE,
@@ -93,8 +93,8 @@ var (
 		SSPD:   2.9,
 		DTIME:  1,
 		LTIME:  40,
-	}
-	BARBARIAN_HUT = Card{
+	})
+	BARBARIAN_HUT = NewCard(map[Attribute]interface{}{
 		NAME:   "Barbarian Hut",
 		ARENA:  ARENA_3,
 		RARITY: RARE,
@@ -106,8 +106,8 @@ var (
 		SSPD:   14,
 		DTIME:  1,
 		LTIME:  60,
-	}
-	INFERNO_TOWER = Card{
+	})
+	INFERNO_TOWER = NewCard(map[Attribute]interface{}{
 		NAME:   "Inferno Tower",
 		ARENA:  ARENA_6,
 		RARITY: RARE,
@@ -124,8 +124,8 @@ var (
 		RNG:    6.5,
 		DTIME:  1,
 		LTIME:  40,
-	}
-	ELIXIR_COLLECTOR = Card{
+	})
+	ELIXIR_COLLECTOR = NewCard(map[Attribute]interface{}{
 		NAME:   "Elixir Collector",
 		ARENA:  ARENA_6,
 		RARITY: RARE,
@@ -136,10 +136,10 @@ var (
 		PSPD:   9.8,
 		DTIME:  1,
 		LTIME:  70,
-	}
+	})
 
 	// Epic
-	X_BOW = Card{
+	X_BOW = NewCard(map[Attribute]interface{}{
 		NAME:   "X-Bow",
 		ARENA:  ARENA_3,
 		RARITY: EPIC,
@@ -154,5 +154,5 @@ var (
 		RNG:    12,
 		DTIME:  5,
 		LTIME:  40,
-	}
+	})
 )
