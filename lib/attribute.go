@@ -1,10 +1,12 @@
 package lib
 
+// Attribute
 type Attribute interface {
 	Attribute() // Tag
 	String() string
 }
 
+// FixedAttribute
 type FixedAttribute struct {
 	name        string
 	FormatValue func(value interface{}) string
@@ -17,6 +19,7 @@ func (attr *FixedAttribute) String() string {
 	return attr.name
 }
 
+// UpgradableAttribute
 type UpgradableAttribute struct {
 	name         string
 	FormatValues func(values interface{}) []string
