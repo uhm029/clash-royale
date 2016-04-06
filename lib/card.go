@@ -70,8 +70,9 @@ func (c *Card) GetFormattedValue(fattr *FixedAttribute) string {
 }
 
 func (c *Card) GetFormattedValues(uattr *UpgradableAttribute) []string {
+	max := c.GetMaxLevel()
 	if values := c.GetValue(uattr); values != nil {
-		return uattr.FormatValues(values)
+		return uattr.FormatValues(values)[0:max:max]
 	}
 	return nil
 }
