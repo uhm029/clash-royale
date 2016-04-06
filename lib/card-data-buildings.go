@@ -74,7 +74,7 @@ var (
 		COST:   5,
 		HP:     V900[0:10:10],
 		DPS:    []int{62, 68, 75, 83, 91, X, X, X, 132, 145},
-		ADAM:   V100D[0:10:10],
+		ADAM:   V100[0:10:10],
 		HSPD:   1.6,
 		TGTS:   GROUND,
 		RNG:    6.5,
