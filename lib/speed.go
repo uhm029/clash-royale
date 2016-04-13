@@ -23,6 +23,14 @@ func (s *Speed) String() string {
 	return s.name
 }
 
+func (s *Speed) GetId() int {
+	return s.id
+}
+
+func (s *Speed) GetName() string {
+	return s.name
+}
+
 var (
 	SLOW      = newSpeed("Slow")
 	MEDIUM    = newSpeed("Medium")

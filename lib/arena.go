@@ -29,6 +29,18 @@ func (a *Arena) String() string {
 	return fmt.Sprintf("Arena %d: %s", a.id, a.name)
 }
 
+func (a *Arena) GetId() int {
+	return a.id
+}
+
+func (a *Arena) GetName() string {
+	return a.name
+}
+
+func (a *Arena) GetTrophies() int {
+	return a.trophies
+}
+
 var (
 	ARENA_0 = newArena("Training Camp", -1)
 	ARENA_1 = newArena("Goblin Stadium", 0)

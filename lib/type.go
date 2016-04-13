@@ -23,6 +23,14 @@ func (t *Type) String() string {
 	return t.name
 }
 
+func (t *Type) GetId() int {
+	return t.id
+}
+
+func (t *Type) GetName() string {
+	return t.name
+}
+
 var (
 	TROOP    = newType("Troop")
 	BUILDING = newType("Building")

@@ -31,6 +31,26 @@ func (r *Rarity) String() string {
 	return r.name
 }
 
+func (r *Rarity) GetId() int {
+	return r.id
+}
+
+func (r *Rarity) GetName() string {
+	return r.name
+}
+
+func (r *Rarity) GetCardsReq() []int {
+	return r.cardsReq
+}
+
+func (r *Rarity) GetGoldReq() []int {
+	return r.goldReq
+}
+
+func (r *Rarity) GetExpGain() []int {
+	return r.expGain
+}
+
 func (r *Rarity) HasAttribute(attr Attribute) bool {
 	switch attr {
 	case CARDS_REQ:

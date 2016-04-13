@@ -23,6 +23,14 @@ func (t *Targets) String() string {
 	return t.name
 }
 
+func (t *Targets) GetId() int {
+	return t.id
+}
+
+func (t *Targets) GetName() string {
+	return t.name
+}
+
 var (
 	GROUND         = newTargets("Ground")
 	AIR_AND_GROUND = newTargets("Air & Ground")
