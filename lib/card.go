@@ -2,13 +2,44 @@ package lib
 
 // Card
 type Card struct {
-	fieldMap map[Attribute]interface{}
+	fixedAttributes      []*FixedAttribute
+	upgradableAttributes []*UpgradableAttribute
+	fieldMap             map[Attribute]interface{}
 }
 
 func newCard(fieldMap map[Attribute]interface{}) *Card {
-	// TODO: Cache FixedAttributes and UpgradableAttributes list
-	// TODO: Use BASE_HP / BASE_DAM / BASE_ADAM / etc to generate HP / DAM / ADAM / etc
-	return &Card{fieldMap}
+	fixedAttributes := []*FixedAttribute{}
+	upgradableAttributes := []*UpgradableAttribute{}
+
+	// "Compile" the "GeneratedAttribute"s to "UpgradableAttribute"s
+	for k, v := range fieldMap {
+		if attr, ok := k.(*GeneratedAttribute); ok {
+			// Generate values for the GeneratedAttribute
+			fieldMap[attr.uattr] = attr.generateValues(v)
+		}
+	}
+
+	// Note:
+	// It is necessary to iterate ATTRIBUTES instead of fieldMap,
+	// since the order of the keys in fieldMap is random.
+	for _, k := range ATTRIBUTES {
+		if _, ok := fieldMap[k]; ok {
+			switch attr := k.(type) {
+			case *FixedAttribute:
+				fixedAttributes = append(fixedAttributes, attr)
+			case *UpgradableAttribute:
+				upgradableAttributes = append(upgradableAttributes, attr)
+			}
+		}
+	}
+
+	upgradableAttributes = append(upgradableAttributes, CARDS_REQ, GOLD_REQ, EXP_GAIN)
+
+	return &Card{
+		fixedAttributes,
+		upgradableAttributes,
+		fieldMap,
+	}
 }
 
 func (c *Card) GetName() string {
@@ -47,27 +78,11 @@ func (c *Card) HasAttribute(attr Attribute) bool {
 }
 
 func (c *Card) GetFixedAttributes() []*FixedAttribute {
-	fas := make([]*FixedAttribute, 0)
-	for _, attr := range ATTRIBUTES {
-		if c.HasAttribute(attr) {
-			if fa, ok := attr.(*FixedAttribute); ok {
-				fas = append(fas, fa)
-			}
-		}
-	}
-	return fas
+	return c.fixedAttributes
 }
 
 func (c *Card) GetUpgradableAttributes() []*UpgradableAttribute {
-	uas := make([]*UpgradableAttribute, 0)
-	for _, attr := range ATTRIBUTES {
-		if c.HasAttribute(attr) {
-			if ua, ok := attr.(*UpgradableAttribute); ok {
-				uas = append(uas, ua)
-			}
-		}
-	}
-	return uas
+	return c.upgradableAttributes
 }
 
 func (c *Card) GetValue(attr Attribute) interface{} {

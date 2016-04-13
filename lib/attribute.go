@@ -62,6 +62,34 @@ func (attr *UpgradableAttribute) String() string {
 	return attr.name
 }
 
+// GeneratedAttribute
+type GeneratedAttribute struct {
+	id             int
+	uattr          *UpgradableAttribute
+	generateValues func(baseValue interface{}) []int
+}
+
+// static
+var generatedAttributeCount = 0
+
+// constructor
+func newGeneratedAttribute(uattr *UpgradableAttribute, generateValues func(baseValue interface{}) []int) *GeneratedAttribute {
+	id := generatedAttributeCount
+	generatedAttributeCount++
+	return &GeneratedAttribute{
+		id,
+		uattr,
+		generateValues,
+	}
+}
+
+func (attr *GeneratedAttribute) Attribute() {
+}
+
+func (attr *GeneratedAttribute) String() string {
+	return attr.uattr.String()
+}
+
 var (
 	NAME      = newFixedAttribute("Name", formatString)
 	ARENA     = newFixedAttribute("Arena", formatString)
@@ -105,6 +133,24 @@ var (
 	CARDS_REQ = newUpgradableAttribute("Cards Required", formatInts)
 	GOLD_REQ  = newUpgradableAttribute("Gold Required", formatInts)
 	EXP_GAIN  = newUpgradableAttribute("Experience Gained", formatInts)
+)
+
+// Generated attributes must not appear in ATTRIBUTES below
+var (
+	BASE_HP     = newGeneratedAttribute(HP, generateHp)
+	BASE_SHP    = newGeneratedAttribute(SHP, generateHp)
+	BASE_DAM    = newGeneratedAttribute(DAM, generateDam)
+	BASE_DAML   = newGeneratedAttribute(DAML, generateDam)
+	BASE_DAMH   = newGeneratedAttribute(DAMH, generateDam)
+	BASE_ADAM   = newGeneratedAttribute(ADAM, generateDam)
+	BASE_DDAM   = newGeneratedAttribute(DDAM, generateDam)
+	BASE_GOB_LV = newGeneratedAttribute(GOB_LV, generateLv)
+	BASE_SGO_LV = newGeneratedAttribute(SGO_LV, generateLv)
+	BASE_SKE_LV = newGeneratedAttribute(SKE_LV, generateLv)
+	BASE_BAR_LV = newGeneratedAttribute(BAR_LV, generateLv)
+	BASE_MC_LV  = newGeneratedAttribute(MC_LV, generateLv)
+	BASE_MR_LV  = newGeneratedAttribute(MR_LV, generateLv)
+	BASE_ME_LV  = newGeneratedAttribute(ME_LV, generateLv)
 )
 
 var ATTRIBUTES = [...]Attribute{

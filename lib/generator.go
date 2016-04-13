@@ -17,6 +17,26 @@ func generateDam(baseDam interface{}) []int {
 	return generateHp(baseDam)
 }
 
+func generateLv(baseLv interface{}) []int {
+	baseValue := baseLv.(int)
+	values := make([]int, 12)
+	for i := range values {
+		values[i] = baseValue + i
+	}
+	return values
+}
+
+func generateDur(baseDur interface{}) []float64 {
+	baseValues := baseDur.([]float64)
+	baseValue := baseValues[0]
+	increment := baseValues[1]
+	values := make([]float64, 12)
+	for i := range values {
+		values[i] = baseValue + float64(i)*increment
+	}
+	return values
+}
+
 /*
 func generateDps(baseDam interface{}, hitSpeed float64) []int {
 	values := generateDam(baseDam)
