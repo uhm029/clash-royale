@@ -4,10 +4,25 @@ import (
 	"fmt"
 )
 
+// Arena
 type Arena struct {
 	id       int
 	name     string
 	trophies int
+}
+
+// static
+var arenaCount = 0
+
+// constructor
+func newArena(name string, trophies int) *Arena {
+	id := arenaCount
+	arenaCount++
+	return &Arena{
+		id,
+		name,
+		trophies,
+	}
 }
 
 func (a *Arena) String() string {
@@ -15,15 +30,15 @@ func (a *Arena) String() string {
 }
 
 var (
-	ARENA_0 = &Arena{0, "Training Camp", -1}
-	ARENA_1 = &Arena{1, "Goblin Stadium", 0}
-	ARENA_2 = &Arena{2, "Bone Pit", 400}
-	ARENA_3 = &Arena{3, "Barbarian Bowl", 800}
-	ARENA_4 = &Arena{4, "P.E.K.K.A's Playhouse", 1100}
-	ARENA_5 = &Arena{5, "Spell Valley", 1400}
-	ARENA_6 = &Arena{6, "Builder's Workshop", 1700}
-	ARENA_7 = &Arena{7, "Royal Arena", 2000}
-	ARENA_8 = &Arena{8, "Legendary Arena", 3000}
+	ARENA_0 = newArena("Training Camp", -1)
+	ARENA_1 = newArena("Goblin Stadium", 0)
+	ARENA_2 = newArena("Bone Pit", 400)
+	ARENA_3 = newArena("Barbarian Bowl", 800)
+	ARENA_4 = newArena("P.E.K.K.A's Playhouse", 1100)
+	ARENA_5 = newArena("Spell Valley", 1400)
+	ARENA_6 = newArena("Builder's Workshop", 1700)
+	ARENA_7 = newArena("Royal Arena", 2000)
+	ARENA_8 = newArena("Legendary Arena", 3000)
 )
 
 var ARENAS = [...]*Arena{

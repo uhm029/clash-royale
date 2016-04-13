@@ -8,8 +8,23 @@ type Attribute interface {
 
 // FixedAttribute
 type FixedAttribute struct {
+	id          int
 	name        string
-	FormatValue func(value interface{}) string
+	formatValue func(value interface{}) string
+}
+
+// static
+var fixedAttributeCount = 0
+
+// constructor
+func newFixedAttribute(name string, formatValue func(value interface{}) string) *FixedAttribute {
+	id := fixedAttributeCount
+	fixedAttributeCount++
+	return &FixedAttribute{
+		id,
+		name,
+		formatValue,
+	}
 }
 
 func (attr *FixedAttribute) Attribute() {
@@ -21,8 +36,23 @@ func (attr *FixedAttribute) String() string {
 
 // UpgradableAttribute
 type UpgradableAttribute struct {
+	id           int
 	name         string
-	FormatValues func(values interface{}) []string
+	formatValues func(values interface{}) []string
+}
+
+// static
+var upgradableAttributeCount = 0
+
+// constructor
+func newUpgradableAttribute(name string, formatValues func(values interface{}) []string) *UpgradableAttribute {
+	id := upgradableAttributeCount
+	upgradableAttributeCount++
+	return &UpgradableAttribute{
+		id,
+		name,
+		formatValues,
+	}
 }
 
 func (attr *UpgradableAttribute) Attribute() {
@@ -33,174 +63,48 @@ func (attr *UpgradableAttribute) String() string {
 }
 
 var (
-	NAME = &FixedAttribute{
-		"Name",
-		formatString,
-	}
-	ARENA = &FixedAttribute{
-		"Arena",
-		formatString,
-	}
-	RARITY = &FixedAttribute{
-		"Rarity",
-		formatString,
-	}
-	TYPE = &FixedAttribute{
-		"Type",
-		formatString,
-	}
-	DESC = &FixedAttribute{
-		"Description",
-		formatString,
-	}
-	COST = &FixedAttribute{
-		"Elixir Cost",
-		formatInt,
-	}
-	HP = &UpgradableAttribute{
-		"Hitpoints",
-		formatInts,
-	}
-	SHP = &UpgradableAttribute{
-		"Shield Hitpoints",
-		formatInts,
-	}
-	DPS = &UpgradableAttribute{
-		"Damage per Second",
-		formatInts,
-	}
-	DPSL = &UpgradableAttribute{
-		"Damage per Second (L)",
-		formatInts,
-	}
-	DPSH = &UpgradableAttribute{
-		"Damage per Second (H)",
-		formatInts,
-	}
-	CTDPS = &UpgradableAttribute{
-		"Crown Tower Damage/sec",
-		formatInts,
-	}
-	DAM = &UpgradableAttribute{
-		"Damage",
-		formatInts,
-	}
-	DAML = &UpgradableAttribute{
-		"Damage (L)",
-		formatInts,
-	}
-	DAMH = &UpgradableAttribute{
-		"Damage (H)",
-		formatInts,
-	}
-	ADAM = &UpgradableAttribute{
-		"Area Damage",
-		formatInts,
-	}
-	DDAM = &UpgradableAttribute{
-		"Death Damage",
-		formatInts,
-	}
-	CTDAM = &UpgradableAttribute{
-		"Crown Tower Damage",
-		formatInts,
-	}
-	GOB_LV = &UpgradableAttribute{
-		"Goblin Level",
-		formatInts,
-	}
-	SGO_LV = &UpgradableAttribute{
-		"Spear Goblin Level",
-		formatInts,
-	}
-	SKE_LV = &UpgradableAttribute{
-		"Skeleton Level",
-		formatInts,
-	}
-	BAR_LV = &UpgradableAttribute{
-		"Barbarian Level",
-		formatInts,
-	}
-	SSPD = &FixedAttribute{
-		"Spawn Speed",
-		formatTime,
-	}
-	PSPD = &FixedAttribute{
-		"Production Speed",
-		formatTime,
-	}
-	HSPD = &FixedAttribute{
-		"Hit Speed",
-		formatTime,
-	}
-	TGTS = &FixedAttribute{
-		"Targets",
-		formatString,
-	}
-	SPD = &FixedAttribute{
-		"Speed",
-		formatString,
-	}
-	RNG = &FixedAttribute{
-		"Range",
-		formatRange,
-	}
-	DTIME = &FixedAttribute{
-		"Deploy Time",
-		formatTime,
-	}
-	LTIME = &FixedAttribute{
-		"Lifetime",
-		formatTime,
-	}
-	DUR_F = &FixedAttribute{
-		"Duration",
-		formatTime,
-	}
-	DUR_U = &UpgradableAttribute{
-		"Duration",
-		formatTimes,
-	}
-	RAD = &FixedAttribute{
-		"Radius",
-		formatFloat,
-	}
-	COUNT = &FixedAttribute{
-		"Count",
-		formatCount,
-	}
-	GOB_COUNT = &FixedAttribute{
-		"Goblin Count",
-		formatCount,
-	}
-	MC_LV = &UpgradableAttribute{
-		"Mirrored Common Level",
-		formatInts,
-	}
-	MR_LV = &UpgradableAttribute{
-		"Mirrored Rare Level",
-		formatInts,
-	}
-	ME_LV = &UpgradableAttribute{
-		"Mirrored Epic Level",
-		formatInts,
-	}
-	ML_LV = &UpgradableAttribute{
-		"Mirrored Ledendary Level",
-		formatInts,
-	}
-	CARDS_REQ = &UpgradableAttribute{
-		"Cards Required",
-		formatInts,
-	}
-	GOLD_REQ = &UpgradableAttribute{
-		"Gold Required",
-		formatInts,
-	}
-	EXP_GAIN = &UpgradableAttribute{
-		"Experience Gained",
-		formatInts,
-	}
+	NAME      = newFixedAttribute("Name", formatString)
+	ARENA     = newFixedAttribute("Arena", formatString)
+	RARITY    = newFixedAttribute("Rarity", formatString)
+	TYPE      = newFixedAttribute("Type", formatString)
+	DESC      = newFixedAttribute("Description", formatString)
+	COST      = newFixedAttribute("Elixir Cost", formatInt)
+	HP        = newUpgradableAttribute("Hitpoints", formatInts)
+	SHP       = newUpgradableAttribute("Shield Hitpoints", formatInts)
+	DPS       = newUpgradableAttribute("Damage per Second", formatInts)
+	DPSL      = newUpgradableAttribute("Damage per Second (L)", formatInts)
+	DPSH      = newUpgradableAttribute("Damage per Second (H)", formatInts)
+	CTDPS     = newUpgradableAttribute("Crown Tower Damage/sec", formatInts)
+	DAM       = newUpgradableAttribute("Damage", formatInts)
+	DAML      = newUpgradableAttribute("Damage (L)", formatInts)
+	DAMH      = newUpgradableAttribute("Damage (H)", formatInts)
+	ADAM      = newUpgradableAttribute("Area Damage", formatInts)
+	DDAM      = newUpgradableAttribute("Death Damage", formatInts)
+	CTDAM     = newUpgradableAttribute("Crown Tower Damage", formatInts)
+	GOB_LV    = newUpgradableAttribute("Goblin Level", formatInts)
+	SGO_LV    = newUpgradableAttribute("Spear Goblin Level", formatInts)
+	SKE_LV    = newUpgradableAttribute("Skeleton Level", formatInts)
+	BAR_LV    = newUpgradableAttribute("Barbarian Level", formatInts)
+	SSPD      = newFixedAttribute("Spawn Speed", formatTime)
+	PSPD      = newFixedAttribute("Production Speed", formatTime)
+	HSPD      = newFixedAttribute("Hit Speed", formatTime)
+	TGTS      = newFixedAttribute("Targets", formatString)
+	SPD       = newFixedAttribute("Speed", formatString)
+	RNG       = newFixedAttribute("Range", formatRange)
+	DTIME     = newFixedAttribute("Deploy Time", formatTime)
+	LTIME     = newFixedAttribute("Lifetime", formatTime)
+	DUR_F     = newFixedAttribute("Duration", formatTime)
+	DUR_U     = newUpgradableAttribute("Duration", formatTimes)
+	RAD       = newFixedAttribute("Radius", formatFloat)
+	COUNT     = newFixedAttribute("Count", formatCount)
+	GOB_COUNT = newFixedAttribute("Goblin Count", formatCount)
+	MC_LV     = newUpgradableAttribute("Mirrored Common Level", formatInts)
+	MR_LV     = newUpgradableAttribute("Mirrored Rare Level", formatInts)
+	ME_LV     = newUpgradableAttribute("Mirrored Epic Level", formatInts)
+	ML_LV     = newUpgradableAttribute("Mirrored Legendary Level", formatInts)
+	CARDS_REQ = newUpgradableAttribute("Cards Required", formatInts)
+	GOLD_REQ  = newUpgradableAttribute("Gold Required", formatInts)
+	EXP_GAIN  = newUpgradableAttribute("Experience Gained", formatInts)
 )
 
 var ATTRIBUTES = [...]Attribute{

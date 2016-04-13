@@ -7,11 +7,10 @@ import (
 )
 
 const (
-	attrTitle     = "Attribute"
-	valueTitle    = "Value"
-	attrTitleLen  = len(attrTitle)
-	valueTitleLen = len(valueTitle)
-	attrValueLen  = 7
+	fixedHeaderWidth        = 16
+	upgradableHeaderWidth   = 24
+	fixedContentsWidth      = 5
+	upgradableContentsWidth = 7
 )
 
 var (
@@ -20,18 +19,12 @@ var (
 )
 
 func main() {
-	fixedHeaderWidth := 16
-	upgradableHeaderWidth := 24
-	fixedContentsWidth := 5
-	upgradableContentsWidth := 7
-
-	emptyType := lib.Type("")
-	_type := emptyType
+	var _type *lib.Type = nil
 
 	for _, card := range lib.CARDS {
 		// Card Type (Troops, Buildings, Spells)
 		if cardType := card.GetType(); cardType != _type {
-			if _type != emptyType {
+			if _type != nil {
 				fmt.Printf("\n\n\n\n")
 			}
 			fmt.Printf("## %s\n", cardType)

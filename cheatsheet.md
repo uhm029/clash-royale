@@ -1204,7 +1204,7 @@ Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6
 Mirrored Common Level    |       5 |       6 |       7 |       8 |       9 |      10 |      11 |      12
 Mirrored Rare Level      |       3 |       4 |       5 |       6 |       7 |       8 |       9 |      10
 Mirrored Epic Level      |       1 |       2 |       3 |       4 |       5 |       6 |       7 |       8
-Mirrored Ledendary Level |       1 |       1 |       1 |       1 |       2 |       3 |       4 |       5
+Mirrored Legendary Level |       1 |       1 |       1 |       1 |       2 |       3 |       4 |       5
 Cards Required           |       0 |       2 |       4 |      10 |      20 |      50 |     100 |     200
 Gold Required            |       0 |     400 |    1000 |    2000 |    4000 |    8000 |   20000 |   50000
 Experience Gained        |       0 |      25 |      50 |     100 |     200 |     400 |     800 |    1600

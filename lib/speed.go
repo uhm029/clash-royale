@@ -1,15 +1,36 @@
 package lib
 
-type Speed string
+// Speed
+type Speed struct {
+	id   int
+	name string
+}
 
-const (
-	SLOW      = Speed("Slow")
-	MEDIUM    = Speed("Medium")
-	FAST      = Speed("Fast")
-	VERY_FAST = Speed("Very Fast")
+// static
+var speedCount = 0
+
+// constructor
+func newSpeed(name string) *Speed {
+	id := speedCount
+	speedCount++
+	return &Speed{
+		id,
+		name,
+	}
+}
+
+func (s *Speed) String() string {
+	return s.name
+}
+
+var (
+	SLOW      = newSpeed("Slow")
+	MEDIUM    = newSpeed("Medium")
+	FAST      = newSpeed("Fast")
+	VERY_FAST = newSpeed("Very Fast")
 )
 
-var SPEEDS = [...]Speed{
+var SPEEDS = [...]*Speed{
 	SLOW,
 	MEDIUM,
 	FAST,

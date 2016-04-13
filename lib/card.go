@@ -1,10 +1,13 @@
 package lib
 
+// Card
 type Card struct {
 	fieldMap map[Attribute]interface{}
 }
 
-func NewCard(fieldMap map[Attribute]interface{}) *Card {
+func newCard(fieldMap map[Attribute]interface{}) *Card {
+	// TODO: Cache FixedAttributes and UpgradableAttributes list
+	// TODO: Use BASE_HP / BASE_DAM / BASE_ADAM / etc to generate HP / DAM / ADAM / etc
 	return &Card{fieldMap}
 }
 
@@ -12,12 +15,24 @@ func (c *Card) GetName() string {
 	return (c.fieldMap)[NAME].(string)
 }
 
+func (c *Card) GetArena() *Arena {
+	return (c.fieldMap)[ARENA].(*Arena)
+}
+
 func (c *Card) GetRarity() *Rarity {
 	return (c.fieldMap)[RARITY].(*Rarity)
 }
 
-func (c *Card) GetType() Type {
-	return (c.fieldMap)[TYPE].(Type)
+func (c *Card) GetType() *Type {
+	return (c.fieldMap)[TYPE].(*Type)
+}
+
+func (c *Card) GetDescription() string {
+	return (c.fieldMap)[DESC].(string)
+}
+
+func (c *Card) GetCost() int {
+	return (c.fieldMap)[COST].(int)
 }
 
 func (c *Card) GetMaxLevel() int {
@@ -64,7 +79,7 @@ func (c *Card) GetValue(attr Attribute) interface{} {
 
 func (c *Card) GetFormattedValue(fattr *FixedAttribute) string {
 	if value := c.GetValue(fattr); value != nil {
-		return fattr.FormatValue(value)
+		return fattr.formatValue(value)
 	}
 	return ""
 }
@@ -72,7 +87,7 @@ func (c *Card) GetFormattedValue(fattr *FixedAttribute) string {
 func (c *Card) GetFormattedValues(uattr *UpgradableAttribute) []string {
 	max := c.GetMaxLevel()
 	if values := c.GetValue(uattr); values != nil {
-		return uattr.FormatValues(values)[0:max:max]
+		return uattr.formatValues(values)[0:max:max]
 	}
 	return nil
 }

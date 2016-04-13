@@ -2,7 +2,7 @@ package lib
 
 var (
 	// Common
-	CANNON = NewCard(map[Attribute]interface{}{
+	CANNON = newCard(map[Attribute]interface{}{
 		NAME:   "Cannon",
 		ARENA:  ARENA_3,
 		RARITY: COMMON,
@@ -18,7 +18,7 @@ var (
 		DTIME:  1,
 		LTIME:  30,
 	})
-	TESLA = NewCard(map[Attribute]interface{}{
+	TESLA = newCard(map[Attribute]interface{}{
 		NAME:   "Tesla",
 		ARENA:  ARENA_4,
 		RARITY: COMMON,
@@ -34,7 +34,7 @@ var (
 		DTIME:  1,
 		LTIME:  40,
 	})
-	MORTAR = NewCard(map[Attribute]interface{}{
+	MORTAR = newCard(map[Attribute]interface{}{
 		NAME:   "Mortar",
 		ARENA:  ARENA_6,
 		RARITY: COMMON,
@@ -52,7 +52,7 @@ var (
 	})
 
 	// Rare
-	GOBLIN_HUT = NewCard(map[Attribute]interface{}{
+	GOBLIN_HUT = newCard(map[Attribute]interface{}{
 		NAME:   "Goblin Hut",
 		ARENA:  ARENA_1,
 		RARITY: RARE,
@@ -65,7 +65,7 @@ var (
 		DTIME:  1,
 		LTIME:  60,
 	})
-	BOMB_TOWER = NewCard(map[Attribute]interface{}{
+	BOMB_TOWER = newCard(map[Attribute]interface{}{
 		NAME:   "Bomb Tower",
 		ARENA:  ARENA_2,
 		RARITY: RARE,
@@ -81,7 +81,7 @@ var (
 		DTIME:  1,
 		LTIME:  60,
 	})
-	TOMBSTONE = NewCard(map[Attribute]interface{}{
+	TOMBSTONE = newCard(map[Attribute]interface{}{
 		NAME:   "Tombstone",
 		ARENA:  ARENA_2,
 		RARITY: RARE,
@@ -94,7 +94,7 @@ var (
 		DTIME:  1,
 		LTIME:  40,
 	})
-	BARBARIAN_HUT = NewCard(map[Attribute]interface{}{
+	BARBARIAN_HUT = newCard(map[Attribute]interface{}{
 		NAME:   "Barbarian Hut",
 		ARENA:  ARENA_3,
 		RARITY: RARE,
@@ -107,7 +107,7 @@ var (
 		DTIME:  1,
 		LTIME:  60,
 	})
-	INFERNO_TOWER = NewCard(map[Attribute]interface{}{
+	INFERNO_TOWER = newCard(map[Attribute]interface{}{
 		NAME:   "Inferno Tower",
 		ARENA:  ARENA_6,
 		RARITY: RARE,
@@ -125,7 +125,7 @@ var (
 		DTIME:  1,
 		LTIME:  40,
 	})
-	ELIXIR_COLLECTOR = NewCard(map[Attribute]interface{}{
+	ELIXIR_COLLECTOR = newCard(map[Attribute]interface{}{
 		NAME:   "Elixir Collector",
 		ARENA:  ARENA_6,
 		RARITY: RARE,
@@ -139,7 +139,7 @@ var (
 	})
 
 	// Epic
-	X_BOW = NewCard(map[Attribute]interface{}{
+	X_BOW = newCard(map[Attribute]interface{}{
 		NAME:   "X-Bow",
 		ARENA:  ARENA_3,
 		RARITY: EPIC,

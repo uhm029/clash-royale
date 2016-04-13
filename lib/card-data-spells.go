@@ -2,7 +2,7 @@ package lib
 
 var (
 	// Common
-	ARROWS = NewCard(map[Attribute]interface{}{
+	ARROWS = newCard(map[Attribute]interface{}{
 		NAME:   "Arrows",
 		ARENA:  ARENA_0,
 		RARITY: COMMON,
@@ -13,7 +13,7 @@ var (
 		CTDAM:  []int{46, 51, 56, 61, 67, 74, 81, 89, 98, 107, 118, 130},
 		RAD:    4,
 	})
-	ZAP = NewCard(map[Attribute]interface{}{
+	ZAP = newCard(map[Attribute]interface{}{
 		NAME:   "Zap",
 		ARENA:  ARENA_5,
 		RARITY: COMMON,
@@ -27,7 +27,7 @@ var (
 	})
 
 	// Rare
-	FIREBALL = NewCard(map[Attribute]interface{}{
+	FIREBALL = newCard(map[Attribute]interface{}{
 		NAME:   "Fireball",
 		ARENA:  ARENA_0,
 		RARITY: RARE,
@@ -38,7 +38,7 @@ var (
 		CTDAM:  []int{130, 143, 158, 173, 190, 208, 229, 251, 276, 303},
 		RAD:    2.5,
 	})
-	ROCKET = NewCard(map[Attribute]interface{}{
+	ROCKET = newCard(map[Attribute]interface{}{
 		NAME:   "Rocket",
 		ARENA:  ARENA_3,
 		RARITY: RARE,
@@ -51,7 +51,7 @@ var (
 	})
 
 	// Epic
-	LIGHTNING = NewCard(map[Attribute]interface{}{
+	LIGHTNING = newCard(map[Attribute]interface{}{
 		NAME:   "Lightning",
 		ARENA:  ARENA_1,
 		RARITY: EPIC,
@@ -64,7 +64,7 @@ var (
 		DUR_F:  1.5,
 		RAD:    3.5,
 	})
-	GOBLIN_BARREL = NewCard(map[Attribute]interface{}{
+	GOBLIN_BARREL = newCard(map[Attribute]interface{}{
 		NAME:      "Goblin Barrel",
 		ARENA:     ARENA_1,
 		RARITY:    EPIC,
@@ -77,7 +77,7 @@ var (
 		GOB_LV:    []int{6, 7, 8, 9, 10, 11, 12, 13},
 		GOB_COUNT: 3,
 	})
-	RAGE = NewCard(map[Attribute]interface{}{
+	RAGE = newCard(map[Attribute]interface{}{
 		NAME:   "Rage",
 		ARENA:  ARENA_3,
 		RARITY: EPIC,
@@ -87,7 +87,7 @@ var (
 		DUR_U:  []float64{8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5},
 		RAD:    5,
 	})
-	FREEZE = NewCard(map[Attribute]interface{}{
+	FREEZE = newCard(map[Attribute]interface{}{
 		NAME:   "Freeze",
 		ARENA:  ARENA_4,
 		RARITY: EPIC,
@@ -97,7 +97,7 @@ var (
 		DUR_U:  []float64{5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1},
 		RAD:    3,
 	})
-	MIRROR = NewCard(map[Attribute]interface{}{
+	MIRROR = newCard(map[Attribute]interface{}{
 		NAME:   "Mirror",
 		ARENA:  ARENA_5,
 		RARITY: EPIC,
@@ -109,7 +109,7 @@ var (
 		ME_LV:  []int{1, 2, 3, 4, 5, 6, 7, 8},
 		ML_LV:  []int{1, 1, 1, 1, 2, 3, 4, 5},
 	})
-	POISON = NewCard(map[Attribute]interface{}{
+	POISON = newCard(map[Attribute]interface{}{
 		NAME:   "Poison",
 		ARENA:  ARENA_5,
 		RARITY: EPIC,
