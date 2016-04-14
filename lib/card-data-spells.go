@@ -1,8 +1,8 @@
 package lib
 
 var (
-	// Common
-	ARROWS = newCard(map[Attribute]interface{}{
+	// --- Common Spells ---
+	ARROWS = newCard(2000, map[Attribute]interface{}{
 		NAME:      "Arrows",
 		ARENA:     ARENA_0,
 		RARITY:    COMMON,
@@ -13,7 +13,7 @@ var (
 		CTDAM:     []int{46, 51, 56, 61, 67, 74, 81, 89, 98, 107, 118, 130},
 		RAD:       4,
 	})
-	ZAP = newCard(map[Attribute]interface{}{
+	ZAP = newCard(2050, map[Attribute]interface{}{
 		NAME:      "Zap",
 		ARENA:     ARENA_5,
 		RARITY:    COMMON,
@@ -26,8 +26,8 @@ var (
 		RAD:       2.5,
 	})
 
-	// Rare
-	FIREBALL = newCard(map[Attribute]interface{}{
+	// --- Rare Spells ---
+	FIREBALL = newCard(2100, map[Attribute]interface{}{
 		NAME:      "Fireball",
 		ARENA:     ARENA_0,
 		RARITY:    RARE,
@@ -38,7 +38,7 @@ var (
 		CTDAM:     []int{130, 143, 158, 173, 190, 208, 229, 251, 276, 303},
 		RAD:       2.5,
 	})
-	ROCKET = newCard(map[Attribute]interface{}{
+	ROCKET = newCard(2130, map[Attribute]interface{}{
 		NAME:      "Rocket",
 		ARENA:     ARENA_3,
 		RARITY:    RARE,
@@ -50,8 +50,8 @@ var (
 		RAD:       2,
 	})
 
-	// Epic
-	LIGHTNING = newCard(map[Attribute]interface{}{
+	// --- Epic Spells ---
+	LIGHTNING = newCard(2210, map[Attribute]interface{}{
 		NAME:     "Lightning",
 		ARENA:    ARENA_1,
 		RARITY:   EPIC,
@@ -64,7 +64,7 @@ var (
 		DUR_F:    1.5,
 		RAD:      3.5,
 	})
-	GOBLIN_BARREL = newCard(map[Attribute]interface{}{
+	GOBLIN_BARREL = newCard(2211, map[Attribute]interface{}{
 		NAME:        "Goblin Barrel",
 		ARENA:       ARENA_1,
 		RARITY:      EPIC,
@@ -77,7 +77,7 @@ var (
 		BASE_GOB_LV: 6,
 		GOB_COUNT:   3,
 	})
-	RAGE = newCard(map[Attribute]interface{}{
+	RAGE = newCard(2230, map[Attribute]interface{}{
 		NAME:   "Rage",
 		ARENA:  ARENA_3,
 		RARITY: EPIC,
@@ -87,7 +87,7 @@ var (
 		DUR_U:  []float64{8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5},
 		RAD:    5,
 	})
-	FREEZE = newCard(map[Attribute]interface{}{
+	FREEZE = newCard(2240, map[Attribute]interface{}{
 		NAME:   "Freeze",
 		ARENA:  ARENA_4,
 		RARITY: EPIC,
@@ -97,7 +97,7 @@ var (
 		DUR_U:  []float64{5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1},
 		RAD:    3,
 	})
-	MIRROR = newCard(map[Attribute]interface{}{
+	MIRROR = newCard(2250, map[Attribute]interface{}{
 		NAME:       "Mirror",
 		ARENA:      ARENA_5,
 		RARITY:     EPIC,
@@ -109,7 +109,7 @@ var (
 		BASE_ME_LV: 1,
 		ML_LV:      []int{1, 1, 1, 1, 2, 3, 4, 5},
 	})
-	POISON = newCard(map[Attribute]interface{}{
+	POISON = newCard(2251, map[Attribute]interface{}{
 		NAME:   "Poison",
 		ARENA:  ARENA_5,
 		RARITY: EPIC,

@@ -19,63 +19,56 @@ var (
 )
 
 func main() {
-	var _type *lib.Type = nil
-
-	for _, card := range lib.CARDS {
+	sep := ""
+	lib.ForEachType(func(_type *lib.Type) {
 		// Card Type (Troops, Buildings, Spells)
-		if cardType := card.GetType(); cardType != _type {
-			if _type != nil {
-				fmt.Printf("\n\n\n\n")
-			}
-			fmt.Printf("## %s\n", cardType)
-			fmt.Println()
-			_type = cardType
-		}
-
-		// Header (Card Name)
-		fmt.Printf("### %s\n", card.GetName())
+		fmt.Printf(sep)
+		fmt.Printf("## %s\n", _type)
 		fmt.Println()
+		lib.ForEachCardOfType(_type, func(card *lib.Card) {
 
-		// Fixed Attribute Table
-		{
-			fas := card.GetFixedAttributes()
-			rh := make([]string, len(fas))
-			for row, fa := range fas {
-				rh[row] = fa.String()
-			}
-			fat := NewTable(map[string]interface{}{
-				"headerWidth":   fixedHeaderWidth,
-				"contentsWidth": fixedContentsWidth,
-				"rowHeaders":    rh,
-				"colHeaders":    fixedColHeaders,
-			})
-			fat.SetLastColTrim(true)
-			for row, fa := range fas {
-				fv := card.GetFormattedValue(fa)
-				fat.SetRowContents(row, []string{fv})
-			}
-			fat.Print()
-		}
+			// Header (Card Name)
+			fmt.Printf("### %s\n", card.Name())
+			fmt.Println()
 
-		// Upgradable Attribute Table
-		{
-			uas := card.GetUpgradableAttributes()
-			rh := make([]string, len(uas))
-			for row, ua := range uas {
-				rh[row] = ua.String()
+			// Fixed Attribute Table
+			{
+				rowHeaders := []string{}
+				contents := [][]string{}
+				card.ForEachFixedAttribute(func(attr *lib.FixedAttribute) {
+					rowHeaders = append(rowHeaders, attr.String())
+					contents = append(contents, []string{card.FormattedValue(attr)})
+				})
+				table := NewTable(map[string]interface{}{
+					"headerWidth":   fixedHeaderWidth,
+					"contentsWidth": fixedContentsWidth,
+					"rowHeaders":    rowHeaders,
+					"colHeaders":    fixedColHeaders,
+					"contents":      contents,
+				})
+				table.SetLastColTrim(true)
+				table.Print()
 			}
-			maxLevel := card.GetMaxLevel()
-			uat := NewTable(map[string]interface{}{
-				"headerWidth":   upgradableHeaderWidth,
-				"contentsWidth": upgradableContentsWidth,
-				"rowHeaders":    rh,
-				"colHeaders":    upgradableColHeaders[0 : maxLevel+1 : maxLevel+1],
-			})
-			for row, ua := range uas {
-				fvs := card.GetFormattedValues(ua)
-				uat.SetRowContents(row, fvs)
+
+			// Upgradable Attribute Table
+			{
+				rowHeaders := []string{}
+				contents := [][]string{}
+				card.ForEachUpgradableAttribute(func(attr *lib.UpgradableAttribute) {
+					rowHeaders = append(rowHeaders, attr.String())
+					contents = append(contents, card.FormattedValues(attr))
+				})
+				maxLevel := card.MaxLevel()
+				table := NewTable(map[string]interface{}{
+					"headerWidth":   upgradableHeaderWidth,
+					"contentsWidth": upgradableContentsWidth,
+					"rowHeaders":    rowHeaders,
+					"colHeaders":    upgradableColHeaders[0 : maxLevel+1 : maxLevel+1],
+					"contents":      contents,
+				})
+				table.Print()
 			}
-			uat.Print()
-		}
-	}
+		})
+		sep = "\n\n\n\n"
+	})
 }

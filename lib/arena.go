@@ -2,6 +2,7 @@ package lib
 
 import (
 	"fmt"
+	"sort"
 )
 
 // Arena
@@ -11,34 +12,45 @@ type Arena struct {
 	trophies int
 }
 
-// static
-var arenaCount = 0
-
-// constructor
-func newArena(name string, trophies int) *Arena {
-	id := arenaCount
-	arenaCount++
-	return &Arena{
-		id,
-		name,
-		trophies,
-	}
+func (a *Arena) Id() int {
+	return a.id
 }
 
 func (a *Arena) String() string {
 	return fmt.Sprintf("Arena %d: %s", a.id, a.name)
 }
 
-func (a *Arena) GetId() int {
-	return a.id
-}
-
-func (a *Arena) GetName() string {
+func (a *Arena) Name() string {
 	return a.name
 }
 
-func (a *Arena) GetTrophies() int {
+func (a *Arena) Trophies() int {
 	return a.trophies
+}
+
+// static
+var (
+	arenaCount = 0
+	arenas     = []*Arena{}
+)
+
+// constructor
+func newArena(name string, trophies int) *Arena {
+	id := arenaCount
+	arenaCount++
+	a := &Arena{
+		id,
+		name,
+		trophies,
+	}
+	arenas = append(arenas, a)
+	return a
+}
+
+func ForEachArena(f func(*Arena)) {
+	for _, a := range arenas {
+		f(a)
+	}
 }
 
 var (
@@ -53,14 +65,21 @@ var (
 	ARENA_8 = newArena("Legendary Arena", 3000)
 )
 
-var ARENAS = [...]*Arena{
-	ARENA_0,
-	ARENA_1,
-	ARENA_2,
-	ARENA_3,
-	ARENA_4,
-	ARENA_5,
-	ARENA_6,
-	ARENA_7,
-	ARENA_8,
+// Initialization
+type arenaSlice []*Arena
+
+func (s arenaSlice) Len() int {
+	return len(s)
+}
+
+func (s arenaSlice) Less(i, j int) bool {
+	return s[i].id < s[j].id
+}
+
+func (s arenaSlice) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func init() {
+	sort.Sort(arenaSlice(arenas))
 }

@@ -1,44 +1,69 @@
 package lib
 
+import (
+	"sort"
+)
+
 // Type
 type Type struct {
 	id   int
 	name string
 }
 
-// static
-var typeCount = 0
-
-// constructor
-func newType(name string) *Type {
-	id := typeCount
-	typeCount++
-	return &Type{
-		id,
-		name,
-	}
+func (t *Type) Id() int {
+	return t.id
 }
 
 func (t *Type) String() string {
 	return t.name
 }
 
-func (t *Type) GetId() int {
-	return t.id
-}
-
 func (t *Type) GetName() string {
 	return t.name
 }
 
+// static
 var (
-	TROOP    = newType("Troop")
-	BUILDING = newType("Building")
-	SPELL    = newType("Spell")
+	types = []*Type{}
 )
 
-var TYPES = [...]*Type{
-	TROOP,
-	BUILDING,
-	SPELL,
+// constructor
+func newType(id int, name string) *Type {
+	t := &Type{
+		id,
+		name,
+	}
+	types = append(types, t)
+	return t
+}
+
+func ForEachType(f func(*Type)) {
+	for _, t := range types {
+		f(t)
+	}
+}
+
+var (
+	TROOP    = newType(0, "Troop")
+	BUILDING = newType(1, "Building")
+	SPELL    = newType(2, "Spell")
+)
+
+// Initialization
+type typeSlice []*Type
+
+func (s typeSlice) Len() int {
+	return len(s)
+}
+
+func (s typeSlice) Less(i, j int) bool {
+	return s[i].id < s[j].id
+}
+
+func (s typeSlice) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func init() {
+	sort.Sort(typeSlice(types))
 }

@@ -1,46 +1,71 @@
 package lib
 
+import (
+	"sort"
+)
+
 // Speed
 type Speed struct {
 	id   int
 	name string
 }
 
-// static
-var speedCount = 0
-
-// constructor
-func newSpeed(name string) *Speed {
-	id := speedCount
-	speedCount++
-	return &Speed{
-		id,
-		name,
-	}
+func (s *Speed) Id() int {
+	return s.id
 }
 
 func (s *Speed) String() string {
 	return s.name
 }
 
-func (s *Speed) GetId() int {
-	return s.id
-}
-
 func (s *Speed) GetName() string {
 	return s.name
 }
 
+// static
 var (
-	SLOW      = newSpeed("Slow")
-	MEDIUM    = newSpeed("Medium")
-	FAST      = newSpeed("Fast")
-	VERY_FAST = newSpeed("Very Fast")
+	speedCount = 0
+	speeds     = []*Speed{}
 )
 
-var SPEEDS = [...]*Speed{
-	SLOW,
-	MEDIUM,
-	FAST,
-	VERY_FAST,
+// constructor
+func newSpeed(id int, name string) *Speed {
+	s := &Speed{
+		id,
+		name,
+	}
+	speeds = append(speeds, s)
+	return s
+}
+
+func ForEachSpeed(f func(*Speed)) {
+	for _, s := range speeds {
+		f(s)
+	}
+}
+
+var (
+	SLOW      = newSpeed(0, "Slow")
+	MEDIUM    = newSpeed(1, "Medium")
+	FAST      = newSpeed(2, "Fast")
+	VERY_FAST = newSpeed(3, "Very Fast")
+)
+
+// Initialization
+type speedSlice []*Speed
+
+func (s speedSlice) Len() int {
+	return len(s)
+}
+
+func (s speedSlice) Less(i, j int) bool {
+	return s[i].id < s[j].id
+}
+
+func (s speedSlice) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func init() {
+	sort.Sort(speedSlice(speeds))
 }

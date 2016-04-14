@@ -98,6 +98,10 @@ func (t *Table) SetColHeaders(colHeaders []string) {
 	t.colHeaders = colHeaders
 }
 
+func (t *Table) SetContents(contents [][]string) {
+	t.contents = contents
+}
+
 func (t *Table) SetRowContents(row int, rowContents []string) {
 	t.contents[row] = rowContents
 }

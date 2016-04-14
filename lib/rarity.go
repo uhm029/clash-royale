@@ -1,5 +1,9 @@
 package lib
 
+import (
+	"sort"
+)
+
 // Rarity
 type Rarity struct {
 	id       int
@@ -10,44 +14,27 @@ type Rarity struct {
 	goldCost []int  // The amount of gold needed to buy the "i + 1"-th card from the shop
 }
 
-// static
-var rarityCount = 0
-
-// constructor
-func newRarity(name string, cardsReq, goldReq, expGain, goldCost []int) *Rarity {
-	id := rarityCount
-	rarityCount++
-	return &Rarity{
-		id,
-		name,
-		cardsReq,
-		goldReq,
-		expGain,
-		goldCost,
-	}
+func (r *Rarity) Id() int {
+	return r.id
 }
 
 func (r *Rarity) String() string {
 	return r.name
 }
 
-func (r *Rarity) GetId() int {
-	return r.id
-}
-
-func (r *Rarity) GetName() string {
+func (r *Rarity) Name() string {
 	return r.name
 }
 
-func (r *Rarity) GetCardsReq() []int {
+func (r *Rarity) CardsReq() []int {
 	return r.cardsReq
 }
 
-func (r *Rarity) GetGoldReq() []int {
+func (r *Rarity) GoldReq() []int {
 	return r.goldReq
 }
 
-func (r *Rarity) GetExpGain() []int {
+func (r *Rarity) ExpGain() []int {
 	return r.expGain
 }
 
@@ -64,7 +51,7 @@ func (r *Rarity) HasAttribute(attr Attribute) bool {
 	}
 }
 
-func (r *Rarity) GetValue(attr Attribute) interface{} {
+func (r *Rarity) Value(attr Attribute) interface{} {
 	switch attr {
 	case CARDS_REQ:
 		return r.cardsReq
@@ -77,12 +64,38 @@ func (r *Rarity) GetValue(attr Attribute) interface{} {
 	}
 }
 
-func (r *Rarity) GetMaxLevel() int {
+func (r *Rarity) MaxLevel() int {
 	return len(r.cardsReq)
+}
+
+// static
+var (
+	rarities = []*Rarity{}
+)
+
+// constructor
+func newRarity(id int, name string, cardsReq, goldReq, expGain, goldCost []int) *Rarity {
+	r := &Rarity{
+		id,
+		name,
+		cardsReq,
+		goldReq,
+		expGain,
+		goldCost,
+	}
+	rarities = append(rarities, r)
+	return r
+}
+
+func ForEachRarity(f func(*Rarity)) {
+	for _, r := range rarities {
+		f(r)
+	}
 }
 
 var (
 	COMMON = newRarity(
+		0,
 		"Common",
 		[]int{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000, 2000, 4000},
 		[]int{0, 5, 20, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
@@ -96,6 +109,7 @@ var (
 		},
 	)
 	RARE = newRarity(
+		1,
 		"Rare",
 		[]int{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000},
 		[]int{0, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
@@ -106,6 +120,7 @@ var (
 		},
 	)
 	EPIC = newRarity(
+		2,
 		"Epic",
 		[]int{0, 2, 4, 10, 20, 50, 100, 200},
 		[]int{0, 400, 1000, 2000, 4000, 8000, 20000, 50000},
@@ -115,6 +130,7 @@ var (
 		},
 	)
 	LEGENDARY = newRarity(
+		3,
 		"Legendary",
 		[]int{0, 2, 4, 10, 20, 50},
 		[]int{0, 5000, 20000, 50000, 100000, 250000},
@@ -123,9 +139,21 @@ var (
 	)
 )
 
-var RARITIES = [...]*Rarity{
-	COMMON,
-	RARE,
-	EPIC,
-	LEGENDARY,
+// Initialization
+type raritySlice []*Rarity
+
+func (s raritySlice) Len() int {
+	return len(s)
+}
+
+func (s raritySlice) Less(i, j int) bool {
+	return s[i].id < s[j].id
+}
+
+func (s raritySlice) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func init() {
+	sort.Sort(raritySlice(rarities))
 }

@@ -1,44 +1,69 @@
 package lib
 
+import (
+	"sort"
+)
+
 // Targets
 type Targets struct {
 	id   int
 	name string
 }
 
-// static
-var targetsCount = 0
-
-// constructor
-func newTargets(name string) *Targets {
-	id := targetsCount
-	targetsCount++
-	return &Targets{
-		id,
-		name,
-	}
+func (t *Targets) Id() int {
+	return t.id
 }
 
 func (t *Targets) String() string {
 	return t.name
 }
 
-func (t *Targets) GetId() int {
-	return t.id
-}
-
 func (t *Targets) GetName() string {
 	return t.name
 }
 
+// static
 var (
-	GROUND         = newTargets("Ground")
-	AIR_AND_GROUND = newTargets("Air & Ground")
-	BUILDINGS      = newTargets("Buildings")
+	targetses = []*Targets{}
 )
 
-var TARGETSES = [...]*Targets{
-	GROUND,
-	AIR_AND_GROUND,
-	BUILDINGS,
+// constructor
+func newTargets(id int, name string) *Targets {
+	t := &Targets{
+		id,
+		name,
+	}
+	targetses = append(targetses, t)
+	return t
+}
+
+func ForEachTargets(f func(*Targets)) {
+	for _, t := range targetses {
+		f(t)
+	}
+}
+
+var (
+	GROUND         = newTargets(0, "Ground")
+	AIR_AND_GROUND = newTargets(1, "Air & Ground")
+	BUILDINGS      = newTargets(2, "Buildings")
+)
+
+// Initialization
+type targetsSlice []*Targets
+
+func (s targetsSlice) Len() int {
+	return len(s)
+}
+
+func (s targetsSlice) Less(i, j int) bool {
+	return s[i].id < s[j].id
+}
+
+func (s targetsSlice) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func init() {
+	sort.Sort(targetsSlice(targetses))
 }

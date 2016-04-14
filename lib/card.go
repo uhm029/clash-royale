@@ -1,178 +1,162 @@
 package lib
 
+import (
+	"sort"
+)
+
 // Card
 type Card struct {
-	fixedAttributes      []*FixedAttribute
-	upgradableAttributes []*UpgradableAttribute
-	fieldMap             map[Attribute]interface{}
+	id       int
+	fieldMap map[Attribute]interface{}
 }
 
-func newCard(fieldMap map[Attribute]interface{}) *Card {
-	fixedAttributes := []*FixedAttribute{}
-	upgradableAttributes := []*UpgradableAttribute{}
-
-	// "Compile" the "GeneratedAttribute"s to "UpgradableAttribute"s
-	for k, v := range fieldMap {
-		if attr, ok := k.(*GeneratedAttribute); ok {
-			// Generate values for the GeneratedAttribute
-			fieldMap[attr.uattr] = attr.generateValues(v)
-		}
-	}
-
-	// Note:
-	// It is necessary to iterate ATTRIBUTES instead of fieldMap,
-	// since the order of the keys in fieldMap is random.
-	for _, k := range ATTRIBUTES {
-		if _, ok := fieldMap[k]; ok {
-			switch attr := k.(type) {
-			case *FixedAttribute:
-				fixedAttributes = append(fixedAttributes, attr)
-			case *UpgradableAttribute:
-				upgradableAttributes = append(upgradableAttributes, attr)
-			}
-		}
-	}
-
-	upgradableAttributes = append(upgradableAttributes, CARDS_REQ, GOLD_REQ, EXP_GAIN)
-
-	return &Card{
-		fixedAttributes,
-		upgradableAttributes,
-		fieldMap,
-	}
-}
-
-func (c *Card) GetName() string {
+func (c *Card) Name() string {
 	return (c.fieldMap)[NAME].(string)
 }
 
-func (c *Card) GetArena() *Arena {
+func (c *Card) Arena() *Arena {
 	return (c.fieldMap)[ARENA].(*Arena)
 }
 
-func (c *Card) GetRarity() *Rarity {
+func (c *Card) Rarity() *Rarity {
 	return (c.fieldMap)[RARITY].(*Rarity)
 }
 
-func (c *Card) GetType() *Type {
+func (c *Card) Type() *Type {
 	return (c.fieldMap)[TYPE].(*Type)
 }
 
-func (c *Card) GetDescription() string {
+func (c *Card) Description() string {
 	return (c.fieldMap)[DESC].(string)
 }
 
-func (c *Card) GetCost() int {
+func (c *Card) Cost() int {
 	return (c.fieldMap)[COST].(int)
 }
 
-func (c *Card) GetMaxLevel() int {
-	return c.GetRarity().GetMaxLevel()
+func (c *Card) MaxLevel() int {
+	return c.Rarity().MaxLevel()
 }
 
 func (c *Card) HasAttribute(attr Attribute) bool {
 	if _, ok := c.fieldMap[attr]; ok {
 		return true
 	}
-	return c.GetRarity().HasAttribute(attr)
+	return c.Rarity().HasAttribute(attr)
 }
 
-func (c *Card) GetFixedAttributes() []*FixedAttribute {
-	return c.fixedAttributes
-}
-
-func (c *Card) GetUpgradableAttributes() []*UpgradableAttribute {
-	return c.upgradableAttributes
-}
-
-func (c *Card) GetValue(attr Attribute) interface{} {
+func (c *Card) Value(attr Attribute) interface{} {
 	if value, ok := c.fieldMap[attr]; ok {
 		return value
 	}
-	return c.GetRarity().GetValue(attr)
+	return c.Rarity().Value(attr)
 }
 
-func (c *Card) GetFormattedValue(fattr *FixedAttribute) string {
-	if value := c.GetValue(fattr); value != nil {
-		return fattr.formatValue(value)
+func (c *Card) FormattedValue(fattr *FixedAttribute) string {
+	if value := c.Value(fattr); value != nil {
+		return fattr.FormatValue(value)
 	}
 	return ""
 }
 
-func (c *Card) GetFormattedValues(uattr *UpgradableAttribute) []string {
-	max := c.GetMaxLevel()
-	if values := c.GetValue(uattr); values != nil {
-		return uattr.formatValues(values)[0:max:max]
+func (c *Card) FormattedValues(uattr *UpgradableAttribute) []string {
+	max := c.MaxLevel()
+	if values := c.Value(uattr); values != nil {
+		return uattr.FormatValues(values)[0:max:max]
 	}
 	return nil
 }
 
-var CARDS = [...]*Card{
-	// --- Common Troops ---
-	KNIGHT,
-	ARCHERS,
-	BOMBER,
-	GOBLINS,
-	SPEAR_GOBLINS,
-	SKELETONS,
-	MINIONS,
-	BARBARIANS,
-	MINION_HORDE,
-	ROYALE_GIANT,
+func (c *Card) ForEachFixedAttribute(f func(*FixedAttribute)) {
+	// Note:
+	// It is necessary to iterate ATTRIBUTES instead of fieldMap,
+	// since the order of the keys in fieldMap is random.
+	ForEachFixedAttribute(func(attr *FixedAttribute) {
+		if c.HasAttribute(attr) {
+			f(attr)
+		}
+	})
+}
 
-	// --- Rare Troops ---
-	GIANT,
-	MUSKETEER,
-	MINI_PEKKA,
-	VALKYRIE,
-	HOG_RIDER,
-	WIZARD,
-	THREE_MUSKETEERS,
+func (c *Card) ForEachUpgradableAttribute(f func(*UpgradableAttribute)) {
+	// Note:
+	// It is necessary to iterate ATTRIBUTES instead of fieldMap,
+	// since the order of the keys in fieldMap is random.
+	ForEachUpgradableAttribute(func(attr *UpgradableAttribute) {
+		if c.HasAttribute(attr) {
+			f(attr)
+		}
+	})
+}
 
-	// --- Epic Troops ---
-	WITCH,
-	SKELETON_ARMY,
-	BABY_DRAGON,
-	PRINCE,
-	GIANT_SKELETON,
-	BALLOON,
-	PEKKA,
-	GOLEM,
-	DARK_PRINCE,
+// static
+var (
+	cards = []*Card{}
+)
 
-	// --- Legendary Troops ---
-	ICE_WIZARD,
-	PRINCESS,
+// constructor
+func newCard(id int, fieldMap map[Attribute]interface{}) *Card {
+	// "Compile" the "GeneratedAttribute"s to "UpgradableAttribute"s
+	for k, v := range fieldMap {
+		if attr, ok := k.(*GeneratedAttribute); ok {
+			// Generate values for the GeneratedAttribute
+			fieldMap[attr.uattr] = attr.GenerateValues(v)
+		}
+	}
 
-	// --- Common Buildings ---
-	CANNON,
-	TESLA,
-	MORTAR,
+	c := &Card{
+		id,
+		fieldMap,
+	}
+	cards = append(cards, c)
+	return c
+}
 
-	// --- Rare Buildings ---
-	GOBLIN_HUT,
-	BOMB_TOWER,
-	TOMBSTONE,
-	BARBARIAN_HUT,
-	INFERNO_TOWER,
-	ELIXIR_COLLECTOR,
+func ForEachCard(f func(*Card)) {
+	for _, c := range cards {
+		f(c)
+	}
+}
 
-	// --- Epic Buildings ---
-	X_BOW,
+func ForEachCardOfArena(a *Arena, f func(*Card)) {
+	for _, c := range cards {
+		if c.Arena() == a {
+			f(c)
+		}
+	}
+}
 
-	// --- Common Spells ---
-	ARROWS,
-	ZAP,
+func ForEachCardOfRarity(r *Rarity, f func(*Card)) {
+	for _, c := range cards {
+		if c.Rarity() == r {
+			f(c)
+		}
+	}
+}
 
-	// --- Rare Spells ---
-	FIREBALL,
-	ROCKET,
+func ForEachCardOfType(t *Type, f func(*Card)) {
+	for _, c := range cards {
+		if c.Type() == t {
+			f(c)
+		}
+	}
+}
 
-	// --- Epic Spells ---
-	LIGHTNING,
-	GOBLIN_BARREL,
-	RAGE,
-	FREEZE,
-	MIRROR,
-	POISON,
+// Initialization
+type cardSlice []*Card
+
+func (s cardSlice) Len() int {
+	return len(s)
+}
+
+func (s cardSlice) Less(i, j int) bool {
+	return s[i].id < s[j].id
+}
+
+func (s cardSlice) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func init() {
+	sort.Sort(cardSlice(cards))
 }
