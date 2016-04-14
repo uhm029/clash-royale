@@ -30,14 +30,11 @@ func (a *Arena) Trophies() int {
 
 // static
 var (
-	arenaCount = 0
-	arenas     = []*Arena{}
+	arenas = []*Arena{}
 )
 
 // constructor
-func newArena(name string, trophies int) *Arena {
-	id := arenaCount
-	arenaCount++
+func newArena(id int, name string, trophies int) *Arena {
 	a := &Arena{
 		id,
 		name,
@@ -54,15 +51,15 @@ func ForEachArena(f func(*Arena)) {
 }
 
 var (
-	ARENA_0 = newArena("Training Camp", -1)
-	ARENA_1 = newArena("Goblin Stadium", 0)
-	ARENA_2 = newArena("Bone Pit", 400)
-	ARENA_3 = newArena("Barbarian Bowl", 800)
-	ARENA_4 = newArena("P.E.K.K.A's Playhouse", 1100)
-	ARENA_5 = newArena("Spell Valley", 1400)
-	ARENA_6 = newArena("Builder's Workshop", 1700)
-	ARENA_7 = newArena("Royal Arena", 2000)
-	ARENA_8 = newArena("Legendary Arena", 3000)
+	ARENA_0 = newArena(0, "Training Camp", -1)
+	ARENA_1 = newArena(1, "Goblin Stadium", 0)
+	ARENA_2 = newArena(2, "Bone Pit", 400)
+	ARENA_3 = newArena(3, "Barbarian Bowl", 800)
+	ARENA_4 = newArena(4, "P.E.K.K.A's Playhouse", 1100)
+	ARENA_5 = newArena(5, "Spell Valley", 1400)
+	ARENA_6 = newArena(6, "Builder's Workshop", 1700)
+	ARENA_7 = newArena(7, "Royal Arena", 2000)
+	ARENA_8 = newArena(8, "Legendary Arena", 3000)
 )
 
 // Initialization
