@@ -1,6 +1,8 @@
-package lib
+package attribute
 
 import (
+	"github.com/asukakenji/clash-royale/lib"
+
 	"fmt"
 )
 
@@ -25,7 +27,7 @@ func formatString(value interface{}) string {
 
 func formatInt(value interface{}) string {
 	// Note: interface{} is comparable with const
-	if X == value {
+	if lib.X == value {
 		return ""
 	}
 	return fmt.Sprintf("%d", value)
@@ -33,7 +35,7 @@ func formatInt(value interface{}) string {
 
 func formatFloat(value interface{}) string {
 	// Note: interface{} is comparable with const
-	if X == value {
+	if lib.X == value {
 		return ""
 	}
 	number := convertNumber(value)
@@ -66,7 +68,7 @@ func formatTime(value interface{}) string {
 func formatRange(value interface{}) string {
 	switch value.(type) {
 	case int:
-		if value.(int) == MELEE {
+		if value.(int) == lib.MELEE {
 			return "Melee"
 		}
 		return fmt.Sprintf("%d", value)

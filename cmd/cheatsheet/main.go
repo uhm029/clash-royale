@@ -1,7 +1,9 @@
 package main
 
 import (
-	"github.com/asukakenji/clash-royale/lib"
+	"github.com/asukakenji/clash-royale/attribute"
+	"github.com/asukakenji/clash-royale/card"
+	"github.com/asukakenji/clash-royale/types"
 
 	"fmt"
 )
@@ -20,12 +22,12 @@ var (
 
 func main() {
 	sep := ""
-	lib.ForEachType(func(_type *lib.Type) {
+	types.ForEachType(func(_type *types.Type) {
 		// Card Type (Troops, Buildings, Spells)
 		fmt.Printf(sep)
 		fmt.Printf("## %s\n", _type)
 		fmt.Println()
-		lib.ForEachCardOfType(_type, func(card *lib.Card) {
+		card.ForEachCardOfType(_type, func(card *card.Card) {
 
 			// Header (Card Name)
 			fmt.Printf("### %s\n", card.Name())
@@ -35,7 +37,7 @@ func main() {
 			{
 				rowHeaders := []string{}
 				contents := [][]string{}
-				card.ForEachFixedAttribute(func(attr *lib.FixedAttribute) {
+				card.ForEachFixedAttribute(func(attr *attribute.FixedAttribute) {
 					rowHeaders = append(rowHeaders, attr.String())
 					contents = append(contents, []string{card.FormattedValue(attr)})
 				})
@@ -54,7 +56,7 @@ func main() {
 			{
 				rowHeaders := []string{}
 				contents := [][]string{}
-				card.ForEachUpgradableAttribute(func(attr *lib.UpgradableAttribute) {
+				card.ForEachUpgradableAttribute(func(attr *attribute.UpgradableAttribute) {
 					rowHeaders = append(rowHeaders, attr.String())
 					contents = append(contents, card.FormattedValues(attr))
 				})

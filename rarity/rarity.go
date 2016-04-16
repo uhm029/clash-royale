@@ -1,6 +1,8 @@
-package lib
+package rarity
 
 import (
+	"github.com/asukakenji/clash-royale/attribute"
+
 	"sort"
 )
 
@@ -38,26 +40,26 @@ func (r *Rarity) ExpGain() []int {
 	return r.expGain
 }
 
-func (r *Rarity) HasAttribute(attr Attribute) bool {
+func (r *Rarity) HasAttribute(attr attribute.Attribute) bool {
 	switch attr {
-	case CARDS_REQ:
+	case attribute.CARDS_REQ:
 		return true
-	case GOLD_REQ:
+	case attribute.GOLD_REQ:
 		return true
-	case EXP_GAIN:
+	case attribute.EXP_GAIN:
 		return true
 	default:
 		return false
 	}
 }
 
-func (r *Rarity) Value(attr Attribute) interface{} {
+func (r *Rarity) Value(attr attribute.Attribute) interface{} {
 	switch attr {
-	case CARDS_REQ:
+	case attribute.CARDS_REQ:
 		return r.cardsReq
-	case GOLD_REQ:
+	case attribute.GOLD_REQ:
 		return r.goldReq
-	case EXP_GAIN:
+	case attribute.EXP_GAIN:
 		return r.expGain
 	default:
 		return nil
