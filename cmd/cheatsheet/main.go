@@ -37,7 +37,7 @@ func main() {
 			{
 				rowHeaders := []string{}
 				contents := [][]string{}
-				card.ForEachFixedAttribute(func(attr *attribute.Fixed) {
+				card.ForEachFixedAttribute(func(attr attribute.Fixed) {
 					rowHeaders = append(rowHeaders, attr.String())
 					contents = append(contents, []string{card.FormattedValue(attr)})
 				})
@@ -56,7 +56,7 @@ func main() {
 			{
 				rowHeaders := []string{}
 				contents := [][]string{}
-				card.ForEachUpgradableAttribute(func(attr *attribute.Upgradable) {
+				card.ForEachUpgradableAttribute(func(attr attribute.Upgradable) {
 					rowHeaders = append(rowHeaders, attr.String())
 					contents = append(contents, card.FormattedValues(attr))
 				})

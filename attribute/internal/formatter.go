@@ -1,4 +1,4 @@
-package attribute
+package internal
 
 import (
 	"github.com/asukakenji/clash-royale/lib"

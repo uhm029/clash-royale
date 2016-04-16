@@ -1,27 +1,50 @@
 package attribute
 
+import (
+	"github.com/asukakenji/clash-royale/attribute/internal"
+)
+
 // Generated
-type Generated struct {
-	id             int
-	uattr          *Upgradable
-	generateValues func(baseValue interface{}) []int
+type Generated int8
+
+const (
+	BaseHP Generated = iota
+	BaseSHP
+	BaseDam
+	BaseDamL
+	BaseDamH
+	BaseADam
+	BaseDDam
+	BaseGobLV
+	BaseSgoLV
+	BaseSkeLV
+	BaseBarLV
+	BaseMCLV
+	BaseMRLV
+	BaseMELV
+)
+
+func ForEachGenerated(f func(Generated)) {
+	for i := range internal.GeneratedAttributes {
+		f(Generated(i))
+	}
 }
 
-func (attr *Generated) Attribute() {
+func (a Generated) Attribute() {
 }
 
-func (attr *Generated) Id() int {
-	return attr.id
+func (a Generated) Id() int {
+	return internal.GeneratedAttributes[a].Id
 }
 
-func (attr *Generated) String() string {
-	return attr.uattr.String()
+func (a Generated) String() string {
+	return a.TargetAttribute().String()
 }
 
-func (attr *Generated) Upgradable() *Upgradable {
-	return attr.uattr
+func (a Generated) TargetAttribute() Upgradable {
+	return Upgradable(internal.GeneratedAttributes[a].AttributeIndex)
 }
 
-func (attr *Generated) GenerateValues(baseValue interface{}) []int {
-	return attr.generateValues(baseValue)
+func (a Generated) GenerateValues(baseValue interface{}) interface{} {
+	return internal.GeneratedAttributes[a].GenerateFunc(baseValue)
 }

@@ -48,11 +48,11 @@ func (r Rarity) ExpGain() []int {
 
 func (r Rarity) HasAttribute(attr attribute.Attribute) bool {
 	switch attr {
-	case attribute.CARDS_REQ:
+	case attribute.CardsReq:
 		return true
-	case attribute.GOLD_REQ:
+	case attribute.GoldReq:
 		return true
-	case attribute.EXP_GAIN:
+	case attribute.ExpGain:
 		return true
 	default:
 		return false
@@ -61,11 +61,11 @@ func (r Rarity) HasAttribute(attr attribute.Attribute) bool {
 
 func (r Rarity) Value(attr attribute.Attribute) []int {
 	switch attr {
-	case attribute.CARDS_REQ:
+	case attribute.CardsReq:
 		return r.CardsReq()
-	case attribute.GOLD_REQ:
+	case attribute.GoldReq:
 		return r.GoldReq()
-	case attribute.EXP_GAIN:
+	case attribute.ExpGain:
 		return r.ExpGain()
 	default:
 		return nil

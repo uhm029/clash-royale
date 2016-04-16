@@ -16,27 +16,27 @@ type Card struct {
 }
 
 func (c *Card) Name() string {
-	return (c.fieldMap)[attribute.NAME].(string)
+	return (c.fieldMap)[attribute.Name].(string)
 }
 
 func (c *Card) Arena() arena.Arena {
-	return (c.fieldMap)[attribute.ARENA].(arena.Arena)
+	return (c.fieldMap)[attribute.Arena].(arena.Arena)
 }
 
 func (c *Card) Rarity() rarity.Rarity {
-	return (c.fieldMap)[attribute.RARITY].(rarity.Rarity)
+	return (c.fieldMap)[attribute.Rarity].(rarity.Rarity)
 }
 
 func (c *Card) Type() types.Type {
-	return (c.fieldMap)[attribute.TYPE].(types.Type)
+	return (c.fieldMap)[attribute.Type].(types.Type)
 }
 
 func (c *Card) Description() string {
-	return (c.fieldMap)[attribute.DESC].(string)
+	return (c.fieldMap)[attribute.Desc].(string)
 }
 
-func (c *Card) Cost() int {
-	return (c.fieldMap)[attribute.COST].(int)
+func (c *Card) Elixir() int {
+	return (c.fieldMap)[attribute.Elixir].(int)
 }
 
 func (c *Card) MaxLevel() int {
@@ -57,14 +57,14 @@ func (c *Card) Value(attr attribute.Attribute) interface{} {
 	return c.Rarity().Value(attr)
 }
 
-func (c *Card) FormattedValue(fattr *attribute.Fixed) string {
+func (c *Card) FormattedValue(fattr attribute.Fixed) string {
 	if value := c.Value(fattr); value != nil {
 		return fattr.FormatValue(value)
 	}
 	return ""
 }
 
-func (c *Card) FormattedValues(uattr *attribute.Upgradable) []string {
+func (c *Card) FormattedValues(uattr attribute.Upgradable) []string {
 	max := c.MaxLevel()
 	if values := c.Value(uattr); values != nil {
 		return uattr.FormatValues(values)[0:max:max]
@@ -72,22 +72,22 @@ func (c *Card) FormattedValues(uattr *attribute.Upgradable) []string {
 	return nil
 }
 
-func (c *Card) ForEachFixedAttribute(f func(*attribute.Fixed)) {
+func (c *Card) ForEachFixedAttribute(f func(attribute.Fixed)) {
 	// Note:
 	// It is necessary to iterate ATTRIBUTES instead of fieldMap,
 	// since the order of the keys in fieldMap is random.
-	attribute.ForEachFixedAttribute(func(attr *attribute.Fixed) {
+	attribute.ForEachFixed(func(attr attribute.Fixed) {
 		if c.HasAttribute(attr) {
 			f(attr)
 		}
 	})
 }
 
-func (c *Card) ForEachUpgradableAttribute(f func(*attribute.Upgradable)) {
+func (c *Card) ForEachUpgradableAttribute(f func(attribute.Upgradable)) {
 	// Note:
 	// It is necessary to iterate ATTRIBUTES instead of fieldMap,
 	// since the order of the keys in fieldMap is random.
-	attribute.ForEachUpgradableAttribute(func(attr *attribute.Upgradable) {
+	attribute.ForEachUpgradable(func(attr attribute.Upgradable) {
 		if c.HasAttribute(attr) {
 			f(attr)
 		}
@@ -105,7 +105,7 @@ func newCard(id int, fieldMap map[attribute.Attribute]interface{}) *Card {
 	for k, v := range fieldMap {
 		if attr, ok := k.(*attribute.Generated); ok {
 			// Generate values for the Generated
-			fieldMap[attr.Upgradable()] = attr.GenerateValues(v)
+			fieldMap[attr.TargetAttribute()] = attr.GenerateValues(v)
 		}
 	}
 

@@ -1,27 +1,60 @@
 package attribute
 
+import (
+	"github.com/asukakenji/clash-royale/attribute/internal"
+)
+
 // Upgradable
-type Upgradable struct {
-	id           int
-	name         string
-	formatValues func(values interface{}) []string
+type Upgradable int8
+
+const (
+	HP Upgradable = iota
+	SHP
+	DPS
+	DPSL
+	DPSH
+	CTDPS
+	Dam
+	DamL
+	DamH
+	ADam
+	DDam
+	CTDam
+	GobLV
+	SgoLV
+	SkeLV
+	BarLV
+	DurU
+	MCLV
+	MRLV
+	MELV
+	MLLV
+	CardsReq
+	GoldReq
+	ExpGain
+)
+
+func ForEachUpgradable(f func(Upgradable)) {
+	for i := range internal.UpgradableAttributes {
+		f(Upgradable(i))
+	}
 }
 
-func (attr *Upgradable) Attribute() {
+func (a Upgradable) Attribute() {
 }
 
-func (attr *Upgradable) Id() int {
-	return attr.id
+func (a Upgradable) Id() int {
+	return internal.UpgradableAttributes[a].Id
 }
 
-func (attr *Upgradable) String() string {
-	return attr.name
+func (a Upgradable) String() string {
+	return internal.UpgradableAttributes[a].Name
 }
 
-func (attr *Upgradable) Name() string {
-	return attr.name
+func (a Upgradable) Name() string {
+	return internal.UpgradableAttributes[a].Name
 }
 
-func (attr *Upgradable) FormatValues(values interface{}) []string {
-	return attr.formatValues(values)
+func (a Upgradable) FormatValues(values interface{}) []string {
+	return internal.UpgradableAttributes[a].FormatFunc(values)
 }
