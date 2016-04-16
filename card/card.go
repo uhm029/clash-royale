@@ -57,14 +57,14 @@ func (c *Card) Value(attr attribute.Attribute) interface{} {
 	return c.Rarity().Value(attr)
 }
 
-func (c *Card) FormattedValue(fattr *attribute.FixedAttribute) string {
+func (c *Card) FormattedValue(fattr *attribute.Fixed) string {
 	if value := c.Value(fattr); value != nil {
 		return fattr.FormatValue(value)
 	}
 	return ""
 }
 
-func (c *Card) FormattedValues(uattr *attribute.UpgradableAttribute) []string {
+func (c *Card) FormattedValues(uattr *attribute.Upgradable) []string {
 	max := c.MaxLevel()
 	if values := c.Value(uattr); values != nil {
 		return uattr.FormatValues(values)[0:max:max]
@@ -72,22 +72,22 @@ func (c *Card) FormattedValues(uattr *attribute.UpgradableAttribute) []string {
 	return nil
 }
 
-func (c *Card) ForEachFixedAttribute(f func(*attribute.FixedAttribute)) {
+func (c *Card) ForEachFixedAttribute(f func(*attribute.Fixed)) {
 	// Note:
 	// It is necessary to iterate ATTRIBUTES instead of fieldMap,
 	// since the order of the keys in fieldMap is random.
-	attribute.ForEachFixedAttribute(func(attr *attribute.FixedAttribute) {
+	attribute.ForEachFixedAttribute(func(attr *attribute.Fixed) {
 		if c.HasAttribute(attr) {
 			f(attr)
 		}
 	})
 }
 
-func (c *Card) ForEachUpgradableAttribute(f func(*attribute.UpgradableAttribute)) {
+func (c *Card) ForEachUpgradableAttribute(f func(*attribute.Upgradable)) {
 	// Note:
 	// It is necessary to iterate ATTRIBUTES instead of fieldMap,
 	// since the order of the keys in fieldMap is random.
-	attribute.ForEachUpgradableAttribute(func(attr *attribute.UpgradableAttribute) {
+	attribute.ForEachUpgradableAttribute(func(attr *attribute.Upgradable) {
 		if c.HasAttribute(attr) {
 			f(attr)
 		}
@@ -101,11 +101,11 @@ var (
 
 // constructor
 func newCard(id int, fieldMap map[attribute.Attribute]interface{}) *Card {
-	// "Compile" the "GeneratedAttribute"s to "UpgradableAttribute"s
+	// "Compile" the "Generated"s to "Upgradable"s
 	for k, v := range fieldMap {
-		if attr, ok := k.(*attribute.GeneratedAttribute); ok {
-			// Generate values for the GeneratedAttribute
-			fieldMap[attr.UpgradableAttribute()] = attr.GenerateValues(v)
+		if attr, ok := k.(*attribute.Generated); ok {
+			// Generate values for the Generated
+			fieldMap[attr.Upgradable()] = attr.GenerateValues(v)
 		}
 	}
 
