@@ -1,69 +1,31 @@
 package targets
 
 import (
-	"sort"
+	"github.com/asukakenji/clash-royale/targets/internal"
 )
 
-// Targets
-type Targets struct {
-	id   int
-	name string
-}
+type Targets int8
 
-func (t *Targets) Id() int {
-	return t.id
-}
-
-func (t *Targets) String() string {
-	return t.name
-}
-
-func (t *Targets) GetName() string {
-	return t.name
-}
-
-// static
-var (
-	targetses = []*Targets{}
+const (
+	Ground Targets = iota
+	AirAndGround
+	Buildings
 )
 
-// constructor
-func newTargets(id int, name string) *Targets {
-	t := &Targets{
-		id,
-		name,
-	}
-	targetses = append(targetses, t)
-	return t
-}
-
-func ForEachTargets(f func(*Targets)) {
-	for _, t := range targetses {
-		f(t)
+func ForEach(f func(Targets)) {
+	for i := range internal.Targetses {
+		f(Targets(i))
 	}
 }
 
-var (
-	GROUND         = newTargets(0, "Ground")
-	AIR_AND_GROUND = newTargets(1, "Air & Ground")
-	BUILDINGS      = newTargets(2, "Buildings")
-)
-
-// Initialization
-type targetsSlice []*Targets
-
-func (s targetsSlice) Len() int {
-	return len(s)
+func (t Targets) Id() int {
+	return internal.Targetses[t].Id
 }
 
-func (s targetsSlice) Less(i, j int) bool {
-	return s[i].id < s[j].id
+func (t Targets) String() string {
+	return internal.Targetses[t].Name
 }
 
-func (s targetsSlice) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
-}
-
-func init() {
-	sort.Sort(targetsSlice(targetses))
+func (t Targets) Name() string {
+	return internal.Targetses[t].Name
 }

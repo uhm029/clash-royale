@@ -19,16 +19,16 @@ func (c *Card) Name() string {
 	return (c.fieldMap)[attribute.NAME].(string)
 }
 
-func (c *Card) Arena() *arena.Arena {
-	return (c.fieldMap)[attribute.ARENA].(*arena.Arena)
+func (c *Card) Arena() arena.Arena {
+	return (c.fieldMap)[attribute.ARENA].(arena.Arena)
 }
 
-func (c *Card) Rarity() *rarity.Rarity {
-	return (c.fieldMap)[attribute.RARITY].(*rarity.Rarity)
+func (c *Card) Rarity() rarity.Rarity {
+	return (c.fieldMap)[attribute.RARITY].(rarity.Rarity)
 }
 
-func (c *Card) Type() *types.Type {
-	return (c.fieldMap)[attribute.TYPE].(*types.Type)
+func (c *Card) Type() types.Type {
+	return (c.fieldMap)[attribute.TYPE].(types.Type)
 }
 
 func (c *Card) Description() string {
@@ -123,7 +123,7 @@ func ForEachCard(f func(*Card)) {
 	}
 }
 
-func ForEachCardOfArena(a *arena.Arena, f func(*Card)) {
+func ForEachCardOfArena(a arena.Arena, f func(*Card)) {
 	for _, c := range cards {
 		if c.Arena() == a {
 			f(c)
@@ -131,7 +131,7 @@ func ForEachCardOfArena(a *arena.Arena, f func(*Card)) {
 	}
 }
 
-func ForEachCardOfRarity(r *rarity.Rarity, f func(*Card)) {
+func ForEachCardOfRarity(r rarity.Rarity, f func(*Card)) {
 	for _, c := range cards {
 		if c.Rarity() == r {
 			f(c)
@@ -139,7 +139,7 @@ func ForEachCardOfRarity(r *rarity.Rarity, f func(*Card)) {
 	}
 }
 
-func ForEachCardOfType(t *types.Type, f func(*Card)) {
+func ForEachCardOfType(t types.Type, f func(*Card)) {
 	for _, c := range cards {
 		if c.Type() == t {
 			f(c)

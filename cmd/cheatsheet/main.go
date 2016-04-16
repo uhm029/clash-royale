@@ -22,7 +22,7 @@ var (
 
 func main() {
 	sep := ""
-	types.ForEachType(func(_type *types.Type) {
+	types.ForEach(func(_type types.Type) {
 		// Card Type (Troops, Buildings, Spells)
 		fmt.Printf(sep)
 		fmt.Printf("## %s\n", _type)

@@ -1,69 +1,32 @@
 package types
 
 import (
-	"sort"
+	"github.com/asukakenji/clash-royale/types/internal"
 )
 
 // Type
-type Type struct {
-	id   int
-	name string
-}
+type Type int8
 
-func (t *Type) Id() int {
-	return t.id
-}
-
-func (t *Type) String() string {
-	return t.name
-}
-
-func (t *Type) GetName() string {
-	return t.name
-}
-
-// static
-var (
-	types = []*Type{}
+const (
+	Troop Type = iota
+	Building
+	Spell
 )
 
-// constructor
-func newType(id int, name string) *Type {
-	t := &Type{
-		id,
-		name,
-	}
-	types = append(types, t)
-	return t
-}
-
-func ForEachType(f func(*Type)) {
-	for _, t := range types {
-		f(t)
+func ForEach(f func(Type)) {
+	for i := range internal.Types {
+		f(Type(i))
 	}
 }
 
-var (
-	TROOP    = newType(0, "Troop")
-	BUILDING = newType(1, "Building")
-	SPELL    = newType(2, "Spell")
-)
-
-// Initialization
-type typeSlice []*Type
-
-func (s typeSlice) Len() int {
-	return len(s)
+func (t Type) Id() int {
+	return internal.Types[t].Id
 }
 
-func (s typeSlice) Less(i, j int) bool {
-	return s[i].id < s[j].id
+func (t Type) String() string {
+	return internal.Types[t].Name
 }
 
-func (s typeSlice) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
-}
-
-func init() {
-	sort.Sort(typeSlice(types))
+func (t Type) Name() string {
+	return internal.Types[t].Name
 }

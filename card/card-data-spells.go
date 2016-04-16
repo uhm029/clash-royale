@@ -12,9 +12,9 @@ var (
 	// --- Common Spells ---
 	ARROWS = newCard(2000, map[attribute.Attribute]interface{}{
 		attribute.NAME:      "Arrows",
-		attribute.ARENA:     arena.ARENA_0,
-		attribute.RARITY:    rarity.COMMON,
-		attribute.TYPE:      types.SPELL,
+		attribute.ARENA:     arena.Arena0,
+		attribute.RARITY:    rarity.Common,
+		attribute.TYPE:      types.Spell,
 		attribute.DESC:      `Arrows pepper a large area, damaging everyone hit. Reduced damage to Crown Towers.`,
 		attribute.COST:      3,
 		attribute.BASE_ADAM: 115,
@@ -23,9 +23,9 @@ var (
 	})
 	ZAP = newCard(2050, map[attribute.Attribute]interface{}{
 		attribute.NAME:      "Zap",
-		attribute.ARENA:     arena.ARENA_5,
-		attribute.RARITY:    rarity.COMMON,
-		attribute.TYPE:      types.SPELL,
+		attribute.ARENA:     arena.Arena5,
+		attribute.RARITY:    rarity.Common,
+		attribute.TYPE:      types.Spell,
 		attribute.DESC:      `Zaps enemies, briefly stunning them and dealing damage inside a small radius. Reduced damage to Crown Towers.`,
 		attribute.COST:      2,
 		attribute.BASE_ADAM: 80,
@@ -37,9 +37,9 @@ var (
 	// --- Rare Spells ---
 	FIREBALL = newCard(2100, map[attribute.Attribute]interface{}{
 		attribute.NAME:      "Fireball",
-		attribute.ARENA:     arena.ARENA_0,
-		attribute.RARITY:    rarity.RARE,
-		attribute.TYPE:      types.SPELL,
+		attribute.ARENA:     arena.Arena0,
+		attribute.RARITY:    rarity.Rare,
+		attribute.TYPE:      types.Spell,
 		attribute.DESC:      `Annnnnd... Fireball. Incinerates a small area, dealing high damage. Reduced damage to Crown Towers.`,
 		attribute.COST:      4,
 		attribute.BASE_ADAM: 325,
@@ -48,9 +48,9 @@ var (
 	})
 	ROCKET = newCard(2130, map[attribute.Attribute]interface{}{
 		attribute.NAME:      "Rocket",
-		attribute.ARENA:     arena.ARENA_3,
-		attribute.RARITY:    rarity.RARE,
-		attribute.TYPE:      types.SPELL,
+		attribute.ARENA:     arena.Arena3,
+		attribute.RARITY:    rarity.Rare,
+		attribute.TYPE:      types.Spell,
 		attribute.DESC:      `Deals high damage to a small area. Looks really awesome doing it. Reduced damage to Crown Towers.`,
 		attribute.COST:      6,
 		attribute.BASE_ADAM: 700,
@@ -61,9 +61,9 @@ var (
 	// --- Epic Spells ---
 	LIGHTNING = newCard(2210, map[attribute.Attribute]interface{}{
 		attribute.NAME:     "Lightning",
-		attribute.ARENA:    arena.ARENA_1,
-		attribute.RARITY:   rarity.EPIC,
-		attribute.TYPE:     types.SPELL,
+		attribute.ARENA:    arena.Arena1,
+		attribute.RARITY:   rarity.Epic,
+		attribute.TYPE:     types.Spell,
 		attribute.DESC:     `Bolts of lightning hit up to three enemy troops or buildings with the most hitpoints in the target area. Reduced damage to Crown Towers.`,
 		attribute.COST:     6,
 		attribute.COUNT:    3,
@@ -74,9 +74,9 @@ var (
 	})
 	GOBLIN_BARREL = newCard(2211, map[attribute.Attribute]interface{}{
 		attribute.NAME:        "Goblin Barrel",
-		attribute.ARENA:       arena.ARENA_1,
-		attribute.RARITY:      rarity.EPIC,
-		attribute.TYPE:        types.SPELL,
+		attribute.ARENA:       arena.Arena1,
+		attribute.RARITY:      rarity.Epic,
+		attribute.TYPE:        types.Spell,
 		attribute.DESC:        `Spawns three Goblins anywhere on the Arena. It's going to be a thrilling ride, boys!`,
 		attribute.COST:        4,
 		attribute.ADAM:        lib.V50[0:8:8],
@@ -87,9 +87,9 @@ var (
 	})
 	RAGE = newCard(2230, map[attribute.Attribute]interface{}{
 		attribute.NAME:   "Rage",
-		attribute.ARENA:  arena.ARENA_3,
-		attribute.RARITY: rarity.EPIC,
-		attribute.TYPE:   types.SPELL,
+		attribute.ARENA:  arena.Arena3,
+		attribute.RARITY: rarity.Epic,
+		attribute.TYPE:   types.Spell,
 		attribute.DESC:   `Increases troop movement and attack speed by 40%. Troop buildings and summoners deploy troop faster. Chaaaarge!`,
 		attribute.COST:   3,
 		attribute.DUR_U:  []float64{8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5},
@@ -97,9 +97,9 @@ var (
 	})
 	FREEZE = newCard(2240, map[attribute.Attribute]interface{}{
 		attribute.NAME:   "Freeze",
-		attribute.ARENA:  arena.ARENA_4,
-		attribute.RARITY: rarity.EPIC,
-		attribute.TYPE:   types.SPELL,
+		attribute.ARENA:  arena.Arena4,
+		attribute.RARITY: rarity.Epic,
+		attribute.TYPE:   types.Spell,
 		attribute.DESC:   `Freezes troops and buildings, making them unable to move or attack. Everybody chill.`,
 		attribute.COST:   4,
 		attribute.DUR_U:  []float64{5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1},
@@ -107,9 +107,9 @@ var (
 	})
 	MIRROR = newCard(2250, map[attribute.Attribute]interface{}{
 		attribute.NAME:       "Mirror",
-		attribute.ARENA:      arena.ARENA_5,
-		attribute.RARITY:     rarity.EPIC,
-		attribute.TYPE:       types.SPELL,
+		attribute.ARENA:      arena.Arena5,
+		attribute.RARITY:     rarity.Epic,
+		attribute.TYPE:       types.Spell,
 		attribute.DESC:       `Mirrors your last card played for +1 Elixir`,
 		attribute.COST:       lib.X,
 		attribute.BASE_MC_LV: 5,
@@ -119,9 +119,9 @@ var (
 	})
 	POISON = newCard(2251, map[attribute.Attribute]interface{}{
 		attribute.NAME:   "Poison",
-		attribute.ARENA:  arena.ARENA_5,
-		attribute.RARITY: rarity.EPIC,
-		attribute.TYPE:   types.SPELL,
+		attribute.ARENA:  arena.Arena5,
+		attribute.RARITY: rarity.Epic,
+		attribute.TYPE:   types.Spell,
 		attribute.DESC:   `Covers the target area in a sticky toxin, damaging and slowing down troops and buildings. Remember: solvent abuse can kill!`,
 		attribute.COST:   4,
 		attribute.DPS:    []int{42, 46, 50, 55, 62, 67, 73, 81},
