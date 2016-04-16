@@ -1,10 +1,10 @@
 package card
 
 import (
+	"github.com/asukakenji/clash-royale/Type"
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attribute"
 	"github.com/asukakenji/clash-royale/rarity"
-	"github.com/asukakenji/clash-royale/types"
 
 	"sort"
 )
@@ -27,8 +27,8 @@ func (c *Card) Rarity() rarity.Rarity {
 	return (c.fieldMap)[attribute.Rarity].(rarity.Rarity)
 }
 
-func (c *Card) Type() types.Type {
-	return (c.fieldMap)[attribute.Type].(types.Type)
+func (c *Card) Type() Type.Type {
+	return (c.fieldMap)[attribute.Type].(Type.Type)
 }
 
 func (c *Card) Description() string {
@@ -139,7 +139,7 @@ func ForEachCardOfRarity(r rarity.Rarity, f func(*Card)) {
 	}
 }
 
-func ForEachCardOfType(t types.Type, f func(*Card)) {
+func ForEachCardOfType(t Type.Type, f func(*Card)) {
 	for _, c := range cards {
 		if c.Type() == t {
 			f(c)

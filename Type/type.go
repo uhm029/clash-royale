@@ -1,7 +1,7 @@
-package types
+package Type
 
 import (
-	"github.com/asukakenji/clash-royale/types/internal"
+	"github.com/asukakenji/clash-royale/Type/internal"
 )
 
 // Type

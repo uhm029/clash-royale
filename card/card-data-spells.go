@@ -1,11 +1,11 @@
 package card
 
 import (
+	"github.com/asukakenji/clash-royale/Type"
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attribute"
 	"github.com/asukakenji/clash-royale/lib"
 	"github.com/asukakenji/clash-royale/rarity"
-	"github.com/asukakenji/clash-royale/types"
 )
 
 var (
@@ -14,7 +14,7 @@ var (
 		attribute.Name:     "Arrows",
 		attribute.Arena:    arena.Arena0,
 		attribute.Rarity:   rarity.Common,
-		attribute.Type:     types.Spell,
+		attribute.Type:     Type.Spell,
 		attribute.Desc:     `Arrows pepper a large area, damaging everyone hit. Reduced damage to Crown Towers.`,
 		attribute.Elixir:   3,
 		attribute.BaseADam: 115,
@@ -25,7 +25,7 @@ var (
 		attribute.Name:     "Zap",
 		attribute.Arena:    arena.Arena5,
 		attribute.Rarity:   rarity.Common,
-		attribute.Type:     types.Spell,
+		attribute.Type:     Type.Spell,
 		attribute.Desc:     `Zaps enemies, briefly stunning them and dealing damage inside a small radius. Reduced damage to Crown Towers.`,
 		attribute.Elixir:   2,
 		attribute.BaseADam: 80,
@@ -39,7 +39,7 @@ var (
 		attribute.Name:     "Fireball",
 		attribute.Arena:    arena.Arena0,
 		attribute.Rarity:   rarity.Rare,
-		attribute.Type:     types.Spell,
+		attribute.Type:     Type.Spell,
 		attribute.Desc:     `Annnnnd... Fireball. Incinerates a small area, dealing high damage. Reduced damage to Crown Towers.`,
 		attribute.Elixir:   4,
 		attribute.BaseADam: 325,
@@ -50,7 +50,7 @@ var (
 		attribute.Name:     "Rocket",
 		attribute.Arena:    arena.Arena3,
 		attribute.Rarity:   rarity.Rare,
-		attribute.Type:     types.Spell,
+		attribute.Type:     Type.Spell,
 		attribute.Desc:     `Deals high damage to a small area. Looks really awesome doing it. Reduced damage to Crown Towers.`,
 		attribute.Elixir:   6,
 		attribute.BaseADam: 700,
@@ -63,7 +63,7 @@ var (
 		attribute.Name:    "Lightning",
 		attribute.Arena:   arena.Arena1,
 		attribute.Rarity:  rarity.Epic,
-		attribute.Type:    types.Spell,
+		attribute.Type:    Type.Spell,
 		attribute.Desc:    `Bolts of lightning hit up to three enemy troops or buildings with the most hitpoints in the target area. Reduced damage to Crown Towers.`,
 		attribute.Elixir:  6,
 		attribute.Count:   3,
@@ -76,7 +76,7 @@ var (
 		attribute.Name:      "Goblin Barrel",
 		attribute.Arena:     arena.Arena1,
 		attribute.Rarity:    rarity.Epic,
-		attribute.Type:      types.Spell,
+		attribute.Type:      Type.Spell,
 		attribute.Desc:      `Spawns three Goblins anywhere on the Arena. It's going to be a thrilling ride, boys!`,
 		attribute.Elixir:    4,
 		attribute.ADam:      lib.V50[0:8:8],
@@ -89,7 +89,7 @@ var (
 		attribute.Name:   "Rage",
 		attribute.Arena:  arena.Arena3,
 		attribute.Rarity: rarity.Epic,
-		attribute.Type:   types.Spell,
+		attribute.Type:   Type.Spell,
 		attribute.Desc:   `Increases troop movement and attack speed by 40%. Troop buildings and summoners deploy troop faster. Chaaaarge!`,
 		attribute.Elixir: 3,
 		attribute.DurU:   []float64{8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5},
@@ -99,7 +99,7 @@ var (
 		attribute.Name:   "Freeze",
 		attribute.Arena:  arena.Arena4,
 		attribute.Rarity: rarity.Epic,
-		attribute.Type:   types.Spell,
+		attribute.Type:   Type.Spell,
 		attribute.Desc:   `Freezes troops and buildings, making them unable to move or attack. Everybody chill.`,
 		attribute.Elixir: 4,
 		attribute.DurU:   []float64{5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1},
@@ -109,7 +109,7 @@ var (
 		attribute.Name:     "Mirror",
 		attribute.Arena:    arena.Arena5,
 		attribute.Rarity:   rarity.Epic,
-		attribute.Type:     types.Spell,
+		attribute.Type:     Type.Spell,
 		attribute.Desc:     `Mirrors your last card played for +1 Elixir`,
 		attribute.Elixir:   lib.X,
 		attribute.BaseMCLV: 5,
@@ -121,7 +121,7 @@ var (
 		attribute.Name:   "Poison",
 		attribute.Arena:  arena.Arena5,
 		attribute.Rarity: rarity.Epic,
-		attribute.Type:   types.Spell,
+		attribute.Type:   Type.Spell,
 		attribute.Desc:   `Covers the target area in a sticky toxin, damaging and slowing down troops and buildings. Remember: solvent abuse can kill!`,
 		attribute.Elixir: 4,
 		attribute.DPS:    []int{42, 46, 50, 55, 62, 67, 73, 81},

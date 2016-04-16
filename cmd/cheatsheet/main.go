@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/asukakenji/clash-royale/attribute"
 	"github.com/asukakenji/clash-royale/card"
-	"github.com/asukakenji/clash-royale/types"
+	"github.com/asukakenji/clash-royale/Type"
 
 	"fmt"
 )
@@ -22,24 +22,24 @@ var (
 
 func main() {
 	sep := ""
-	types.ForEach(func(_type types.Type) {
+	Type.ForEach(func(t Type.Type) {
 		// Card Type (Troops, Buildings, Spells)
 		fmt.Printf(sep)
-		fmt.Printf("## %s\n", _type)
+		fmt.Printf("## %s\n", t)
 		fmt.Println()
-		card.ForEachCardOfType(_type, func(card *card.Card) {
+		card.ForEachCardOfType(t, func(c *card.Card) {
 
 			// Header (Card Name)
-			fmt.Printf("### %s\n", card.Name())
+			fmt.Printf("### %s\n", c.Name())
 			fmt.Println()
 
 			// Fixed Attribute Table
 			{
 				rowHeaders := []string{}
 				contents := [][]string{}
-				card.ForEachFixedAttribute(func(attr attribute.Fixed) {
-					rowHeaders = append(rowHeaders, attr.String())
-					contents = append(contents, []string{card.FormattedValue(attr)})
+				c.ForEachFixedAttribute(func(a attribute.Fixed) {
+					rowHeaders = append(rowHeaders, a.String())
+					contents = append(contents, []string{c.FormattedValue(a)})
 				})
 				table := NewTable(map[string]interface{}{
 					"headerWidth":   fixedHeaderWidth,
@@ -56,11 +56,11 @@ func main() {
 			{
 				rowHeaders := []string{}
 				contents := [][]string{}
-				card.ForEachUpgradableAttribute(func(attr attribute.Upgradable) {
-					rowHeaders = append(rowHeaders, attr.String())
-					contents = append(contents, card.FormattedValues(attr))
+				c.ForEachUpgradableAttribute(func(a attribute.Upgradable) {
+					rowHeaders = append(rowHeaders, a.String())
+					contents = append(contents, c.FormattedValues(a))
 				})
-				maxLevel := card.MaxLevel()
+				maxLevel := c.MaxLevel()
 				table := NewTable(map[string]interface{}{
 					"headerWidth":   upgradableHeaderWidth,
 					"contentsWidth": upgradableContentsWidth,

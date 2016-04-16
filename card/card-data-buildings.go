@@ -1,11 +1,11 @@
 package card
 
 import (
+	"github.com/asukakenji/clash-royale/Type"
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attribute"
 	"github.com/asukakenji/clash-royale/rarity"
 	"github.com/asukakenji/clash-royale/targets"
-	"github.com/asukakenji/clash-royale/types"
 )
 
 var (
@@ -14,7 +14,7 @@ var (
 		attribute.Name:    "Cannon",
 		attribute.Arena:   arena.Arena3,
 		attribute.Rarity:  rarity.Common,
-		attribute.Type:    types.Building,
+		attribute.Type:    Type.Building,
 		attribute.Desc:    `Defensive building. Shoots cannonballs with deadly effect, but cannot target flying troops.`,
 		attribute.Elixir:  3,
 		attribute.BaseHP:  450,
@@ -30,7 +30,7 @@ var (
 		attribute.Name:    "Tesla",
 		attribute.Arena:   arena.Arena4,
 		attribute.Rarity:  rarity.Common,
-		attribute.Type:    types.Building,
+		attribute.Type:    Type.Building,
 		attribute.Desc:    `Defensive building. Whenever it's not zapping the enemy, the power of Electrickery is best kept grounded.`,
 		attribute.Elixir:  4,
 		attribute.BaseHP:  400,
@@ -46,7 +46,7 @@ var (
 		attribute.Name:     "Mortar",
 		attribute.Arena:    arena.Arena6,
 		attribute.Rarity:   rarity.Common,
-		attribute.Type:     types.Building,
+		attribute.Type:     Type.Building,
 		attribute.Desc:     `Defensive building with a long range. Shoots exploding shells that deal area damage. Cannot shoot at targets that get very close!`,
 		attribute.Elixir:   4,
 		attribute.BaseHP:   600,
@@ -64,7 +64,7 @@ var (
 		attribute.Name:      "Goblin Hut",
 		attribute.Arena:     arena.Arena1,
 		attribute.Rarity:    rarity.Rare,
-		attribute.Type:      types.Building,
+		attribute.Type:      Type.Building,
 		attribute.Desc:      `Building that spawns Spear Goblins. But don't look inside. You don't want to see how they are made.`,
 		attribute.Elixir:    5,
 		attribute.BaseHP:    700,
@@ -77,7 +77,7 @@ var (
 		attribute.Name:     "Bomb Tower",
 		attribute.Arena:    arena.Arena2,
 		attribute.Rarity:   rarity.Rare,
-		attribute.Type:     types.Building,
+		attribute.Type:     Type.Building,
 		attribute.Desc:     `Defensive building that houses a Bomber. Deals area damage to anything dumb enough to stand near it.`,
 		attribute.Elixir:   5,
 		attribute.BaseHP:   900,
@@ -93,7 +93,7 @@ var (
 		attribute.Name:      "Tombstone",
 		attribute.Arena:     arena.Arena2,
 		attribute.Rarity:    rarity.Rare,
-		attribute.Type:      types.Building,
+		attribute.Type:      Type.Building,
 		attribute.Desc:      `Troop building that periodically deploys Skeletons to fight the enemy. When destroyed, spawns 4 Skeletons. Creepy!`,
 		attribute.Elixir:    3,
 		attribute.BaseHP:    200,
@@ -106,7 +106,7 @@ var (
 		attribute.Name:      "Barbarian Hut",
 		attribute.Arena:     arena.Arena3,
 		attribute.Rarity:    rarity.Rare,
-		attribute.Type:      types.Building,
+		attribute.Type:      Type.Building,
 		attribute.Desc:      `Troop building that periodically deploys Barbarians to fight the enemy. Time to make the Barbarians.`,
 		attribute.Elixir:    7,
 		attribute.BaseHP:    1100,
@@ -119,7 +119,7 @@ var (
 		attribute.Name:     "Inferno Tower",
 		attribute.Arena:    arena.Arena6,
 		attribute.Rarity:   rarity.Rare,
-		attribute.Type:     types.Building,
+		attribute.Type:     Type.Building,
 		attribute.Desc:     `Defensive building, roasts targets for damage that increases over time. Burns through even the biggest and toughest enemies!`,
 		attribute.Elixir:   5,
 		attribute.BaseHP:   800,
@@ -137,7 +137,7 @@ var (
 		attribute.Name:   "Elixir Collector",
 		attribute.Arena:  arena.Arena6,
 		attribute.Rarity: rarity.Rare,
-		attribute.Type:   types.Building,
+		attribute.Type:   Type.Building,
 		attribute.Desc:   `You gotta spend Elixir to make Elixir.`,
 		attribute.Elixir: 5,
 		attribute.BaseHP: 800,
@@ -151,7 +151,7 @@ var (
 		attribute.Name:    "X-Bow",
 		attribute.Arena:   arena.Arena3,
 		attribute.Rarity:  rarity.Epic,
-		attribute.Type:    types.Building,
+		attribute.Type:    Type.Building,
 		attribute.Desc:    `Nice tower you got there. Would be a shame if this X-Bow whittled it down from this side of the arena...`,
 		attribute.Elixir:  6,
 		attribute.BaseHP:  850,
