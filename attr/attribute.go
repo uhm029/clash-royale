@@ -11,6 +11,12 @@ func ForEach(f func(Attribute)) {
 	}
 }
 
+// Helper
+type BaseDuration struct {
+	BaseValue int
+	Increment float64
+}
+
 /////////////
 // Private //
 /////////////
@@ -71,6 +77,7 @@ var attributes = []Attribute{
 	BaseSgoLV,
 	BaseSkeLV,
 	BaseBarLV,
+	BaseDurU,
 	BaseMCLV,
 	BaseMRLV,
 	BaseMELV,

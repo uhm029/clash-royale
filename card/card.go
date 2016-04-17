@@ -153,9 +153,8 @@ func (c Card) FormattedValue(a attr.Fixed) string {
 }
 
 func (c Card) FormattedValues(a attr.Upgradable) []string {
-	max := c.MaxLevel()
 	if values := c.Value(a); values != nil {
-		return a.FormatValues(values)[0:max:max]
+		return a.FormatValues(values)
 	}
 	return nil
 }
@@ -195,11 +194,11 @@ var cards = append(troops, append(buildings, spells...)...)
 
 // constructor
 func newCard(id int, fieldMap map[attr.Attribute]interface{}) *card {
+	max := fieldMap[attr.Rarity].(rarity.Rarity).MaxLevel()
 	// "Compile" the "Generated"s to "Upgradable"s
 	for k, v := range fieldMap {
 		if attr, ok := k.(attr.Generated); ok {
-			// Generate values for the Generated
-			fieldMap[attr.TargetAttribute()] = attr.GenerateValues(v)
+			fieldMap[attr.TargetAttribute()] = attr.GenerateValues(v, max)
 		}
 	}
 

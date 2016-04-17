@@ -91,19 +91,10 @@ func formatInts(values interface{}) []string {
 }
 
 func formatTimes(values interface{}) []string {
-	if ints, ok := values.([]int); ok {
-		strings := make([]string, len(ints))
-		for i, v := range ints {
-			strings[i] = formatTime(v)
-		}
-		return strings
-	} else if floats, ok := values.([]float64); ok {
-		strings := make([]string, len(floats))
-		for i, v := range floats {
-			strings[i] = formatTime(v)
-		}
-		return strings
-	} else {
-		panic("Unknown value type")
+	vs := values.([]interface{})
+	strings := make([]string, len(vs))
+	for i, v := range vs {
+		strings[i] = formatTime(v)
 	}
+	return strings
 }

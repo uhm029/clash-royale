@@ -1,40 +1,35 @@
 package attr
 
-var (
-	V1000R = []int{1000, 1100, 1210, 1330, 1460, 1600, 1760, 1930, 2120, 2330, 2560, 2810}
-)
+var refValues = []int{1000, 1100, 1210, 1330, 1460, 1600, 1760, 1930, 2120, 2330, 2560, 2810}
 
-func generateHp(baseHp interface{}) []int {
-	baseValue := baseHp.(int)
-	values := make([]int, len(V1000R))
-	for i, v := range V1000R {
-		values[i] = v * baseValue / 1000
-	}
-	return values
-}
+const maxLevel = 12
 
-func generateDam(baseDam interface{}) []int {
-	return generateHp(baseDam)
-}
-
-func generateLv(baseLv interface{}) []int {
-	baseValue := baseLv.(int)
-	values := make([]int, 12)
+func generateHp(baseHp, max int) []int {
+	values := make([]int, maxLevel)
 	for i := range values {
-		values[i] = baseValue + i
+		values[i] = refValues[i] * baseHp / refValues[0]
 	}
-	return values
+	return values[0:max:max]
 }
 
-func generateDur(baseDur interface{}) []float64 {
-	baseValues := baseDur.([]float64)
-	baseValue := baseValues[0]
-	increment := baseValues[1]
-	values := make([]float64, 12)
+func generateDam(baseDam, max int) []int {
+	return generateHp(baseDam, max)
+}
+
+func generateLv(baseLv, max int) []int {
+	values := make([]int, maxLevel)
 	for i := range values {
-		values[i] = baseValue + float64(i)*increment
+		values[i] = baseLv + i
 	}
-	return values
+	return values[0:max:max]
+}
+
+func generateDur(baseDur BaseDuration, max int) []interface{} {
+	values := make([]interface{}, maxLevel)
+	for i := range values {
+		values[i] = convertNumber(float64(baseDur.BaseValue) + float64(i)*baseDur.Increment)
+	}
+	return values[0:max:max]
 }
 
 /*
