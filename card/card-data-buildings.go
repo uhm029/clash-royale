@@ -8,9 +8,9 @@ import (
 	"github.com/asukakenji/clash-royale/typ"
 )
 
-var (
+var buildings = []*card{
 	// --- Common Buildings ---
-	CANNON = newCard(1030, map[attr.Attribute]interface{}{
+	newCard(1030, map[attr.Attribute]interface{}{
 		attr.Name:    "Cannon",
 		attr.Arena:   arena.Arena3,
 		attr.Rarity:  rarity.Common,
@@ -25,8 +25,8 @@ var (
 		attr.Range:   6,
 		attr.DTime:   1,
 		attr.LTime:   30,
-	})
-	TESLA = newCard(1040, map[attr.Attribute]interface{}{
+	}),
+	newCard(1040, map[attr.Attribute]interface{}{
 		attr.Name:    "Tesla",
 		attr.Arena:   arena.Arena4,
 		attr.Rarity:  rarity.Common,
@@ -41,8 +41,8 @@ var (
 		attr.Range:   6,
 		attr.DTime:   1,
 		attr.LTime:   40,
-	})
-	MORTAR = newCard(1060, map[attr.Attribute]interface{}{
+	}),
+	newCard(1060, map[attr.Attribute]interface{}{
 		attr.Name:     "Mortar",
 		attr.Arena:    arena.Arena6,
 		attr.Rarity:   rarity.Common,
@@ -57,10 +57,10 @@ var (
 		attr.Range:    12,
 		attr.DTime:    3,
 		attr.LTime:    30,
-	})
+	}),
 
 	// --- Rare Buildings ---
-	GOBLIN_HUT = newCard(1110, map[attr.Attribute]interface{}{
+	newCard(1110, map[attr.Attribute]interface{}{
 		attr.Name:      "Goblin Hut",
 		attr.Arena:     arena.Arena1,
 		attr.Rarity:    rarity.Rare,
@@ -72,8 +72,8 @@ var (
 		attr.SSpeed:    4.9,
 		attr.DTime:     1,
 		attr.LTime:     60,
-	})
-	BOMB_TOWER = newCard(1120, map[attr.Attribute]interface{}{
+	}),
+	newCard(1120, map[attr.Attribute]interface{}{
 		attr.Name:     "Bomb Tower",
 		attr.Arena:    arena.Arena2,
 		attr.Rarity:   rarity.Rare,
@@ -88,8 +88,8 @@ var (
 		attr.Range:    6.5,
 		attr.DTime:    1,
 		attr.LTime:    60,
-	})
-	TOMBSTONE = newCard(1121, map[attr.Attribute]interface{}{
+	}),
+	newCard(1121, map[attr.Attribute]interface{}{
 		attr.Name:      "Tombstone",
 		attr.Arena:     arena.Arena2,
 		attr.Rarity:    rarity.Rare,
@@ -101,8 +101,8 @@ var (
 		attr.SSpeed:    2.9,
 		attr.DTime:     1,
 		attr.LTime:     40,
-	})
-	BARBARIAN_HUT = newCard(1130, map[attr.Attribute]interface{}{
+	}),
+	newCard(1130, map[attr.Attribute]interface{}{
 		attr.Name:      "Barbarian Hut",
 		attr.Arena:     arena.Arena3,
 		attr.Rarity:    rarity.Rare,
@@ -114,8 +114,8 @@ var (
 		attr.SSpeed:    14,
 		attr.DTime:     1,
 		attr.LTime:     60,
-	})
-	INFERNO_TOWER = newCard(1160, map[attr.Attribute]interface{}{
+	}),
+	newCard(1160, map[attr.Attribute]interface{}{
 		attr.Name:     "Inferno Tower",
 		attr.Arena:    arena.Arena6,
 		attr.Rarity:   rarity.Rare,
@@ -132,8 +132,8 @@ var (
 		attr.Range:    6.5,
 		attr.DTime:    1,
 		attr.LTime:    40,
-	})
-	ELIXIR_COLLECTOR = newCard(1161, map[attr.Attribute]interface{}{
+	}),
+	newCard(1161, map[attr.Attribute]interface{}{
 		attr.Name:   "Elixir Collector",
 		attr.Arena:  arena.Arena6,
 		attr.Rarity: rarity.Rare,
@@ -144,10 +144,10 @@ var (
 		attr.PSpeed: 9.8,
 		attr.DTime:  1,
 		attr.LTime:  70,
-	})
+	}),
 
 	// --- Epic Buildings ---
-	X_BOW = newCard(1230, map[attr.Attribute]interface{}{
+	newCard(1230, map[attr.Attribute]interface{}{
 		attr.Name:    "X-Bow",
 		attr.Arena:   arena.Arena3,
 		attr.Rarity:  rarity.Epic,
@@ -162,5 +162,5 @@ var (
 		attr.Range:   12,
 		attr.DTime:   5,
 		attr.LTime:   40,
-	})
-)
+	}),
+}

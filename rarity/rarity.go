@@ -44,6 +44,10 @@ func (r Rarity) ExpGain() []int {
 	return rarities[r].expGain
 }
 
+func (r Rarity) MaxLevel() int {
+	return len(r.CardsReq())
+}
+
 func (r Rarity) HasAttribute(a attr.Attribute) bool {
 	switch a {
 	case attr.CardsReq:
@@ -68,10 +72,6 @@ func (r Rarity) Value(a attr.Attribute) []int {
 	default:
 		return nil
 	}
-}
-
-func (r Rarity) MaxLevel() int {
-	return len(r.CardsReq())
 }
 
 /////////////

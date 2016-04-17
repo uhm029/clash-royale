@@ -27,7 +27,7 @@ func main() {
 		fmt.Printf(sep)
 		fmt.Printf("## %s\n", t)
 		fmt.Println()
-		card.ForEachCardOfType(t, func(c *card.Card) {
+		card.ForEachOfType(t, func(c card.Card) {
 
 			// Header (Card Name)
 			fmt.Printf("### %s\n", c.Name())

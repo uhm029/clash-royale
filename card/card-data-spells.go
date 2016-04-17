@@ -8,9 +8,9 @@ import (
 	"github.com/asukakenji/clash-royale/typ"
 )
 
-var (
+var spells = []*card{
 	// --- Common Spells ---
-	ARROWS = newCard(2000, map[attr.Attribute]interface{}{
+	newCard(2000, map[attr.Attribute]interface{}{
 		attr.Name:     "Arrows",
 		attr.Arena:    arena.Arena0,
 		attr.Rarity:   rarity.Common,
@@ -20,8 +20,8 @@ var (
 		attr.BaseADam: 115,
 		attr.CTDam:    []int{46, 51, 56, 61, 67, 74, 81, 89, 98, 107, 118, 130},
 		attr.Radius:   4,
-	})
-	ZAP = newCard(2050, map[attr.Attribute]interface{}{
+	}),
+	newCard(2050, map[attr.Attribute]interface{}{
 		attr.Name:     "Zap",
 		attr.Arena:    arena.Arena5,
 		attr.Rarity:   rarity.Common,
@@ -32,10 +32,10 @@ var (
 		attr.CTDam:    []int{32, 36, 39, 43, 47, 52, 56, 62, 68, 75, 82, 90},
 		attr.DurF:     1,
 		attr.Radius:   2.5,
-	})
+	}),
 
 	// --- Rare Spells ---
-	FIREBALL = newCard(2100, map[attr.Attribute]interface{}{
+	newCard(2100, map[attr.Attribute]interface{}{
 		attr.Name:     "Fireball",
 		attr.Arena:    arena.Arena0,
 		attr.Rarity:   rarity.Rare,
@@ -45,8 +45,8 @@ var (
 		attr.BaseADam: 325,
 		attr.CTDam:    []int{130, 143, 158, 173, 190, 208, 229, 251, 276, 303},
 		attr.Radius:   2.5,
-	})
-	ROCKET = newCard(2130, map[attr.Attribute]interface{}{
+	}),
+	newCard(2130, map[attr.Attribute]interface{}{
 		attr.Name:     "Rocket",
 		attr.Arena:    arena.Arena3,
 		attr.Rarity:   rarity.Rare,
@@ -56,10 +56,10 @@ var (
 		attr.BaseADam: 700,
 		attr.CTDam:    []int{280, 308, 339, 373, 409, 448, 493, 541, 594, 653},
 		attr.Radius:   2,
-	})
+	}),
 
 	// --- Epic Spells ---
-	LIGHTNING = newCard(2210, map[attr.Attribute]interface{}{
+	newCard(2210, map[attr.Attribute]interface{}{
 		attr.Name:    "Lightning",
 		attr.Arena:   arena.Arena1,
 		attr.Rarity:  rarity.Epic,
@@ -71,8 +71,8 @@ var (
 		attr.CTDam:   []int{260, 286, 315, 346, 380, 416, 458, 502},
 		attr.DurF:    1.5,
 		attr.Radius:  3.5,
-	})
-	GOBLIN_BARREL = newCard(2211, map[attr.Attribute]interface{}{
+	}),
+	newCard(2211, map[attr.Attribute]interface{}{
 		attr.Name:      "Goblin Barrel",
 		attr.Arena:     arena.Arena1,
 		attr.Rarity:    rarity.Epic,
@@ -84,8 +84,8 @@ var (
 		attr.Radius:    1.5,
 		attr.BaseGobLV: 6,
 		attr.GobCount:  3,
-	})
-	RAGE = newCard(2230, map[attr.Attribute]interface{}{
+	}),
+	newCard(2230, map[attr.Attribute]interface{}{
 		attr.Name:   "Rage",
 		attr.Arena:  arena.Arena3,
 		attr.Rarity: rarity.Epic,
@@ -94,8 +94,8 @@ var (
 		attr.Elixir: 3,
 		attr.DurU:   []float64{8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5},
 		attr.Radius: 5,
-	})
-	FREEZE = newCard(2240, map[attr.Attribute]interface{}{
+	}),
+	newCard(2240, map[attr.Attribute]interface{}{
 		attr.Name:   "Freeze",
 		attr.Arena:  arena.Arena4,
 		attr.Rarity: rarity.Epic,
@@ -104,8 +104,8 @@ var (
 		attr.Elixir: 4,
 		attr.DurU:   []float64{5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1},
 		attr.Radius: 3,
-	})
-	MIRROR = newCard(2250, map[attr.Attribute]interface{}{
+	}),
+	newCard(2250, map[attr.Attribute]interface{}{
 		attr.Name:     "Mirror",
 		attr.Arena:    arena.Arena5,
 		attr.Rarity:   rarity.Epic,
@@ -116,8 +116,8 @@ var (
 		attr.BaseMRLV: 3,
 		attr.BaseMELV: 1,
 		attr.MLLV:     []int{1, 1, 1, 1, 2, 3, 4, 5},
-	})
-	POISON = newCard(2251, map[attr.Attribute]interface{}{
+	}),
+	newCard(2251, map[attr.Attribute]interface{}{
 		attr.Name:   "Poison",
 		attr.Arena:  arena.Arena5,
 		attr.Rarity: rarity.Epic,
@@ -128,5 +128,5 @@ var (
 		attr.CTDPS:  []int{17, 19, 20, 22, 25, 27, 30, 33},
 		attr.DurF:   10,
 		attr.Radius: 3.5,
-	})
-)
+	}),
+}
