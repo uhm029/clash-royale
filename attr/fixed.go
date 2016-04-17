@@ -65,7 +65,7 @@ var fixedAttributes = []*fixedAttribute{
 	&fixedAttribute{2, "Rarity", formatString},
 	&fixedAttribute{3, "Type", formatString},
 	&fixedAttribute{4, "Description", formatString},
-	&fixedAttribute{5, "Elixir Cost", formatInt},
+	&fixedAttribute{5, "Elixir Cost", formatElixir},
 	&fixedAttribute{500, "Spawn Speed", formatTime},
 	&fixedAttribute{510, "Production Speed", formatTime},
 	&fixedAttribute{520, "Hit Speed", formatTime},

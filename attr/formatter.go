@@ -50,6 +50,13 @@ func formatFloat(value interface{}) string {
 	}
 }
 
+func formatElixir(value interface{}) string {
+	if lib.X == value {
+		return "?"
+	}
+	return formatInt(value)
+}
+
 func formatTime(value interface{}) string {
 	number := convertNumber(value)
 	switch number.(type) {

@@ -197,7 +197,7 @@ var cards = append(troops, append(buildings, spells...)...)
 func newCard(id int, fieldMap map[attr.Attribute]interface{}) *card {
 	// "Compile" the "Generated"s to "Upgradable"s
 	for k, v := range fieldMap {
-		if attr, ok := k.(*attr.Generated); ok {
+		if attr, ok := k.(attr.Generated); ok {
 			// Generate values for the Generated
 			fieldMap[attr.TargetAttribute()] = attr.GenerateValues(v)
 		}
