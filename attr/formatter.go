@@ -1,7 +1,8 @@
-package internal
+package attr
 
 import (
 	"github.com/asukakenji/clash-royale/lib"
+	"github.com/asukakenji/clash-royale/rng"
 
 	"fmt"
 )
@@ -68,7 +69,7 @@ func formatTime(value interface{}) string {
 func formatRange(value interface{}) string {
 	switch value.(type) {
 	case int:
-		if value.(int) == lib.MELEE {
+		if value.(int) == rng.Melee {
 			return "Melee"
 		}
 		return fmt.Sprintf("%d", value)

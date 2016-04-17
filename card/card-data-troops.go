@@ -6,6 +6,7 @@ import (
 	"github.com/asukakenji/clash-royale/attr"
 	"github.com/asukakenji/clash-royale/lib"
 	"github.com/asukakenji/clash-royale/rarity"
+	"github.com/asukakenji/clash-royale/rng"
 	"github.com/asukakenji/clash-royale/speed"
 	"github.com/asukakenji/clash-royale/targets"
 )
@@ -25,7 +26,7 @@ var (
 		attr.HSpeed:  1.1,
 		attr.Targets: targets.Ground,
 		attr.Speed:   speed.Medium,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 	})
 	ARCHERS = newCard(1, map[attr.Attribute]interface{}{
@@ -74,7 +75,7 @@ var (
 		attr.HSpeed:  1.1,
 		attr.Targets: targets.Ground,
 		attr.Speed:   speed.VeryFast,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 		attr.Count:   3,
 	})
@@ -108,7 +109,7 @@ var (
 		attr.HSpeed:  1,
 		attr.Targets: targets.Ground,
 		attr.Speed:   speed.Fast,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 		attr.Count:   4,
 	})
@@ -142,7 +143,7 @@ var (
 		attr.HSpeed:  1.5,
 		attr.Targets: targets.Ground,
 		attr.Speed:   speed.Medium,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 		attr.Count:   4,
 	})
@@ -194,7 +195,7 @@ var (
 		attr.HSpeed:  1.5,
 		attr.Targets: targets.Buildings,
 		attr.Speed:   speed.Slow,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 	})
 	MUSKETEER = newCard(101, map[attr.Attribute]interface{}{
@@ -226,7 +227,7 @@ var (
 		attr.HSpeed:  1.8,
 		attr.Targets: targets.Ground,
 		attr.Speed:   speed.Fast,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 	})
 	VALKYRIE = newCard(110, map[attr.Attribute]interface{}{
@@ -242,7 +243,7 @@ var (
 		attr.HSpeed:  1.5,
 		attr.Targets: targets.Ground,
 		attr.Speed:   speed.Medium,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 	})
 	HOG_RIDER = newCard(140, map[attr.Attribute]interface{}{
@@ -258,7 +259,7 @@ var (
 		attr.HSpeed:  1.5,
 		attr.Targets: targets.Buildings,
 		attr.Speed:   speed.VeryFast,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 	})
 	WIZARD = newCard(150, map[attr.Attribute]interface{}{
@@ -327,7 +328,7 @@ var (
 		attr.HSpeed:  1,
 		attr.Targets: targets.Ground,
 		attr.Speed:   speed.Fast,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 		attr.Count:   20,
 	})
@@ -377,7 +378,7 @@ var (
 		attr.HSpeed:   1.5,
 		attr.Targets:  targets.Ground,
 		attr.Speed:    speed.Medium,
-		attr.Range:    lib.MELEE,
+		attr.Range:    rng.Melee,
 		attr.DTime:    1,
 	})
 	BALLOON = newCard(221, map[attr.Attribute]interface{}{
@@ -394,7 +395,7 @@ var (
 		attr.HSpeed:   3,
 		attr.Targets:  targets.Buildings,
 		attr.Speed:    speed.Medium,
-		attr.Range:    lib.MELEE,
+		attr.Range:    rng.Melee,
 		attr.DTime:    1,
 	})
 	PEKKA = newCard(240, map[attr.Attribute]interface{}{
@@ -410,7 +411,7 @@ var (
 		attr.HSpeed:  1.8,
 		attr.Targets: targets.Ground,
 		attr.Speed:   speed.Slow,
-		attr.Range:   lib.MELEE,
+		attr.Range:   rng.Melee,
 		attr.DTime:   3,
 	})
 	GOLEM = newCard(260, map[attr.Attribute]interface{}{
@@ -427,7 +428,7 @@ var (
 		attr.HSpeed:   2.5,
 		attr.Targets:  targets.Buildings,
 		attr.Speed:    speed.Slow,
-		attr.Range:    lib.MELEE,
+		attr.Range:    rng.Melee,
 		attr.DTime:    3,
 	})
 	DARK_PRINCE = newCard(270, map[attr.Attribute]interface{}{
@@ -444,7 +445,7 @@ var (
 		attr.HSpeed:   1.5,
 		attr.Targets:  targets.Ground,
 		attr.Speed:    speed.Medium,
-		attr.Range:    lib.MELEE,
+		attr.Range:    rng.Melee,
 		attr.DTime:    1,
 	})
 

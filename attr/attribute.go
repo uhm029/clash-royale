@@ -5,6 +5,16 @@ type Attribute interface {
 	Attribute() // Tag
 }
 
+func ForEach(f func(Attribute)) {
+	for _, v := range attributes {
+		f(v)
+	}
+}
+
+/////////////
+// Private //
+/////////////
+
 var attributes = []Attribute{
 	Name,
 	Arena,
@@ -64,10 +74,4 @@ var attributes = []Attribute{
 	BaseMCLV,
 	BaseMRLV,
 	BaseMELV,
-}
-
-func ForEach(f func(Attribute)) {
-	for _, v := range attributes {
-		f(v)
-	}
 }
