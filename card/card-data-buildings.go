@@ -1,11 +1,11 @@
 package card
 
 import (
-	"github.com/asukakenji/clash-royale/Type"
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attr"
 	"github.com/asukakenji/clash-royale/rarity"
 	"github.com/asukakenji/clash-royale/targets"
+	"github.com/asukakenji/clash-royale/typ"
 )
 
 var (
@@ -14,7 +14,7 @@ var (
 		attr.Name:    "Cannon",
 		attr.Arena:   arena.Arena3,
 		attr.Rarity:  rarity.Common,
-		attr.Type:    Type.Building,
+		attr.Type:    typ.Building,
 		attr.Desc:    `Defensive building. Shoots cannonballs with deadly effect, but cannot target flying troops.`,
 		attr.Elixir:  3,
 		attr.BaseHP:  450,
@@ -30,7 +30,7 @@ var (
 		attr.Name:    "Tesla",
 		attr.Arena:   arena.Arena4,
 		attr.Rarity:  rarity.Common,
-		attr.Type:    Type.Building,
+		attr.Type:    typ.Building,
 		attr.Desc:    `Defensive building. Whenever it's not zapping the enemy, the power of Electrickery is best kept grounded.`,
 		attr.Elixir:  4,
 		attr.BaseHP:  400,
@@ -46,7 +46,7 @@ var (
 		attr.Name:     "Mortar",
 		attr.Arena:    arena.Arena6,
 		attr.Rarity:   rarity.Common,
-		attr.Type:     Type.Building,
+		attr.Type:     typ.Building,
 		attr.Desc:     `Defensive building with a long range. Shoots exploding shells that deal area damage. Cannot shoot at targets that get very close!`,
 		attr.Elixir:   4,
 		attr.BaseHP:   600,
@@ -64,7 +64,7 @@ var (
 		attr.Name:      "Goblin Hut",
 		attr.Arena:     arena.Arena1,
 		attr.Rarity:    rarity.Rare,
-		attr.Type:      Type.Building,
+		attr.Type:      typ.Building,
 		attr.Desc:      `Building that spawns Spear Goblins. But don't look inside. You don't want to see how they are made.`,
 		attr.Elixir:    5,
 		attr.BaseHP:    700,
@@ -77,7 +77,7 @@ var (
 		attr.Name:     "Bomb Tower",
 		attr.Arena:    arena.Arena2,
 		attr.Rarity:   rarity.Rare,
-		attr.Type:     Type.Building,
+		attr.Type:     typ.Building,
 		attr.Desc:     `Defensive building that houses a Bomber. Deals area damage to anything dumb enough to stand near it.`,
 		attr.Elixir:   5,
 		attr.BaseHP:   900,
@@ -93,7 +93,7 @@ var (
 		attr.Name:      "Tombstone",
 		attr.Arena:     arena.Arena2,
 		attr.Rarity:    rarity.Rare,
-		attr.Type:      Type.Building,
+		attr.Type:      typ.Building,
 		attr.Desc:      `Troop building that periodically deploys Skeletons to fight the enemy. When destroyed, spawns 4 Skeletons. Creepy!`,
 		attr.Elixir:    3,
 		attr.BaseHP:    200,
@@ -106,7 +106,7 @@ var (
 		attr.Name:      "Barbarian Hut",
 		attr.Arena:     arena.Arena3,
 		attr.Rarity:    rarity.Rare,
-		attr.Type:      Type.Building,
+		attr.Type:      typ.Building,
 		attr.Desc:      `Troop building that periodically deploys Barbarians to fight the enemy. Time to make the Barbarians.`,
 		attr.Elixir:    7,
 		attr.BaseHP:    1100,
@@ -119,7 +119,7 @@ var (
 		attr.Name:     "Inferno Tower",
 		attr.Arena:    arena.Arena6,
 		attr.Rarity:   rarity.Rare,
-		attr.Type:     Type.Building,
+		attr.Type:     typ.Building,
 		attr.Desc:     `Defensive building, roasts targets for damage that increases over time. Burns through even the biggest and toughest enemies!`,
 		attr.Elixir:   5,
 		attr.BaseHP:   800,
@@ -137,7 +137,7 @@ var (
 		attr.Name:   "Elixir Collector",
 		attr.Arena:  arena.Arena6,
 		attr.Rarity: rarity.Rare,
-		attr.Type:   Type.Building,
+		attr.Type:   typ.Building,
 		attr.Desc:   `You gotta spend Elixir to make Elixir.`,
 		attr.Elixir: 5,
 		attr.BaseHP: 800,
@@ -151,7 +151,7 @@ var (
 		attr.Name:    "X-Bow",
 		attr.Arena:   arena.Arena3,
 		attr.Rarity:  rarity.Epic,
-		attr.Type:    Type.Building,
+		attr.Type:    typ.Building,
 		attr.Desc:    `Nice tower you got there. Would be a shame if this X-Bow whittled it down from this side of the arena...`,
 		attr.Elixir:  6,
 		attr.BaseHP:  850,

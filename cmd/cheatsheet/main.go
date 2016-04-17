@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/asukakenji/clash-royale/attr"
 	"github.com/asukakenji/clash-royale/card"
-	"github.com/asukakenji/clash-royale/Type"
+	"github.com/asukakenji/clash-royale/typ"
 
 	"fmt"
 )
@@ -22,7 +22,7 @@ var (
 
 func main() {
 	sep := ""
-	Type.ForEach(func(t Type.Type) {
+	typ.ForEach(func(t typ.Type) {
 		// Card Type (Troops, Buildings, Spells)
 		fmt.Printf(sep)
 		fmt.Printf("## %s\n", t)

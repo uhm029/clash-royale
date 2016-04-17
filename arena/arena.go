@@ -1,11 +1,11 @@
 package arena
 
 import (
-	"github.com/asukakenji/clash-royale/arena/internal"
+	"fmt"
 )
 
 // Arena
-type Arena byte
+type Arena int8
 
 const (
 	Arena0 Arena = iota
@@ -20,23 +20,46 @@ const (
 )
 
 func ForEach(f func(Arena)) {
-	for i := range internal.Arenas {
+	for i := range arenas {
 		f(Arena(i))
 	}
 }
 
 func (a Arena) Id() int {
-	return internal.Arenas[a].Id()
+	return arenas[a].id
 }
 
 func (a Arena) String() string {
-	return internal.Arenas[a].String()
+	return fmt.Sprintf("Arena %d: %s", arenas[a].id, arenas[a].name)
 }
 
 func (a Arena) Name() string {
-	return internal.Arenas[a].Name()
+	return arenas[a].name
 }
 
 func (a Arena) Trophies() int {
-	return internal.Arenas[a].Trophies()
+	return arenas[a].trophies
+}
+
+/////////////
+// Private //
+/////////////
+
+type arena struct {
+	id       int
+	name     string
+	trophies int
+}
+
+// static
+var arenas = []*arena{
+	&arena{0, "Training Camp", -1},
+	&arena{1, "Goblin Stadium", 0},
+	&arena{2, "Bone Pit", 400},
+	&arena{3, "Barbarian Bowl", 800},
+	&arena{4, "P.E.K.K.A's Playhouse", 1100},
+	&arena{5, "Spell Valley", 1400},
+	&arena{6, "Builder's Workshop", 1700},
+	&arena{7, "Royal Arena", 2000},
+	&arena{8, "Legendary Arena", 3000},
 }

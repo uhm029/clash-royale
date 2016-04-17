@@ -1,4 +1,4 @@
-package Type
+package typ
 
 // Type
 type Type int8

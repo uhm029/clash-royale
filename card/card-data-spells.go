@@ -1,11 +1,11 @@
 package card
 
 import (
-	"github.com/asukakenji/clash-royale/Type"
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attr"
 	"github.com/asukakenji/clash-royale/lib"
 	"github.com/asukakenji/clash-royale/rarity"
+	"github.com/asukakenji/clash-royale/typ"
 )
 
 var (
@@ -14,7 +14,7 @@ var (
 		attr.Name:     "Arrows",
 		attr.Arena:    arena.Arena0,
 		attr.Rarity:   rarity.Common,
-		attr.Type:     Type.Spell,
+		attr.Type:     typ.Spell,
 		attr.Desc:     `Arrows pepper a large area, damaging everyone hit. Reduced damage to Crown Towers.`,
 		attr.Elixir:   3,
 		attr.BaseADam: 115,
@@ -25,7 +25,7 @@ var (
 		attr.Name:     "Zap",
 		attr.Arena:    arena.Arena5,
 		attr.Rarity:   rarity.Common,
-		attr.Type:     Type.Spell,
+		attr.Type:     typ.Spell,
 		attr.Desc:     `Zaps enemies, briefly stunning them and dealing damage inside a small radius. Reduced damage to Crown Towers.`,
 		attr.Elixir:   2,
 		attr.BaseADam: 80,
@@ -39,7 +39,7 @@ var (
 		attr.Name:     "Fireball",
 		attr.Arena:    arena.Arena0,
 		attr.Rarity:   rarity.Rare,
-		attr.Type:     Type.Spell,
+		attr.Type:     typ.Spell,
 		attr.Desc:     `Annnnnd... Fireball. Incinerates a small area, dealing high damage. Reduced damage to Crown Towers.`,
 		attr.Elixir:   4,
 		attr.BaseADam: 325,
@@ -50,7 +50,7 @@ var (
 		attr.Name:     "Rocket",
 		attr.Arena:    arena.Arena3,
 		attr.Rarity:   rarity.Rare,
-		attr.Type:     Type.Spell,
+		attr.Type:     typ.Spell,
 		attr.Desc:     `Deals high damage to a small area. Looks really awesome doing it. Reduced damage to Crown Towers.`,
 		attr.Elixir:   6,
 		attr.BaseADam: 700,
@@ -63,7 +63,7 @@ var (
 		attr.Name:    "Lightning",
 		attr.Arena:   arena.Arena1,
 		attr.Rarity:  rarity.Epic,
-		attr.Type:    Type.Spell,
+		attr.Type:    typ.Spell,
 		attr.Desc:    `Bolts of lightning hit up to three enemy troops or buildings with the most hitpoints in the target area. Reduced damage to Crown Towers.`,
 		attr.Elixir:  6,
 		attr.Count:   3,
@@ -76,7 +76,7 @@ var (
 		attr.Name:      "Goblin Barrel",
 		attr.Arena:     arena.Arena1,
 		attr.Rarity:    rarity.Epic,
-		attr.Type:      Type.Spell,
+		attr.Type:      typ.Spell,
 		attr.Desc:      `Spawns three Goblins anywhere on the Arena. It's going to be a thrilling ride, boys!`,
 		attr.Elixir:    4,
 		attr.ADam:      lib.V50[0:8:8],
@@ -89,7 +89,7 @@ var (
 		attr.Name:   "Rage",
 		attr.Arena:  arena.Arena3,
 		attr.Rarity: rarity.Epic,
-		attr.Type:   Type.Spell,
+		attr.Type:   typ.Spell,
 		attr.Desc:   `Increases troop movement and attack speed by 40%. Troop buildings and summoners deploy troop faster. Chaaaarge!`,
 		attr.Elixir: 3,
 		attr.DurU:   []float64{8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5},
@@ -99,7 +99,7 @@ var (
 		attr.Name:   "Freeze",
 		attr.Arena:  arena.Arena4,
 		attr.Rarity: rarity.Epic,
-		attr.Type:   Type.Spell,
+		attr.Type:   typ.Spell,
 		attr.Desc:   `Freezes troops and buildings, making them unable to move or attack. Everybody chill.`,
 		attr.Elixir: 4,
 		attr.DurU:   []float64{5, 5.3, 5.6, 5.9, 6.2, 6.5, 6.8, 7.1},
@@ -109,7 +109,7 @@ var (
 		attr.Name:     "Mirror",
 		attr.Arena:    arena.Arena5,
 		attr.Rarity:   rarity.Epic,
-		attr.Type:     Type.Spell,
+		attr.Type:     typ.Spell,
 		attr.Desc:     `Mirrors your last card played for +1 Elixir`,
 		attr.Elixir:   lib.X,
 		attr.BaseMCLV: 5,
@@ -121,7 +121,7 @@ var (
 		attr.Name:   "Poison",
 		attr.Arena:  arena.Arena5,
 		attr.Rarity: rarity.Epic,
-		attr.Type:   Type.Spell,
+		attr.Type:   typ.Spell,
 		attr.Desc:   `Covers the target area in a sticky toxin, damaging and slowing down troops and buildings. Remember: solvent abuse can kill!`,
 		attr.Elixir: 4,
 		attr.DPS:    []int{42, 46, 50, 55, 62, 67, 73, 81},
