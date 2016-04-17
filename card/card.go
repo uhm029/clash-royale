@@ -145,6 +145,23 @@ func (c Card) Value(a attr.Attribute) interface{} {
 	return c.Rarity().Value(a)
 }
 
+func (c Card) Values(a attr.Upgradable) []interface{} {
+	return c.Value(a).([]interface{})
+}
+
+func (c Card) ValueAtLevel(a attr.Attribute, level int) interface{} {
+	switch a := a.(type) {
+	case attr.Fixed:
+		return c.Value(a)
+	case attr.Upgradable:
+		return c.Value(a).([]interface{})[level-1]
+	case attr.Generated:
+		return c.ValueAtLevel(a.TargetAttribute(), level)
+	default:
+		panic("Unknown attribute type")
+	}
+}
+
 func (c Card) FormattedValue(a attr.Fixed) string {
 	if value := c.Value(a); value != nil {
 		return a.FormatValue(value)
@@ -153,10 +170,23 @@ func (c Card) FormattedValue(a attr.Fixed) string {
 }
 
 func (c Card) FormattedValues(a attr.Upgradable) []string {
-	if values := c.Value(a); values != nil {
+	if values := c.Values(a); values != nil {
 		return a.FormatValues(values)
 	}
 	return nil
+}
+
+func (c Card) FormattedValueAtLevel(a attr.Attribute, level int) string {
+	switch a := a.(type) {
+	case attr.Fixed:
+		return c.FormattedValue(a)
+	case attr.Upgradable:
+		return c.FormattedValues(a)[level-1]
+	case attr.Generated:
+		return c.FormattedValueAtLevel(a.TargetAttribute(), level)
+	default:
+		panic("Unknown attribute type")
+	}
 }
 
 func (c Card) ForEachFixedAttribute(f func(attr.Fixed)) {

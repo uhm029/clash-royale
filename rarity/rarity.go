@@ -32,15 +32,15 @@ func (r Rarity) Name() string {
 	return rarities[r].name
 }
 
-func (r Rarity) CardsReq() []int {
+func (r Rarity) CardsReq() []interface{} {
 	return rarities[r].cardsReq
 }
 
-func (r Rarity) GoldReq() []int {
+func (r Rarity) GoldReq() []interface{} {
 	return rarities[r].goldReq
 }
 
-func (r Rarity) ExpGain() []int {
+func (r Rarity) ExpGain() []interface{} {
 	return rarities[r].expGain
 }
 
@@ -61,7 +61,7 @@ func (r Rarity) HasAttribute(a attr.Attribute) bool {
 	}
 }
 
-func (r Rarity) Value(a attr.Attribute) []int {
+func (r Rarity) Value(a attr.Attribute) []interface{} {
 	switch a {
 	case attr.CardsReq:
 		return r.CardsReq()
@@ -80,21 +80,21 @@ func (r Rarity) Value(a attr.Attribute) []int {
 
 type rarity struct {
 	id       int
-	name     string // The name of the rarity
-	cardsReq []int  // The number of cards needed for upgrading card at level "i"
-	goldReq  []int  // The amount of gold needed for upgrading card at level "i"
-	expGain  []int  // The amount of experience gained when upgrading card at level "i"
-	goldCost []int  // The amount of gold needed to buy the "i + 1"-th card from the shop
+	name     string        // The name of the rarity
+	cardsReq []interface{} // The number of cards needed for upgrading card at level "i"
+	goldReq  []interface{} // The amount of gold needed for upgrading card at level "i"
+	expGain  []interface{} // The amount of experience gained when upgrading card at level "i"
+	goldCost []interface{} // The amount of gold needed to buy the "i + 1"-th card from the shop
 }
 
 var rarities = []*rarity{
 	&rarity{
 		0,
 		"Common",
-		[]int{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000, 2000, 4000},
-		[]int{0, 5, 20, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
-		[]int{0, 4, 5, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
-		[]int{
+		[]interface{}{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000, 2000, 4000},
+		[]interface{}{0, 5, 20, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
+		[]interface{}{0, 4, 5, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
+		[]interface{}{
 			3, 4, 5, 6, 7, 8, 10, 12, 14, 17,
 			20, 24, 29, 35, 42, 50, 60, 72, 86, 103,
 			124, 149, 179, 210, 258, 310, 372, 446, 535, 642,
@@ -105,10 +105,10 @@ var rarities = []*rarity{
 	&rarity{
 		1,
 		"Rare",
-		[]int{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000},
-		[]int{0, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
-		[]int{0, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
-		[]int{
+		[]interface{}{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000},
+		[]interface{}{0, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
+		[]interface{}{0, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
+		[]interface{}{
 			40, 56, 78, 109, 153, 214, 300, 420, 588, 823,
 			1152, 1613, 2258, 3161, 4425, 6195, 8673, 12142, 16999, 23799,
 		},
@@ -116,19 +116,19 @@ var rarities = []*rarity{
 	&rarity{
 		2,
 		"Epic",
-		[]int{0, 2, 4, 10, 20, 50, 100, 200},
-		[]int{0, 400, 1000, 2000, 4000, 8000, 20000, 50000},
-		[]int{0, 25, 50, 100, 200, 400, 800, 1600},
-		[]int{
+		[]interface{}{0, 2, 4, 10, 20, 50, 100, 200},
+		[]interface{}{0, 400, 1000, 2000, 4000, 8000, 20000, 50000},
+		[]interface{}{0, 25, 50, 100, 200, 400, 800, 1600},
+		[]interface{}{
 			2000, 3600, 6480, 11664, 20995, 37791, 68024, 122443, 220397, 396715,
 		},
 	},
 	&rarity{
 		3,
 		"Legendary",
-		[]int{0, 2, 4, 10, 20, 50},
-		[]int{0, 5000, 20000, 50000, 100000, 250000},
-		[]int{0, 200, 400, 800, 1600, 3200},
-		[]int{},
+		[]interface{}{0, 2, 4, 10, 20, 50},
+		[]interface{}{0, 5000, 20000, 50000, 100000, 250000},
+		[]interface{}{0, 200, 400, 800, 1600, 3200},
+		[]interface{}{},
 	},
 }

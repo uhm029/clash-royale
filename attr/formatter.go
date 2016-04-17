@@ -80,21 +80,3 @@ func formatRange(value interface{}) string {
 func formatCount(value interface{}) string {
 	return fmt.Sprintf("x %d", value)
 }
-
-func formatInts(values interface{}) []string {
-	ints := values.([]int)
-	strings := make([]string, len(ints))
-	for i, v := range ints {
-		strings[i] = formatInt(v)
-	}
-	return strings
-}
-
-func formatTimes(values interface{}) []string {
-	vs := values.([]interface{})
-	strings := make([]string, len(vs))
-	for i, v := range vs {
-		strings[i] = formatTime(v)
-	}
-	return strings
-}

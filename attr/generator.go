@@ -4,30 +4,33 @@ var refValues = []int{1000, 1100, 1210, 1330, 1460, 1600, 1760, 1930, 2120, 2330
 
 const maxLevel = 12
 
-func generateHp(baseHp, max int) []int {
-	values := make([]int, maxLevel)
+func generateHp(baseHp interface{}, max int) []interface{} {
+	baseValue := baseHp.(int)
+	values := make([]interface{}, maxLevel)
 	for i := range values {
-		values[i] = refValues[i] * baseHp / refValues[0]
+		values[i] = refValues[i] * baseValue / refValues[0]
 	}
 	return values[0:max:max]
 }
 
-func generateDam(baseDam, max int) []int {
+func generateDam(baseDam interface{}, max int) []interface{} {
 	return generateHp(baseDam, max)
 }
 
-func generateLv(baseLv, max int) []int {
-	values := make([]int, maxLevel)
+func generateLv(baseLv interface{}, max int) []interface{} {
+	baseValue := baseLv.(int)
+	values := make([]interface{}, maxLevel)
 	for i := range values {
-		values[i] = baseLv + i
+		values[i] = baseValue + i
 	}
 	return values[0:max:max]
 }
 
-func generateDur(baseDur BaseDuration, max int) []interface{} {
+func generateDur(baseDur interface{}, max int) []interface{} {
+	baseValue := baseDur.(BaseDuration)
 	values := make([]interface{}, maxLevel)
 	for i := range values {
-		values[i] = convertNumber(float64(baseDur.BaseValue) + float64(i)*baseDur.Increment)
+		values[i] = convertNumber(float64(baseValue.BaseValue) + float64(i)*baseValue.Increment)
 	}
 	return values[0:max:max]
 }
