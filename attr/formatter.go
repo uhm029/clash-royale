@@ -1,22 +1,24 @@
 package attr
 
 import (
-	"github.com/asukakenji/clash-royale/lib"
+	"github.com/asukakenji/clash-royale/common"
 	"github.com/asukakenji/clash-royale/rng"
 
 	"fmt"
 )
 
+// convertNumber converts a number into an appropriate type.
+// An int or a float64 with fractional part is not converted.
+// A float64 without fractional part is converted to an int.
 func convertNumber(value interface{}) interface{} {
-	switch value.(type) {
+	switch v := value.(type) {
 	case int:
-		return value
+		return v
 	case float64:
-		v := int(value.(float64))
-		if float64(v) == value.(float64) {
-			return v
+		if i := int(v); float64(i) == v {
+			return i
 		}
-		return value
+		return v
 	default:
 		panic("Unknown value type")
 	}
@@ -28,30 +30,26 @@ func formatString(value interface{}) string {
 
 func formatInt(value interface{}) string {
 	// Note: interface{} is comparable with const
-	if lib.X == value {
+	if common.X == value {
 		return ""
 	}
 	return fmt.Sprintf("%d", value)
 }
 
 func formatFloat(value interface{}) string {
-	// Note: interface{} is comparable with const
-	if lib.X == value {
-		return ""
-	}
 	number := convertNumber(value)
-	switch number.(type) {
+	switch v := number.(type) {
 	case int:
-		return fmt.Sprintf("%d", value)
+		return formatInt(v)
 	case float64:
-		return fmt.Sprintf("%.1f", value)
+		return fmt.Sprintf("%.1f", v)
 	default:
 		panic("Unknown value type")
 	}
 }
 
 func formatElixir(value interface{}) string {
-	if lib.X == value {
+	if common.X == value {
 		return "?"
 	}
 	return formatInt(value)
@@ -59,36 +57,28 @@ func formatElixir(value interface{}) string {
 
 func formatTime(value interface{}) string {
 	number := convertNumber(value)
-	switch number.(type) {
+	switch v := number.(type) {
 	case int:
-		v := number.(int)
 		if v < 60 {
 			return fmt.Sprintf("%dsec", v)
 		}
 		return fmt.Sprintf("%dmin %dsec", v/60, v%60)
 	case float64:
-		return fmt.Sprintf("%.1fsec", value)
+		return fmt.Sprintf("%.1fsec", v)
 	default:
 		panic("Unknown value type")
 	}
 }
 
 func formatRange(value interface{}) string {
-	switch value.(type) {
-	case int:
-		if value.(int) == rng.Melee {
-			return "Melee"
-		}
-		return fmt.Sprintf("%d", value)
-	case float64:
-		return fmt.Sprintf("%.1f", value)
-	default:
-		panic("Unknown value type")
+	if rng.Melee == value {
+		return "Melee"
 	}
+	return formatFloat(value)
 }
 
 func formatCount(value interface{}) string {
-	return fmt.Sprintf("x %d", value.(int))
+	return fmt.Sprintf("x %d", value)
 }
 
 func formatInts(values interface{}) []string {

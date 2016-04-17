@@ -3,7 +3,7 @@ package card
 import (
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attr"
-	"github.com/asukakenji/clash-royale/lib"
+	"github.com/asukakenji/clash-royale/common"
 	"github.com/asukakenji/clash-royale/rarity"
 	"github.com/asukakenji/clash-royale/rng"
 	"github.com/asukakenji/clash-royale/speed"
@@ -104,7 +104,7 @@ var troops = []*card{
 		attr.Desc:    `Four fast, very weak melee fighters. Swarm your enemies with this pile of bones!`,
 		attr.Elixir:  1,
 		attr.BaseHP:  30,
-		attr.DPS:     lib.V30[0:12:12],
+		attr.DPS:     common.V30[0:12:12],
 		attr.BaseDam: 30,
 		attr.HSpeed:  1,
 		attr.Targets: targets.Ground,
@@ -121,7 +121,7 @@ var troops = []*card{
 		attr.Desc:    `Three fast, unarmored flying attackers. Roses are red, minions are blue, they can fly, and will crush you!`,
 		attr.Elixir:  3,
 		attr.BaseHP:  90,
-		attr.DPS:     lib.V40[0:12:12],
+		attr.DPS:     common.V40[0:12:12],
 		attr.BaseDam: 40,
 		attr.HSpeed:  1,
 		attr.Targets: targets.AirAndGround,
@@ -155,7 +155,7 @@ var troops = []*card{
 		attr.Desc:    `Six fast, unarmored flying attackers. Three's a crowd, six is a horde!`,
 		attr.Elixir:  5,
 		attr.BaseHP:  90,
-		attr.DPS:     lib.V40[0:12:12],
+		attr.DPS:     common.V40[0:12:12],
 		attr.BaseDam: 40,
 		attr.HSpeed:  1,
 		attr.Targets: targets.AirAndGround,
@@ -323,7 +323,7 @@ var troops = []*card{
 		attr.Desc:    `Summons an army of skeletons. Meet Larry and his friends Harry, Gerry, Terry, Mary, etc.`,
 		attr.Elixir:  4,
 		attr.BaseHP:  30,
-		attr.DPS:     lib.V30[0:8:8],
+		attr.DPS:     common.V30[0:8:8],
 		attr.BaseDam: 30,
 		attr.HSpeed:  1,
 		attr.Targets: targets.Ground,

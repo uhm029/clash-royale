@@ -1,4 +1,4 @@
-package lib
+package common
 
 var (
 	V24   = []int{24, 26, 29, 31, 35, 38, 42, 46, 50, 55, 61, 67}

@@ -3,7 +3,7 @@ package card
 import (
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attr"
-	"github.com/asukakenji/clash-royale/lib"
+	"github.com/asukakenji/clash-royale/common"
 	"github.com/asukakenji/clash-royale/rarity"
 	"github.com/asukakenji/clash-royale/typ"
 )
@@ -79,7 +79,7 @@ var spells = []*card{
 		attr.Type:      typ.Spell,
 		attr.Desc:      `Spawns three Goblins anywhere on the Arena. It's going to be a thrilling ride, boys!`,
 		attr.Elixir:    4,
-		attr.ADam:      lib.V50[0:8:8],
+		attr.ADam:      common.V50[0:8:8],
 		attr.CTDam:     []int{20, 22, 24, 27, 30, 32, 36, 39},
 		attr.Radius:    1.5,
 		attr.BaseGobLV: 6,
@@ -111,7 +111,7 @@ var spells = []*card{
 		attr.Rarity:   rarity.Epic,
 		attr.Type:     typ.Spell,
 		attr.Desc:     `Mirrors your last card played for +1 Elixir`,
-		attr.Elixir:   lib.X,
+		attr.Elixir:   common.X,
 		attr.BaseMCLV: 5,
 		attr.BaseMRLV: 3,
 		attr.BaseMELV: 1,
