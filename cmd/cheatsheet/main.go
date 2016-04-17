@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/asukakenji/clash-royale/attribute"
+	"github.com/asukakenji/clash-royale/attr"
 	"github.com/asukakenji/clash-royale/card"
 	"github.com/asukakenji/clash-royale/Type"
 
@@ -37,7 +37,7 @@ func main() {
 			{
 				rowHeaders := []string{}
 				contents := [][]string{}
-				c.ForEachFixedAttribute(func(a attribute.Fixed) {
+				c.ForEachFixedAttribute(func(a attr.Fixed) {
 					rowHeaders = append(rowHeaders, a.String())
 					contents = append(contents, []string{c.FormattedValue(a)})
 				})
@@ -56,7 +56,7 @@ func main() {
 			{
 				rowHeaders := []string{}
 				contents := [][]string{}
-				c.ForEachUpgradableAttribute(func(a attribute.Upgradable) {
+				c.ForEachUpgradableAttribute(func(a attr.Upgradable) {
 					rowHeaders = append(rowHeaders, a.String())
 					contents = append(contents, c.FormattedValues(a))
 				})

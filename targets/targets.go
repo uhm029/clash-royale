@@ -1,9 +1,6 @@
 package targets
 
-import (
-	"github.com/asukakenji/clash-royale/targets/internal"
-)
-
+// Targets
 type Targets int8
 
 const (
@@ -13,19 +10,34 @@ const (
 )
 
 func ForEach(f func(Targets)) {
-	for i := range internal.Targetses {
+	for i := range targetses {
 		f(Targets(i))
 	}
 }
 
 func (t Targets) Id() int {
-	return internal.Targetses[t].Id
+	return targetses[t].id
 }
 
 func (t Targets) String() string {
-	return internal.Targetses[t].Name
+	return targetses[t].name
 }
 
 func (t Targets) Name() string {
-	return internal.Targetses[t].Name
+	return targetses[t].name
+}
+
+/////////////
+// Private //
+/////////////
+
+type targets struct {
+	id   int
+	name string
+}
+
+var targetses = []*targets{
+	&targets{0, "Ground"},
+	&targets{1, "Air & Ground"},
+	&targets{2, "Buildings"},
 }

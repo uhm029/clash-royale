@@ -1,9 +1,5 @@
 package Type
 
-import (
-	"github.com/asukakenji/clash-royale/Type/internal"
-)
-
 // Type
 type Type int8
 
@@ -14,19 +10,34 @@ const (
 )
 
 func ForEach(f func(Type)) {
-	for i := range internal.Types {
+	for i := range types {
 		f(Type(i))
 	}
 }
 
 func (t Type) Id() int {
-	return internal.Types[t].Id
+	return types[t].id
 }
 
 func (t Type) String() string {
-	return internal.Types[t].Name
+	return types[t].name
 }
 
 func (t Type) Name() string {
-	return internal.Types[t].Name
+	return types[t].name
+}
+
+/////////////
+// Private //
+/////////////
+
+type _type struct {
+	id   int
+	name string
+}
+
+var types = []*_type{
+	&_type{0, "Troop"},
+	&_type{1, "Building"},
+	&_type{2, "Spell"},
 }

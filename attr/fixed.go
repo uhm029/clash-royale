@@ -1,7 +1,7 @@
-package attribute
+package attr
 
 import (
-	"github.com/asukakenji/clash-royale/attribute/internal"
+	"github.com/asukakenji/clash-royale/attr/internal"
 )
 
 // Fixed

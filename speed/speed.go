@@ -1,9 +1,5 @@
 package speed
 
-import (
-	"github.com/asukakenji/clash-royale/speed/internal"
-)
-
 // Speed
 type Speed int8
 
@@ -15,19 +11,35 @@ const (
 )
 
 func ForEach(f func(Speed)) {
-	for i := range internal.Speeds {
+	for i := range speeds {
 		f(Speed(i))
 	}
 }
 
 func (s Speed) Id() int {
-	return internal.Speeds[s].Id
+	return speeds[s].id
 }
 
 func (s Speed) String() string {
-	return internal.Speeds[s].Name
+	return speeds[s].name
 }
 
 func (s Speed) Name() string {
-	return internal.Speeds[s].Name
+	return speeds[s].name
+}
+
+/////////////
+// Private //
+/////////////
+
+type speed struct {
+	id   int
+	name string
+}
+
+var speeds = []*speed{
+	&speed{0, "Slow"},
+	&speed{1, "Medium"},
+	&speed{2, "Fast"},
+	&speed{3, "Very Fast"},
 }
