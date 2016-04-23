@@ -17,29 +17,26 @@ func ForEach(f func(Speed)) {
 }
 
 func (s Speed) Id() int {
-	return speeds[s].id
+	return int(s)
 }
 
 func (s Speed) String() string {
-	return speeds[s].name
+	return string(speeds[s])
 }
 
 func (s Speed) Name() string {
-	return speeds[s].name
+	return string(speeds[s])
 }
 
 /////////////
 // Private //
 /////////////
 
-type speed struct {
-	id   int
-	name string
-}
+type speed string
 
-var speeds = []*speed{
-	&speed{0, "Slow"},
-	&speed{1, "Medium"},
-	&speed{2, "Fast"},
-	&speed{3, "Very Fast"},
+var speeds = [...]speed{
+	speed("Slow"),
+	speed("Medium"),
+	speed("Fast"),
+	speed("Very Fast"),
 }

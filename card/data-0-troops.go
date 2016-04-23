@@ -10,9 +10,9 @@ import (
 	"github.com/asukakenji/clash-royale/typ"
 )
 
-var troops = []*card{
+var troops = [...]card{
 	// --- Common Troops ---
-	newCard(0, map[attr.Attribute]interface{}{
+	card{
 		attr.Name:    "Knight",
 		attr.Arena:   arena.Arena0,
 		attr.Rarity:  rarity.Common,
@@ -27,8 +27,8 @@ var troops = []*card{
 		attr.Speed:   speed.Medium,
 		attr.Range:   rng.Melee,
 		attr.DTime:   1,
-	}),
-	newCard(1, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Archers",
 		attr.Arena:   arena.Arena0,
 		attr.Rarity:  rarity.Common,
@@ -44,8 +44,8 @@ var troops = []*card{
 		attr.Range:   5.5,
 		attr.DTime:   1,
 		attr.Count:   2,
-	}),
-	newCard(2, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:     "Bomber",
 		attr.Arena:    arena.Arena0,
 		attr.Rarity:   rarity.Common,
@@ -60,8 +60,8 @@ var troops = []*card{
 		attr.Speed:    speed.Medium,
 		attr.Range:    5,
 		attr.DTime:    1,
-	}),
-	newCard(10, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Goblins",
 		attr.Arena:   arena.Arena1,
 		attr.Rarity:  rarity.Common,
@@ -77,8 +77,8 @@ var troops = []*card{
 		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 		attr.Count:   3,
-	}),
-	newCard(11, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Spear Goblins",
 		attr.Arena:   arena.Arena1,
 		attr.Rarity:  rarity.Common,
@@ -94,8 +94,8 @@ var troops = []*card{
 		attr.Range:   5.5,
 		attr.DTime:   1,
 		attr.Count:   3,
-	}),
-	newCard(20, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Skeletons",
 		attr.Arena:   arena.Arena2,
 		attr.Rarity:  rarity.Common,
@@ -111,8 +111,8 @@ var troops = []*card{
 		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 		attr.Count:   4,
-	}),
-	newCard(21, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Minions",
 		attr.Arena:   arena.Arena2,
 		attr.Rarity:  rarity.Common,
@@ -128,8 +128,8 @@ var troops = []*card{
 		attr.Range:   2.5,
 		attr.DTime:   1,
 		attr.Count:   3,
-	}),
-	newCard(30, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Barbarians",
 		attr.Arena:   arena.Arena3,
 		attr.Rarity:  rarity.Common,
@@ -145,8 +145,8 @@ var troops = []*card{
 		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 		attr.Count:   4,
-	}),
-	newCard(40, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Minion Horde",
 		attr.Arena:   arena.Arena4,
 		attr.Rarity:  rarity.Common,
@@ -162,8 +162,8 @@ var troops = []*card{
 		attr.Range:   2.5,
 		attr.DTime:   1,
 		attr.Count:   6,
-	}),
-	newCard(70, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Royale Giant",
 		attr.Arena:   arena.Arena7,
 		attr.Rarity:  rarity.Common,
@@ -178,10 +178,10 @@ var troops = []*card{
 		attr.Speed:   speed.Slow,
 		attr.Range:   6,
 		attr.DTime:   1,
-	}),
+	}.init(),
 
 	// --- Rare Troops ---
-	newCard(100, map[attr.Attribute]interface{}{
+	card{
 		attr.Name:    "Giant",
 		attr.Arena:   arena.Arena0,
 		attr.Rarity:  rarity.Rare,
@@ -196,8 +196,8 @@ var troops = []*card{
 		attr.Speed:   speed.Slow,
 		attr.Range:   rng.Melee,
 		attr.DTime:   1,
-	}),
-	newCard(101, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Musketeer",
 		attr.Arena:   arena.Arena0,
 		attr.Rarity:  rarity.Rare,
@@ -212,8 +212,8 @@ var troops = []*card{
 		attr.Speed:   speed.Medium,
 		attr.Range:   6.5,
 		attr.DTime:   1,
-	}),
-	newCard(102, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Mini P.E.K.K.A",
 		attr.Arena:   arena.Arena0,
 		attr.Rarity:  rarity.Rare,
@@ -228,8 +228,8 @@ var troops = []*card{
 		attr.Speed:   speed.Fast,
 		attr.Range:   rng.Melee,
 		attr.DTime:   1,
-	}),
-	newCard(110, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Valkyrie",
 		attr.Arena:   arena.Arena1,
 		attr.Rarity:  rarity.Rare,
@@ -244,8 +244,8 @@ var troops = []*card{
 		attr.Speed:   speed.Medium,
 		attr.Range:   rng.Melee,
 		attr.DTime:   1,
-	}),
-	newCard(140, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Hog Rider",
 		attr.Arena:   arena.Arena4,
 		attr.Rarity:  rarity.Rare,
@@ -260,8 +260,8 @@ var troops = []*card{
 		attr.Speed:   speed.VeryFast,
 		attr.Range:   rng.Melee,
 		attr.DTime:   1,
-	}),
-	newCard(150, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:     "Wizard",
 		attr.Arena:    arena.Arena5,
 		attr.Rarity:   rarity.Rare,
@@ -276,8 +276,8 @@ var troops = []*card{
 		attr.Speed:    speed.Medium,
 		attr.Range:    5.5,
 		attr.DTime:    1,
-	}),
-	newCard(170, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Three Musketeers",
 		attr.Arena:   arena.Arena7,
 		attr.Rarity:  rarity.Rare,
@@ -293,10 +293,10 @@ var troops = []*card{
 		attr.Range:   6.5,
 		attr.DTime:   1,
 		attr.Count:   3,
-	}),
+	}.init(),
 
 	// --- Epic Troops ---
-	newCard(200, map[attr.Attribute]interface{}{
+	card{
 		attr.Name:      "Witch",
 		attr.Arena:     arena.Arena0,
 		attr.Rarity:    rarity.Epic,
@@ -313,8 +313,8 @@ var troops = []*card{
 		attr.Speed:     speed.Medium,
 		attr.Range:     5.5,
 		attr.DTime:     1,
-	}),
-	newCard(201, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Skeleton Army",
 		attr.Arena:   arena.Arena0,
 		attr.Rarity:  rarity.Epic,
@@ -330,8 +330,8 @@ var troops = []*card{
 		attr.Range:   rng.Melee,
 		attr.DTime:   1,
 		attr.Count:   20,
-	}),
-	newCard(202, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:     "Baby Dragon",
 		attr.Arena:    arena.Arena0,
 		attr.Rarity:   rarity.Epic,
@@ -346,8 +346,8 @@ var troops = []*card{
 		attr.Speed:    speed.Fast,
 		attr.Range:    3.5,
 		attr.DTime:    1,
-	}),
-	newCard(203, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "Prince",
 		attr.Arena:   arena.Arena0,
 		attr.Rarity:  rarity.Epic,
@@ -362,8 +362,8 @@ var troops = []*card{
 		attr.Speed:   speed.Medium,
 		attr.Range:   2.5,
 		attr.DTime:   1,
-	}),
-	newCard(220, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:     "Giant Skeleton",
 		attr.Arena:    arena.Arena2,
 		attr.Rarity:   rarity.Epic,
@@ -379,8 +379,8 @@ var troops = []*card{
 		attr.Speed:    speed.Medium,
 		attr.Range:    rng.Melee,
 		attr.DTime:    1,
-	}),
-	newCard(221, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:     "Balloon",
 		attr.Arena:    arena.Arena2,
 		attr.Rarity:   rarity.Epic,
@@ -396,8 +396,8 @@ var troops = []*card{
 		attr.Speed:    speed.Medium,
 		attr.Range:    rng.Melee,
 		attr.DTime:    1,
-	}),
-	newCard(240, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:    "P.E.K.K.A",
 		attr.Arena:   arena.Arena4,
 		attr.Rarity:  rarity.Epic,
@@ -412,8 +412,8 @@ var troops = []*card{
 		attr.Speed:   speed.Slow,
 		attr.Range:   rng.Melee,
 		attr.DTime:   3,
-	}),
-	newCard(260, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:     "Golem",
 		attr.Arena:    arena.Arena6,
 		attr.Rarity:   rarity.Epic,
@@ -429,8 +429,8 @@ var troops = []*card{
 		attr.Speed:    speed.Slow,
 		attr.Range:    rng.Melee,
 		attr.DTime:    3,
-	}),
-	newCard(270, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:     "Dark Prince",
 		attr.Arena:    arena.Arena7,
 		attr.Rarity:   rarity.Epic,
@@ -446,10 +446,10 @@ var troops = []*card{
 		attr.Speed:    speed.Medium,
 		attr.Range:    rng.Melee,
 		attr.DTime:    1,
-	}),
+	}.init(),
 
 	// --- Legendary Troops ---
-	newCard(350, map[attr.Attribute]interface{}{
+	card{
 		attr.Name:     "Ice Wizard",
 		attr.Arena:    arena.Arena5,
 		attr.Rarity:   rarity.Legendary,
@@ -464,8 +464,8 @@ var troops = []*card{
 		attr.Speed:    speed.Medium,
 		attr.Range:    6,
 		attr.DTime:    1,
-	}),
-	newCard(370, map[attr.Attribute]interface{}{
+	}.init(),
+	card{
 		attr.Name:     "Princess",
 		attr.Arena:    arena.Arena7,
 		attr.Rarity:   rarity.Legendary,
@@ -480,5 +480,5 @@ var troops = []*card{
 		attr.Speed:    speed.Medium,
 		attr.Range:    9.5,
 		attr.DTime:    1,
-	}),
+	}.init(),
 }

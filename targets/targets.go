@@ -16,28 +16,25 @@ func ForEach(f func(Targets)) {
 }
 
 func (t Targets) Id() int {
-	return targetses[t].id
+	return int(t)
 }
 
 func (t Targets) String() string {
-	return targetses[t].name
+	return string(targetses[t])
 }
 
 func (t Targets) Name() string {
-	return targetses[t].name
+	return string(targetses[t])
 }
 
 /////////////
 // Private //
 /////////////
 
-type targets struct {
-	id   int
-	name string
-}
+type targets string
 
-var targetses = []*targets{
-	&targets{0, "Ground"},
-	&targets{1, "Air & Ground"},
-	&targets{2, "Buildings"},
+var targetses = [...]targets{
+	targets("Ground"),
+	targets("Air & Ground"),
+	targets("Buildings"),
 }

@@ -16,28 +16,25 @@ func ForEach(f func(Type)) {
 }
 
 func (t Type) Id() int {
-	return types[t].id
+	return int(t)
 }
 
 func (t Type) String() string {
-	return types[t].name
+	return string(types[t])
 }
 
 func (t Type) Name() string {
-	return types[t].name
+	return string(types[t])
 }
 
 /////////////
 // Private //
 /////////////
 
-type _type struct {
-	id   int
-	name string
-}
+type _type string
 
-var types = []*_type{
-	&_type{0, "Troop"},
-	&_type{1, "Building"},
-	&_type{2, "Spell"},
+var types = [...]_type{
+	_type("Troop"),
+	_type("Building"),
+	_type("Spell"),
 }

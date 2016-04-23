@@ -21,7 +21,7 @@ type BaseDuration struct {
 // Private //
 /////////////
 
-var attributes = []Attribute{
+var attributes = [...]Attribute{
 	Name,
 	Arena,
 	Rarity,

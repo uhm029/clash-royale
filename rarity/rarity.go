@@ -21,7 +21,7 @@ func ForEach(f func(Rarity)) {
 }
 
 func (r Rarity) Id() int {
-	return rarities[r].id
+	return int(r)
 }
 
 func (r Rarity) String() string {
@@ -79,7 +79,6 @@ func (r Rarity) Value(a attr.Attribute) []interface{} {
 /////////////
 
 type rarity struct {
-	id       int
 	name     string        // The name of the rarity
 	cardsReq []interface{} // The number of cards needed for upgrading card at level "i"
 	goldReq  []interface{} // The amount of gold needed for upgrading card at level "i"
@@ -89,12 +88,11 @@ type rarity struct {
 
 var rarities = []*rarity{
 	&rarity{
-		0,
-		"Common",
-		[]interface{}{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000, 2000, 4000},
-		[]interface{}{0, 5, 20, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
-		[]interface{}{0, 4, 5, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
-		[]interface{}{
+		name:     "Common",
+		cardsReq: []interface{}{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000, 2000, 4000},
+		goldReq:  []interface{}{0, 5, 20, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
+		expGain:  []interface{}{0, 4, 5, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
+		goldCost: []interface{}{
 			3, 4, 5, 6, 7, 8, 10, 12, 14, 17,
 			20, 24, 29, 35, 42, 50, 60, 72, 86, 103,
 			124, 149, 179, 210, 258, 310, 372, 446, 535, 642,
@@ -103,32 +101,29 @@ var rarities = []*rarity{
 		},
 	},
 	&rarity{
-		1,
-		"Rare",
-		[]interface{}{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000},
-		[]interface{}{0, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
-		[]interface{}{0, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
-		[]interface{}{
+		name:     "Rare",
+		cardsReq: []interface{}{0, 2, 4, 10, 20, 50, 100, 200, 400, 1000},
+		goldReq:  []interface{}{0, 50, 150, 400, 1000, 2000, 4000, 8000, 20000, 50000},
+		expGain:  []interface{}{0, 6, 10, 25, 50, 100, 200, 400, 800, 1600},
+		goldCost: []interface{}{
 			40, 56, 78, 109, 153, 214, 300, 420, 588, 823,
 			1152, 1613, 2258, 3161, 4425, 6195, 8673, 12142, 16999, 23799,
 		},
 	},
 	&rarity{
-		2,
-		"Epic",
-		[]interface{}{0, 2, 4, 10, 20, 50, 100, 200},
-		[]interface{}{0, 400, 1000, 2000, 4000, 8000, 20000, 50000},
-		[]interface{}{0, 25, 50, 100, 200, 400, 800, 1600},
-		[]interface{}{
+		name:     "Epic",
+		cardsReq: []interface{}{0, 2, 4, 10, 20, 50, 100, 200},
+		goldReq:  []interface{}{0, 400, 1000, 2000, 4000, 8000, 20000, 50000},
+		expGain:  []interface{}{0, 25, 50, 100, 200, 400, 800, 1600},
+		goldCost: []interface{}{
 			2000, 3600, 6480, 11664, 20995, 37791, 68024, 122443, 220397, 396715,
 		},
 	},
 	&rarity{
-		3,
-		"Legendary",
-		[]interface{}{0, 2, 4, 10, 20, 50},
-		[]interface{}{0, 5000, 20000, 50000, 100000, 250000},
-		[]interface{}{0, 200, 400, 800, 1600, 3200},
-		[]interface{}{},
+		name:     "Legendary",
+		cardsReq: []interface{}{0, 2, 4, 10, 20, 50},
+		goldReq:  []interface{}{0, 5000, 20000, 50000, 100000, 250000},
+		expGain:  []interface{}{0, 200, 400, 800, 1600, 3200},
+		goldCost: []interface{}{},
 	},
 }

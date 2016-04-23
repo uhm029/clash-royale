@@ -33,10 +33,6 @@ func ForEachFixed(f func(Fixed)) {
 func (a Fixed) Attribute() {
 }
 
-func (a Fixed) Id() int {
-	return fixedAttributes[a].id
-}
-
 func (a Fixed) String() string {
 	return fixedAttributes[a].name
 }
@@ -54,28 +50,27 @@ func (a Fixed) FormatValue(value interface{}) string {
 /////////////
 
 type fixedAttribute struct {
-	id         int
 	name       string
 	formatFunc func(value interface{}) string
 }
 
-var fixedAttributes = []*fixedAttribute{
-	&fixedAttribute{0, "Name", formatString},
-	&fixedAttribute{1, "Arena", formatString},
-	&fixedAttribute{2, "Rarity", formatString},
-	&fixedAttribute{3, "Type", formatString},
-	&fixedAttribute{4, "Description", formatString},
-	&fixedAttribute{5, "Elixir Cost", formatElixir},
-	&fixedAttribute{500, "Spawn Speed", formatTime},
-	&fixedAttribute{510, "Production Speed", formatTime},
-	&fixedAttribute{520, "Hit Speed", formatTime},
-	&fixedAttribute{600, "Targets", formatString},
-	&fixedAttribute{700, "Speed", formatString},
-	&fixedAttribute{800, "Range", formatRange},
-	&fixedAttribute{900, "Deploy Time", formatTime},
-	&fixedAttribute{910, "Lifetime", formatTime},
-	&fixedAttribute{920, "Duration", formatTime},
-	&fixedAttribute{1000, "Radius", formatFloat},
-	&fixedAttribute{1100, "Count", formatCount},
-	&fixedAttribute{1200, "Goblin Count", formatCount},
+var fixedAttributes = [...]*fixedAttribute{
+	&fixedAttribute{"Name", formatString},
+	&fixedAttribute{"Arena", formatString},
+	&fixedAttribute{"Rarity", formatString},
+	&fixedAttribute{"Type", formatString},
+	&fixedAttribute{"Description", formatString},
+	&fixedAttribute{"Elixir Cost", formatElixir},
+	&fixedAttribute{"Spawn Speed", formatTime},
+	&fixedAttribute{"Production Speed", formatTime},
+	&fixedAttribute{"Hit Speed", formatTime},
+	&fixedAttribute{"Targets", formatString},
+	&fixedAttribute{"Speed", formatString},
+	&fixedAttribute{"Range", formatRange},
+	&fixedAttribute{"Deploy Time", formatTime},
+	&fixedAttribute{"Lifetime", formatTime},
+	&fixedAttribute{"Duration", formatTime},
+	&fixedAttribute{"Radius", formatFloat},
+	&fixedAttribute{"Count", formatCount},
+	&fixedAttribute{"Goblin Count", formatCount},
 }

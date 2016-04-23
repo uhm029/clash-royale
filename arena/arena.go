@@ -52,7 +52,7 @@ type arena struct {
 }
 
 // static
-var arenas = []*arena{
+var arenas = [...]*arena{
 	&arena{0, "Training Camp", -1},
 	&arena{1, "Goblin Stadium", 0},
 	&arena{2, "Bone Pit", 400},

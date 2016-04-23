@@ -104,27 +104,27 @@ func ForEachOfType(t typ.Type, f func(Card)) {
 }
 
 func (c Card) Name() string {
-	return cards[c].fieldMap[attr.Name].(string)
+	return cards[c][attr.Name].(string)
 }
 
 func (c Card) Arena() arena.Arena {
-	return cards[c].fieldMap[attr.Arena].(arena.Arena)
+	return cards[c][attr.Arena].(arena.Arena)
 }
 
 func (c Card) Rarity() rarity.Rarity {
-	return cards[c].fieldMap[attr.Rarity].(rarity.Rarity)
+	return cards[c][attr.Rarity].(rarity.Rarity)
 }
 
 func (c Card) Type() typ.Type {
-	return cards[c].fieldMap[attr.Type].(typ.Type)
+	return cards[c][attr.Type].(typ.Type)
 }
 
 func (c Card) Description() string {
-	return cards[c].fieldMap[attr.Desc].(string)
+	return cards[c][attr.Desc].(string)
 }
 
 func (c Card) Elixir() int {
-	return cards[c].fieldMap[attr.Elixir].(int)
+	return cards[c][attr.Elixir].(int)
 }
 
 func (c Card) MaxLevel() int {
@@ -132,14 +132,14 @@ func (c Card) MaxLevel() int {
 }
 
 func (c Card) HasAttribute(a attr.Attribute) bool {
-	if _, ok := cards[c].fieldMap[a]; ok {
+	if _, ok := cards[c][a]; ok {
 		return true
 	}
 	return c.Rarity().HasAttribute(a)
 }
 
 func (c Card) Value(a attr.Attribute) interface{} {
-	if value, ok := cards[c].fieldMap[a]; ok {
+	if value, ok := cards[c][a]; ok {
 		return value
 	}
 	return c.Rarity().Value(a)
@@ -215,25 +215,19 @@ func (c Card) ForEachUpgradableAttribute(f func(attr.Upgradable)) {
 // Private //
 /////////////
 
-type card struct {
-	id       int
-	fieldMap map[attr.Attribute]interface{}
-}
+type card map[attr.Attribute]interface{}
 
-var cards = append(troops, append(buildings, spells...)...)
+var cards = append(troops[:], append(buildings[:], spells[:]...)...)
 
 // constructor
-func newCard(id int, fieldMap map[attr.Attribute]interface{}) *card {
-	max := fieldMap[attr.Rarity].(rarity.Rarity).MaxLevel()
+func (c card) init() card {
+	max := c[attr.Rarity].(rarity.Rarity).MaxLevel()
 	// "Compile" the "Generated"s to "Upgradable"s
-	for k, v := range fieldMap {
+	for k, v := range c {
 		if attr, ok := k.(attr.Generated); ok {
-			fieldMap[attr.TargetAttribute()] = attr.GenerateValues(v, max)
+			c[attr.TargetAttribute()] = attr.GenerateValues(v, max)
 		}
 	}
 
-	return &card{
-		id,
-		fieldMap,
-	}
+	return c
 }
