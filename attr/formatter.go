@@ -24,6 +24,10 @@ func convertNumber(value interface{}) interface{} {
 	}
 }
 
+func dummyFormat(_ interface{}) string {
+	return ""
+}
+
 func formatString(value interface{}) string {
 	return fmt.Sprintf("%s", value)
 }
@@ -46,6 +50,10 @@ func formatFloat(value interface{}) string {
 	default:
 		panic("Unknown value type")
 	}
+}
+
+func formatPercentage(value interface{}) string {
+	return fmt.Sprintf("%+d%%", value)
 }
 
 func formatElixir(value interface{}) string {

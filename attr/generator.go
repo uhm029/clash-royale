@@ -1,8 +1,8 @@
 package attr
 
-var refValues = []int{1000, 1100, 1210, 1330, 1460, 1600, 1760, 1930, 2120, 2330, 2560, 2810}
+var refValues = []int{1000, 1100, 1210, 1330, 1460, 1600, 1760, 1930, 2120, 2330, 2560, 2810, 3090}
 
-const maxLevel = 12
+const maxLevel = 13
 
 func generateHp(baseHp interface{}, max int) []interface{} {
 	baseValue := baseHp.(int)

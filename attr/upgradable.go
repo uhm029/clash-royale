@@ -20,6 +20,9 @@ const (
 	SgoLV
 	SkeLV
 	BarLV
+	FspLV
+	GolLV
+	LavLV
 	DurU
 	MCLV
 	MRLV
@@ -81,6 +84,9 @@ var upgradableAttributes = [...]*upgradableAttribute{
 	&upgradableAttribute{"Spear Goblin Level", formatInt},
 	&upgradableAttribute{"Skeleton Level", formatInt},
 	&upgradableAttribute{"Barbarian Level", formatInt},
+	&upgradableAttribute{"Fire Spirits Level", formatInt},
+	&upgradableAttribute{"Golemite Level", formatInt},
+	&upgradableAttribute{"Lava Pups Level", formatInt},
 	&upgradableAttribute{"Duration", formatTime},
 	&upgradableAttribute{"Mirrored Common Level", formatInt},
 	&upgradableAttribute{"Mirrored Rare Level", formatInt},

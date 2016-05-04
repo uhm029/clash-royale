@@ -21,6 +21,7 @@ const (
 	Minions
 	Barbarians
 	MinionHorde
+	FireSpirits
 	RoyaleGiant
 	// --- Rare Troops ---
 	Giant
@@ -39,9 +40,15 @@ const (
 	Balloon
 	Pekka
 	Golem
+	Golemite
 	DarkPrince
+	Guards
 	// --- Legendary Troops ---
+	LavaHound
+	LavaPups
 	IceWizard
+	Miner
+	Sparky
 	Princess
 
 	// --- Common Buildings ---
@@ -54,6 +61,7 @@ const (
 	Tombstone
 	BarbarianHut
 	InfernoTower
+	Furnace
 	ElixirCollector
 	// --- Epic Buildings ---
 	XBow
@@ -105,6 +113,10 @@ func ForEachOfType(t typ.Type, f func(Card)) {
 
 func (c Card) Name() string {
 	return cards[c][attr.Name].(string)
+}
+
+func (c Card) From() Card {
+	return cards[c][attr.From].(Card)
 }
 
 func (c Card) Arena() arena.Arena {
@@ -222,6 +234,7 @@ var cards = append(troops[:], append(buildings[:], spells[:]...)...)
 // constructor
 func (c card) init() card {
 	max := c[attr.Rarity].(rarity.Rarity).MaxLevel()
+
 	// "Compile" the "Generated"s to "Upgradable"s
 	for k, v := range c {
 		if attr, ok := k.(attr.Generated); ok {

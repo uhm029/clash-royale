@@ -5,6 +5,7 @@ type Fixed int8
 
 const (
 	Name Fixed = iota
+	From
 	Arena
 	Rarity
 	Type
@@ -19,6 +20,7 @@ const (
 	DTime
 	LTime
 	DurF
+	Boost
 	Radius
 	Count
 	GobCount
@@ -56,6 +58,7 @@ type fixedAttribute struct {
 
 var fixedAttributes = [...]*fixedAttribute{
 	&fixedAttribute{"Name", formatString},
+	&fixedAttribute{"From", dummyFormat},
 	&fixedAttribute{"Arena", formatString},
 	&fixedAttribute{"Rarity", formatString},
 	&fixedAttribute{"Type", formatString},
@@ -70,6 +73,7 @@ var fixedAttributes = [...]*fixedAttribute{
 	&fixedAttribute{"Deploy Time", formatTime},
 	&fixedAttribute{"Lifetime", formatTime},
 	&fixedAttribute{"Duration", formatTime},
+	&fixedAttribute{"Boost", formatPercentage},
 	&fixedAttribute{"Radius", formatFloat},
 	&fixedAttribute{"Count", formatCount},
 	&fixedAttribute{"Goblin Count", formatCount},
