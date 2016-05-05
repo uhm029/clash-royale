@@ -149,10 +149,9 @@ func (t *Table) Print() {
 			fmt.Printf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colHeader)
 		} else {
 			s := fmt.Sprintf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colHeader)
-			fmt.Printf(strings.TrimRight(s, " "))
+			fmt.Println(strings.TrimRight(s, " "))
 		}
 	}
-	fmt.Println()
 
 	// Header separator
 	fmt.Printf("%*s", int(t.rowHeaderAlignment)*t.headerWidth, strings.Repeat("-", t.headerWidth))
@@ -162,10 +161,9 @@ func (t *Table) Print() {
 			fmt.Printf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colSeparator)
 		} else {
 			s := fmt.Sprintf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colSeparator)
-			fmt.Printf(strings.TrimRight(s, " "))
+			fmt.Println(strings.TrimRight(s, " "))
 		}
 	}
-	fmt.Println()
 
 	// Table contents
 	for row, rowHeader := range t.rowHeaders {
@@ -175,10 +173,10 @@ func (t *Table) Print() {
 				fmt.Printf(" | %*s", int(t.contentAlignment)*t.contentsWidth, content)
 			} else {
 				s := fmt.Sprintf(" | %*s", int(t.contentAlignment)*t.contentsWidth, content)
-				fmt.Printf(strings.TrimRight(s, " "))
+				fmt.Println(strings.TrimRight(s, " "))
 			}
 		}
-		fmt.Println()
 	}
+
 	fmt.Println()
 }
