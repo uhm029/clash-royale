@@ -1,5 +1,9 @@
 package attr
 
+import (
+	"github.com/asukakenji/clash-royale/format"
+)
+
 // Fixed
 type Fixed int8
 
@@ -57,24 +61,24 @@ type fixedAttribute struct {
 }
 
 var fixedAttributes = [...]*fixedAttribute{
-	&fixedAttribute{"Name", formatString},
-	&fixedAttribute{"From", dummyFormat},
-	&fixedAttribute{"Arena", formatString},
-	&fixedAttribute{"Rarity", formatString},
-	&fixedAttribute{"Type", formatString},
-	&fixedAttribute{"Description", formatString},
-	&fixedAttribute{"Elixir Cost", formatElixir},
-	&fixedAttribute{"Spawn Speed", formatTime},
-	&fixedAttribute{"Production Speed", formatTime},
-	&fixedAttribute{"Hit Speed", formatTime},
-	&fixedAttribute{"Targets", formatString},
-	&fixedAttribute{"Speed", formatString},
-	&fixedAttribute{"Range", formatRange},
-	&fixedAttribute{"Deploy Time", formatTime},
-	&fixedAttribute{"Lifetime", formatTime},
-	&fixedAttribute{"Duration", formatTime},
-	&fixedAttribute{"Boost", formatPercentage},
-	&fixedAttribute{"Radius", formatFloat},
-	&fixedAttribute{"Count", formatCount},
-	&fixedAttribute{"Goblin Count", formatCount},
+	&fixedAttribute{"Name", format.String},
+	&fixedAttribute{"From", format.Dummy},
+	&fixedAttribute{"Arena", format.String},
+	&fixedAttribute{"Rarity", format.String},
+	&fixedAttribute{"Type", format.String},
+	&fixedAttribute{"Description", format.String},
+	&fixedAttribute{"Elixir Cost", format.Elixir},
+	&fixedAttribute{"Spawn Speed", format.Time},
+	&fixedAttribute{"Production Speed", format.Time},
+	&fixedAttribute{"Hit Speed", format.Time},
+	&fixedAttribute{"Targets", format.String},
+	&fixedAttribute{"Speed", format.String},
+	&fixedAttribute{"Range", format.Range},
+	&fixedAttribute{"Deploy Time", format.Time},
+	&fixedAttribute{"Lifetime", format.Time},
+	&fixedAttribute{"Duration", format.Time},
+	&fixedAttribute{"Boost", format.Percentage},
+	&fixedAttribute{"Radius", format.Float},
+	&fixedAttribute{"Count", format.Count},
+	&fixedAttribute{"Goblin Count", format.Count},
 }

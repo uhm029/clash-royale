@@ -1,5 +1,9 @@
 package attr
 
+import (
+	"github.com/asukakenji/clash-royale/format"
+)
+
 // Upgradable
 type Upgradable int8
 
@@ -28,9 +32,6 @@ const (
 	MRLV
 	MELV
 	MLLV
-	CardsReq
-	GoldReq
-	ExpGain
 )
 
 func ForEachUpgradable(f func(Upgradable)) {
@@ -68,31 +69,31 @@ type upgradableAttribute struct {
 }
 
 var upgradableAttributes = [...]*upgradableAttribute{
-	&upgradableAttribute{"Hitpoints", formatInt},
-	&upgradableAttribute{"Shield Hitpoints", formatInt},
-	&upgradableAttribute{"Damage per Second", formatInt},
-	&upgradableAttribute{"Damage per Second (L)", formatInt},
-	&upgradableAttribute{"Damage per Second (H)", formatInt},
-	&upgradableAttribute{"Crown Tower Damage/sec", formatInt},
-	&upgradableAttribute{"Damage", formatInt},
-	&upgradableAttribute{"Damage (L)", formatInt},
-	&upgradableAttribute{"Damage (H)", formatInt},
-	&upgradableAttribute{"Area Damage", formatInt},
-	&upgradableAttribute{"Death Damage", formatInt},
-	&upgradableAttribute{"Crown Tower Damage", formatInt},
-	&upgradableAttribute{"Goblin Level", formatInt},
-	&upgradableAttribute{"Spear Goblin Level", formatInt},
-	&upgradableAttribute{"Skeleton Level", formatInt},
-	&upgradableAttribute{"Barbarian Level", formatInt},
-	&upgradableAttribute{"Fire Spirits Level", formatInt},
-	&upgradableAttribute{"Golemite Level", formatInt},
-	&upgradableAttribute{"Lava Pups Level", formatInt},
-	&upgradableAttribute{"Duration", formatTime},
-	&upgradableAttribute{"Mirrored Common Level", formatInt},
-	&upgradableAttribute{"Mirrored Rare Level", formatInt},
-	&upgradableAttribute{"Mirrored Epic Level", formatInt},
-	&upgradableAttribute{"Mirrored Legendary Level", formatInt},
-	&upgradableAttribute{"Cards Required", formatInt},
-	&upgradableAttribute{"Gold Required", formatInt},
-	&upgradableAttribute{"Experience Gained", formatInt},
+	&upgradableAttribute{"Hitpoints", format.Int},
+	&upgradableAttribute{"Shield Hitpoints", format.Int},
+	&upgradableAttribute{"Damage per Second", format.Int},
+	&upgradableAttribute{"Damage per Second (L)", format.Int},
+	&upgradableAttribute{"Damage per Second (H)", format.Int},
+	&upgradableAttribute{"Crown Tower Damage/sec", format.Int},
+	&upgradableAttribute{"Damage", format.Int},
+	&upgradableAttribute{"Damage (L)", format.Int},
+	&upgradableAttribute{"Damage (H)", format.Int},
+	&upgradableAttribute{"Area Damage", format.Int},
+	&upgradableAttribute{"Death Damage", format.Int},
+	&upgradableAttribute{"Crown Tower Damage", format.Int},
+	&upgradableAttribute{"Goblin Level", format.Int},
+	&upgradableAttribute{"Spear Goblin Level", format.Int},
+	&upgradableAttribute{"Skeleton Level", format.Int},
+	&upgradableAttribute{"Barbarian Level", format.Int},
+	&upgradableAttribute{"Fire Spirits Level", format.Int},
+	&upgradableAttribute{"Golemite Level", format.Int},
+	&upgradableAttribute{"Lava Pups Level", format.Int},
+	&upgradableAttribute{"Duration", format.Time},
+	&upgradableAttribute{"Mirrored Common Level", format.Int},
+	&upgradableAttribute{"Mirrored Rare Level", format.Int},
+	&upgradableAttribute{"Mirrored Epic Level", format.Int},
+	&upgradableAttribute{"Mirrored Legendary Level", format.Int},
+	//&upgradableAttribute{"Cards Required", format.Int},
+	//&upgradableAttribute{"Gold Required", format.Int},
+	//&upgradableAttribute{"Experience Gained", format.Int},
 }

@@ -50,29 +50,35 @@ func (r Rarity) MaxLevel() int {
 }
 
 func (r Rarity) HasAttribute(a attr.Attribute) bool {
-	switch a {
-	case attr.CardsReq:
-		return true
-	case attr.GoldReq:
-		return true
-	case attr.ExpGain:
-		return true
-	default:
-		return false
-	}
+	/*
+		switch a {
+		case attr.CardsReq:
+			return true
+		case attr.GoldReq:
+			return true
+		case attr.ExpGain:
+			return true
+		default:
+			return false
+		}
+	*/
+	return false
 }
 
 func (r Rarity) Value(a attr.Attribute) []interface{} {
-	switch a {
-	case attr.CardsReq:
-		return r.CardsReq()
-	case attr.GoldReq:
-		return r.GoldReq()
-	case attr.ExpGain:
-		return r.ExpGain()
-	default:
-		return nil
-	}
+	/*
+		switch a {
+		case attr.CardsReq:
+			return r.CardsReq()
+		case attr.GoldReq:
+			return r.GoldReq()
+		case attr.ExpGain:
+			return r.ExpGain()
+		default:
+			return nil
+		}
+	*/
+	return nil
 }
 
 /////////////

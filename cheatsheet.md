@@ -1,11 +1,12 @@
 # Clash Royale Cheatsheet
 
 ## Index
-- [King Level](#king-level-player-level)
+- [King Level (Player Level)](#king-level-player-level)
 - [Rarity](#rarity)
 - [Cards (by Type and Rarity)](#cards-by-type-and-rarity)
 - [Cards (by Type and Arena)](#cards-by-type-and-arena)
 - [Cards (by Rarity and Arena)](#cards-by-rarity-and-arena)
+
 
 
 ## King Level (Player Level)
