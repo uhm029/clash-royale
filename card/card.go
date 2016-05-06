@@ -144,17 +144,15 @@ func (c Card) MaxLevel() int {
 }
 
 func (c Card) HasAttribute(a attr.Attribute) bool {
-	if _, ok := cards[c][a]; ok {
-		return true
-	}
-	return c.Rarity().HasAttribute(a)
+	_, ok := cards[c][a]
+	return ok
 }
 
 func (c Card) Value(a attr.Attribute) interface{} {
 	if value, ok := cards[c][a]; ok {
 		return value
 	}
-	return c.Rarity().Value(a)
+	return nil
 }
 
 func (c Card) Values(a attr.Upgradable) []interface{} {
