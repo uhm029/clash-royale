@@ -79,12 +79,12 @@ Experience <br> Gained |       0 |     200 |     400 |     800 |    1600
 
 ## Cards (by Type and Rarity)
 
-          | Troop                                                                                                                                                                                                                                                                                                                                                                                                                                       | Building                                                                                                                                                                                                                                                                                                  | Spell
---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Common    | [Knight](#knight) (Arena 0) <br> [Archers](#archers) (Arena 0) <br> [Bomber](#bomber) (Arena 0) <br> [Goblins](#goblins) (Arena 1) <br> [Spear Goblins](#spear-goblins) (Arena 1) <br> [Skeletons](#skeletons) (Arena 2) <br> [Minions](#minions) (Arena 2) <br> [Barbarians](#barbarians) (Arena 3) <br> [Minion Horde](#minion-horde) (Arena 4) <br> [Fire Spirits](#fire-spirits) (Arena 5) <br> [Royale Giant](#royale-giant) (Arena 7) | [Cannon](#cannon) (Arena 3) <br> [Tesla](#tesla) (Arena 4) <br> [Mortar](#mortar) (Arena 6)                                                                                                                                                                                                               | [Arrows](#arrows) (Arena 0) <br> [Zap](#zap) (Arena 5)
-Rare      | [Giant](#giant) (Arena 0) <br> [Musketeer](#musketeer) (Arena 0) <br> [Mini P.E.K.K.A](#mini-pekka) (Arena 0) <br>[Valkyrie](#valkyrie) (Arena 1) <br> [Hog Rider](#hog-rider) (Arena 4) <br> [Wizard](#wizard) (Arena 5) <br> [Three Musketeers](#three-musketeers) (Arena 7)                                                                                                                                                              | [Goblin Hut](#goblin-hut) (Arena 1) <br> [Bomb Tower](#bomb-tower) (Arena 2) <br> [Tombstone](#tombstone) (Arena 2) <br> [Barbarian Hut](#barbarian-hut) (Arena 3) <br> [Inferno Tower](#inferno-tower) (Arena 4) <br> [Furnace](#furnace) (Arena 5) <br> [Elixir Collector](#elixir-collector) (Arena 6) | [Fireball](#fireball) (Arena 0) <br> [Rocket](#rocket) (Arena 3)
-Epic      | [Witch](#witch) (Arena 0) <br> [Skeleton Army](#skeleton-army) (Arena 0) <br> [Baby Dragon](#baby-dragon) (Arena 0) <br> [Prince](#prince) (Arena 0) <br> [Giant Skeleton](#giant-skeleton) (Arena 2) <br> [Balloon](#balloon) (Arena 2) <br> [P.E.K.K.A](#pekka) (Arena 4) <br> [Golem](#golem) (Arena 6) <br> [Dark Prince](#dark-prince) (Arena 7) <br> [Guards](#guards) (Arena 7)                                                      | [X-Bow](#x-bow) (Arena 3)                                                                                                                                                                                                                                                                                 | [Lightning](#lightning) (Arena 1) <br> [Goblin Barrel](#goblin-barrel) (Arena 1) <br> [Rage](#rage) (Arena 3) <br> [Freeze](#freeze) (Arena 4) <br> [Mirror](#mirror) (Arena 5) <br> [Poison](#poison) (Arena 5)
-Legendary | [Lava Hound](#lava-hound) (Arena 4) <br> [Ice Wizard](#ice-wizard) (Arena 5) <br> [Miner](#miner) (Arena 6) <br> [Sparky](#sparky) (Arena 6) <br> [Princess](#princess) (Arena 7)                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                           |
+          | Troop                                                                                                                                                                                                                                                                                                                                                                                                                                     | Building                                                                                                                                                                                                                                                                                                  | Spell
+--------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Common    | [Knight](#knight) (Arena 0) <br> [Archers](#archers) (Arena 0) <br> [Bomber](#bomber) (Arena 0) <br> [Goblins](#goblins) (Arena 1) <br> [Spear Goblins](#spear-goblins) (Arena 1) <br> [Skeletons](#skeletons) (Arena 2) <br> [Minions](#minions) (Arena 2) <br> [Barbarians](#barbarians) (Arena 3) <br> [Minion Horde](#minion-horde) (Arena 4) <br> [Fire Spirits](#fire-spirits) (Arena 5) <br> [Royal Giant](#royal-giant) (Arena 7) | [Cannon](#cannon) (Arena 3) <br> [Tesla](#tesla) (Arena 4) <br> [Mortar](#mortar) (Arena 6)                                                                                                                                                                                                               | [Arrows](#arrows) (Arena 0) <br> [Zap](#zap) (Arena 5)
+Rare      | [Giant](#giant) (Arena 0) <br> [Musketeer](#musketeer) (Arena 0) <br> [Mini P.E.K.K.A](#mini-pekka) (Arena 0) <br>[Valkyrie](#valkyrie) (Arena 1) <br> [Hog Rider](#hog-rider) (Arena 4) <br> [Wizard](#wizard) (Arena 5) <br> [Three Musketeers](#three-musketeers) (Arena 7)                                                                                                                                                            | [Goblin Hut](#goblin-hut) (Arena 1) <br> [Bomb Tower](#bomb-tower) (Arena 2) <br> [Tombstone](#tombstone) (Arena 2) <br> [Barbarian Hut](#barbarian-hut) (Arena 3) <br> [Inferno Tower](#inferno-tower) (Arena 4) <br> [Furnace](#furnace) (Arena 5) <br> [Elixir Collector](#elixir-collector) (Arena 6) | [Fireball](#fireball) (Arena 0) <br> [Rocket](#rocket) (Arena 3)
+Epic      | [Witch](#witch) (Arena 0) <br> [Skeleton Army](#skeleton-army) (Arena 0) <br> [Baby Dragon](#baby-dragon) (Arena 0) <br> [Prince](#prince) (Arena 0) <br> [Giant Skeleton](#giant-skeleton) (Arena 2) <br> [Balloon](#balloon) (Arena 2) <br> [P.E.K.K.A](#pekka) (Arena 4) <br> [Golem](#golem) (Arena 6) <br> [Dark Prince](#dark-prince) (Arena 7) <br> [Guards](#guards) (Arena 7)                                                    | [X-Bow](#x-bow) (Arena 3)                                                                                                                                                                                                                                                                                 | [Lightning](#lightning) (Arena 1) <br> [Goblin Barrel](#goblin-barrel) (Arena 1) <br> [Rage](#rage) (Arena 3) <br> [Freeze](#freeze) (Arena 4) <br> [Mirror](#mirror) (Arena 5) <br> [Poison](#poison) (Arena 5)
+Legendary | [Lava Hound](#lava-hound) (Arena 4) <br> [Ice Wizard](#ice-wizard) (Arena 5) <br> [Miner](#miner) (Arena 6) <br> [Sparky](#sparky) (Arena 6) <br> [Princess](#princess) (Arena 7)                                                                                                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                           |
 
 
 
@@ -99,7 +99,7 @@ Arena 3: <br> Barbarian <br> Bowl         | [Barbarians](#barbarians) (Common)  
 Arena 4: <br> P.E.K.K.A's <br> Playhouse  | [Minion Horde](#minion-horde) (Common) <br> [Fire Spirits](#fire-spirits) (Common) <br> [Hog Rider](#hog-rider) (Rare) <br> [P.E.K.K.A](#pekka) (Epic) <br> [Lava Hound](#lava-hound) (Legendary)                                                                                                                                                    | [Tesla](#tesla) (Common) <br> [Inferno Tower](#inferno-tower) (Rare)                               | [Freeze](#freeze) (Epic)
 Arena 5: <br> Spell <br> Valley           | [Wizard](#wizard) (Rare) <br> [Ice Wizard](#ice-wizard) (Legendary)                                                                                                                                                                                                                                                                                  | [Furnace](#furnace) (Rare)                                                                         | [Zap](#zap) (Common) <br> [Mirror](#mirror) (Epic) <br> [Poison](#poison) (Epic)
 Arena 6: <br> Builder's <br> Workshop     | [Golem](#golem) (Epic) <br> [Miner](#miner) (Legendary) <br> [Sparky](#sparky) (Legendary)                                                                                                                                                                                                                                                           | [Mortar](#mortar) (Common) <br> [Elixir Collector](#elixir-collector) (Rare)                       |
-Arena 7: <br> Royal <br> Arena            | [Royale Giant](#royale-giant) (Common) <br> [Three Musketeers](#three-musketeers) (Rare) <br> [Dark Prince](#dark-prince) (Epic) <br> [Guards](#guards) (Epic) <br> [Princess](#princess) (Legendary)                                                                                                                                                |                                                                                                    |
+Arena 7: <br> Royal <br> Arena            | [Royal Giant](#royal-giant) (Common) <br> [Three Musketeers](#three-musketeers) (Rare) <br> [Dark Prince](#dark-prince) (Epic) <br> [Guards](#guards) (Epic) <br> [Princess](#princess) (Legendary)                                                                                                                                                  |                                                                                                    |
 
 
 
@@ -114,7 +114,7 @@ Arena 3: <br> Barbarian <br> Bowl         | [Barbarians](#barbarians) (Troop) <b
 Arena 4: <br> P.E.K.K.A's <br> Playhouse  | [Minion Horde](#minion-horde) (Troop) <br> [Tesla](#tesla) (Building)                                                    | [Hog Rider](#hog-rider) (Troop) <br> [Inferno Tower](#inferno-tower) (Building)                                                            | [P.E.K.K.A](#pekka) (Troop) <br> [Freeze](#freeze) (Spell)                                                                                   | [Lava Hound](#lava-hound) (Troop)
 Arena 5: <br> Spell <br> Valley           | [Fire Spirits](#fire-spirits) (Troop) <br> [Zap](#zap) (Spell)                                                           | [Wizard](#wizard) (Troop) <br> [Furnace](#furnace) (Building)                                                                              | [Mirror](#mirror) (Spell) <br> [Poison](#poison) (Spell)                                                                                     | [Ice Wizard](#ice-wizard) (Troop)
 Arena 6: <br> Builder's <br> Workshop     | [Mortar](#mortar) (Building)                                                                                             | [Elixir Collector](#elixir-collector) (Building)                                                                                           | [Golem](#golem) (Troop)                                                                                                                      | [Miner](#miner) (Troop) <br> [Sparky](#sparky) (Troop)
-Arena 7: <br> Royal <br> Arena            | [Royale Giant](#royale-giant) (Troop)                                                                                    | [Three Musketeers](#three-musketeers) (Troop)                                                                                              | [Dark Prince](#dark-prince) (Troop) <br> [Guards](#guards) (Troop)                                                                           | [Princess](#princess) (Troop)
+Arena 7: <br> Royal <br> Arena            | [Royal Giant](#royal-giant) (Troop)                                                                                      | [Three Musketeers](#three-musketeers) (Troop)                                                                                              | [Dark Prince](#dark-prince) (Troop) <br> [Guards](#guards) (Troop)                                                                           | [Princess](#princess) (Troop)
 
 
 
@@ -139,7 +139,7 @@ Deploy Time      | 1sec
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11    | LV12    | LV13
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |     660 |     726 |     798 |     877 |     963 |    1056 |    1161 |    1273 |    1399 |    1537 |    1689 |    1854 |    2039
-Damage per Second        |      68 |      74 |      81 |      90 |      99 |     109 |     120 |     130 |     144 |     158 |     174 |     190 |
+Damage per Second        |      68 |      74 |      81 |      90 |      99 |     109 |     120 |     130 |     144 |     158 |     174 |     190 |     210
 Damage                   |      75 |      82 |      90 |      99 |     109 |     120 |     132 |     144 |     159 |     174 |     192 |     210 |     231
 
 ### Archers
@@ -162,7 +162,7 @@ Count            | x 2
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11    | LV12    | LV13
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |     125 |     137 |     151 |     166 |     182 |     200 |     220 |     241 |     265 |     291 |     320 |     351 |     386
-Damage per Second        |      33 |      36 |      40 |      44 |      48 |      53 |      58 |      64 |      70 |      77 |      85 |      93 |
+Damage per Second        |      33 |      36 |      40 |      44 |      48 |      53 |      58 |      64 |      70 |      77 |      85 |      93 |     102
 Damage                   |      40 |      44 |      48 |      53 |      58 |      64 |      70 |      77 |      84 |      93 |     102 |     112 |     123
 
 ### Bomber
@@ -230,7 +230,7 @@ Count            | x 3
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11    | LV12    | LV13
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |      52 |      57 |      62 |      69 |      75 |      83 |      91 |     100 |     110 |     121 |     133 |     146 |     160
-Damage per Second        |      18 |      20 |      22 |      23 |      26 |      29 |      32 |      35 |      38 |      42 |      46 |      51 |
+Damage per Second        |      18 |      20 |      22 |      23 |      26 |      29 |      32 |      35 |      38 |      42 |      46 |      51 |      56
 Damage                   |      24 |      26 |      29 |      31 |      35 |      38 |      42 |      46 |      50 |      55 |      61 |      67 |      74
 
 ### Skeletons
@@ -299,7 +299,7 @@ Count            | x 4
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11    | LV12    | LV13
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |     300 |     330 |     363 |     399 |     438 |     480 |     528 |     579 |     636 |     699 |     768 |     843 |     927
-Damage per Second        |      50 |      54 |      60 |      66 |      72 |      80 |      88 |      96 |     106 |     116 |     128 |     140 |
+Damage per Second        |      50 |      54 |      60 |      66 |      72 |      80 |      88 |      96 |     106 |     116 |     128 |     140 |     154
 Damage                   |      75 |      82 |      90 |      99 |     109 |     120 |     132 |     144 |     159 |     174 |     192 |     210 |     231
 
 ### Minion Horde
@@ -346,11 +346,11 @@ Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6
 Hitpoints                |      43 |      47 |      52 |      57 |      62 |      68 |      75 |      82 |      91 |     100 |     110 |     120 |     132
 Area Damage              |      80 |      88 |      96 |     106 |     116 |     128 |     140 |     154 |     169 |     186 |     204 |     224 |     247
 
-### Royale Giant
+### Royal Giant
 
 Attribute        | Value
 ---------------- | -----
-Name             | Royale Giant
+Name             | Royal Giant
 Arena            | Arena 7: Royal Arena
 Rarity           | [Common](#common)
 Type             | Troop
@@ -387,7 +387,7 @@ Deploy Time      | 1sec
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |    2000 |    2200 |    2420 |    2660 |    2920 |    3200 |    3520 |    3860 |    4240 |    4660 |    5120
-Damage per Second        |      84 |      92 |     101 |     111 |     122 |     134 |     147 |     162 |     177 |     195 |
+Damage per Second        |      84 |      92 |     101 |     111 |     122 |     134 |     147 |     162 |     177 |     195 |     214
 Damage                   |     126 |     138 |     152 |     167 |     183 |     201 |     221 |     243 |     267 |     293 |     322
 
 ### Musketeer
@@ -409,7 +409,7 @@ Deploy Time      | 1sec
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |     340 |     374 |     411 |     452 |     496 |     544 |     598 |     656 |     720 |     792 |     870
-Damage per Second        |      90 |     100 |     110 |     120 |     132 |     145 |     160 |     175 |     192 |     211 |
+Damage per Second        |      90 |     100 |     110 |     120 |     132 |     145 |     160 |     175 |     192 |     211 |     232
 Damage                   |     100 |     110 |     121 |     133 |     146 |     160 |     176 |     193 |     212 |     233 |     256
 
 ### Mini P.E.K.K.A
@@ -431,7 +431,7 @@ Deploy Time      | 1sec
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |     600 |     660 |     726 |     798 |     876 |     960 |    1056 |    1158 |    1272 |    1398 |    1536
-Damage per Second        |     180 |     198 |     218 |     240 |     263 |     288 |     317 |     348 |     382 |     420 |
+Damage per Second        |     180 |     198 |     218 |     240 |     263 |     288 |     317 |     348 |     382 |     420 |     462
 Damage                   |     325 |     357 |     393 |     432 |     474 |     520 |     572 |     627 |     689 |     757 |     832
 
 ### Valkyrie
@@ -453,7 +453,7 @@ Deploy Time      | 1sec
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |     880 |     968 |    1064 |    1170 |    1284 |    1408 |    1548 |    1698 |    1865 |    2050 |    2252
-Damage per Second        |      80 |      88 |      96 |     106 |     116 |     128 |     140 |     154 |     169 |     186 |
+Damage per Second        |      80 |      88 |      96 |     106 |     116 |     128 |     140 |     154 |     169 |     186 |     204
 Damage                   |     120 |     132 |     145 |     159 |     175 |     192 |     211 |     231 |     254 |     279 |     307
 
 ### Hog Rider
@@ -497,7 +497,7 @@ Deploy Time      | 1sec
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |     340 |     374 |     411 |     452 |     496 |     544 |     598 |     656 |     720 |     792 |     870
-Damage per Second        |      76 |      84 |      92 |     101 |     111 |     122 |     134 |     147 |     161 |     177 |
+Damage per Second        |      76 |      84 |      92 |     101 |     111 |     122 |     134 |     147 |     161 |     177 |     195
 Area Damage              |     130 |     143 |     157 |     172 |     189 |     208 |     228 |     250 |     275 |     302 |     332
 
 ### Three Musketeers
@@ -520,7 +520,7 @@ Count            | x 3
 Attribute                | LV1     | LV2     | LV3     | LV4     | LV5     | LV6     | LV7     | LV8     | LV9     | LV10    | LV11
 ------------------------ | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | ------- | -------
 Hitpoints                |     340 |     374 |     411 |     452 |     496 |     544 |     598 |     656 |     720 |     792 |     870
-Damage per Second        |      90 |     100 |     110 |     120 |     132 |     145 |     160 |     175 |     192 |     211 |
+Damage per Second        |      90 |     100 |     110 |     120 |     132 |     145 |     160 |     175 |     192 |     211 |     232
 Damage                   |     100 |     110 |     121 |     133 |     146 |     160 |     176 |     193 |     212 |     233 |     256
 
 ### Witch

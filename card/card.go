@@ -22,7 +22,7 @@ const (
 	Barbarians
 	MinionHorde
 	FireSpirits
-	RoyaleGiant
+	RoyalGiant
 	// --- Rare Troops ---
 	Giant
 	Musketeer
