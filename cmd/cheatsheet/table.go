@@ -24,15 +24,6 @@ type Table struct {
 }
 
 func NewTable(options map[string]interface{}) *Table {
-	// Column Count
-	//cc, ok := options["colCount"]
-	//if !ok {
-	//	panic()
-	//}
-	//colCount, ok := cc.(int)
-	//if !ok {
-	//	panic()
-	//}
 	// Header Width
 	headerWidth := 0
 	hw, ok := options["headerWidth"]
@@ -63,20 +54,24 @@ func NewTable(options map[string]interface{}) *Table {
 	if ok {
 		contents = c.([][]string)
 	} else {
+		// Col Count
+		colCount := 0
+		if cc, ok := options["colCount"]; ok {
+			colCount = cc.(int)
+		}
 		// Row Count
 		rowCount := 0
 		if rowHeaders != nil {
 			rowCount = len(rowHeaders)
 		}
-		rc, ok := options["rowCount"]
-		if ok {
+		if rc, ok := options["rowCount"]; ok {
 			rowCount = rc.(int)
 		}
 		contents = make([][]string, rowCount)
+		for row := range contents {
+			contents[row] = make([]string, colCount)
+		}
 	}
-	//for row := range contents {
-	//	contents[row] = make([]string, colCount)
-	//}
 	return &Table{
 		rowHeaders,
 		colHeaders,
@@ -140,43 +135,33 @@ func (t *Table) SetContentAlignment(a Alignment) {
 }
 
 func (t *Table) Print() {
-	limit := len(t.colHeaders) - 2
+	s := ""
+	limit := len(t.contents[0]) - 1
 
 	// Table header
 	fmt.Printf("%*s", int(t.rowHeaderAlignment)*t.headerWidth, t.colHeaders[0])
-	for i, colHeader := range t.colHeaders[1:] {
-		if i != limit {
-			fmt.Printf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colHeader)
-		} else {
-			s := fmt.Sprintf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colHeader)
-			fmt.Println(strings.TrimRight(s, " "))
-		}
+	for i := 1; i <= limit; i++ {
+		fmt.Printf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, t.colHeaders[i])
 	}
+	s = fmt.Sprintf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, t.colHeaders[limit+1])
+	fmt.Println(strings.TrimRight(s, " "))
 
 	// Header separator
 	fmt.Printf("%*s", int(t.rowHeaderAlignment)*t.headerWidth, strings.Repeat("-", t.headerWidth))
 	colSeparator := strings.Repeat("-", t.contentsWidth)
-	for i := range t.colHeaders[1:] {
-		if i != limit {
-			fmt.Printf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colSeparator)
-		} else {
-			s := fmt.Sprintf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colSeparator)
-			fmt.Println(strings.TrimRight(s, " "))
-		}
+	for i := 0; i < limit; i++ {
+		fmt.Printf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colSeparator)
 	}
+	s = fmt.Sprintf(" | %*s", int(t.colHeaderAlignment)*t.contentsWidth, colSeparator)
+	fmt.Println(strings.TrimRight(s, " "))
 
 	// Table contents
 	for row, rowHeader := range t.rowHeaders {
 		fmt.Printf("%*s", int(t.rowHeaderAlignment)*t.headerWidth, rowHeader)
-		for i, content := range t.contents[row] {
-			if i != limit {
-				fmt.Printf(" | %*s", int(t.contentAlignment)*t.contentsWidth, content)
-			} else {
-				s := fmt.Sprintf(" | %*s", int(t.contentAlignment)*t.contentsWidth, content)
-				fmt.Println(strings.TrimRight(s, " "))
-			}
+		for col := 0; col < limit; col++ {
+			fmt.Printf(" | %*s", int(t.contentAlignment)*t.contentsWidth, t.contents[row][col])
 		}
+		s = fmt.Sprintf(" | %*s", int(t.contentAlignment)*t.contentsWidth, t.contents[row][limit])
+		fmt.Println(strings.TrimRight(s, " "))
 	}
-
-	fmt.Println()
 }

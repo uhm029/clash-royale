@@ -54,7 +54,7 @@ var spells = [...]card{
 		attr.Desc:     `Deals high damage to a small area. Looks really awesome doing it. Reduced damage to Crown Towers.`,
 		attr.Elixir:   6,
 		attr.BaseADam: 700,
-		attr.CTDam:    []interface{}{280, 308, 339, 373, 409, 448, 493, 541, 594, 653, common.X},
+		attr.CTDam:    []interface{}{280, 308, 339, 373, 409, 448, 493, 541, 594, 653, 717},
 		attr.Radius:   2,
 	}.init(),
 
@@ -103,7 +103,7 @@ var spells = [...]card{
 		attr.Type:     typ.Spell,
 		attr.Desc:     `Freezes troops and buildings, making them unable to move or attack. Everybody chill.`,
 		attr.Elixir:   4,
-		attr.BaseDurU: attr.BaseDuration{5, 0.3},
+		attr.BaseDurU: attr.BaseDuration{4, 0.3},
 		attr.Radius:   3,
 	}.init(),
 	card{

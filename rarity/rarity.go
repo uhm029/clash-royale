@@ -21,7 +21,7 @@ func ForEach(f func(Rarity)) {
 }
 
 func (r Rarity) ForEachLevel(f func(int)) {
-	for lv, maxLv := 1, r.MaxLevel(); lv < maxLv; lv++ {
+	for lv, maxLv := 1, r.MaxLevel(); lv <= maxLv; lv++ {
 		f(lv)
 	}
 }
@@ -59,11 +59,11 @@ func (r Rarity) ExpGainAtLevel(level int) int {
 /////////////
 
 type rarity struct {
-	name     string  // The name of the rarity
-	cardsReq []int   // The number of cards needed for upgrading card at level "i"
-	goldReq  []int   // The amount of gold needed for upgrading card at level "i"
-	expGain  []int   // The amount of experience gained when upgrading card at level "i"
-	goldCost []int   // The amount of gold needed to buy the "i + 1"-th card from the shop
+	name     string // The name of the rarity
+	cardsReq []int  // The number of cards needed for upgrading card at level "i"
+	goldReq  []int  // The amount of gold needed for upgrading card at level "i"
+	expGain  []int  // The amount of experience gained when upgrading card at level "i"
+	goldCost []int  // The amount of gold needed to buy the "i + 1"-th card from the shop
 }
 
 var rarities = []*rarity{
@@ -112,6 +112,8 @@ var rarities = []*rarity{
 		cardsReq: []int{0, 2, 4, 10, 20},
 		goldReq:  []int{0, 5000, 20000, 50000, 100000},
 		expGain:  []int{0, 200, 400, 800, 1600},
-		goldCost: []int{},
+		goldCost: []int{ // 3, 240000
+			40000, 80000, 120000,
+		},
 	},
 }

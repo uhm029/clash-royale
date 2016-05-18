@@ -3,7 +3,6 @@ package card
 import (
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attr"
-	"github.com/asukakenji/clash-royale/common"
 	"github.com/asukakenji/clash-royale/rarity"
 	"github.com/asukakenji/clash-royale/targets"
 	"github.com/asukakenji/clash-royale/typ"
@@ -18,7 +17,7 @@ var buildings = [...]card{
 		attr.Type:    typ.Building,
 		attr.Desc:    `Defensive building. Shoots cannonballs with deadly effect, but cannot target flying troops.`,
 		attr.Elixir:  3,
-		attr.BaseHP:  400,
+		attr.BaseHP:  380,
 		attr.DPS:     []interface{}{75, 82, 90, 98, 108, 120, 131, 143, 158, 173, 191, 210, 231},
 		attr.BaseDam: 60,
 		attr.HSpeed:  0.8,
@@ -34,8 +33,8 @@ var buildings = [...]card{
 		attr.Type:    typ.Building,
 		attr.Desc:    `Defensive building. Whenever it's not zapping the enemy, the power of Electrickery is best kept grounded.`,
 		attr.Elixir:  4,
-		attr.BaseHP:  400,
-		attr.DPS:     []interface{}{80, 88, 96, 106, 116, 128, 140, 153, 168, 185, 203, 223, common.X},
+		attr.BaseHP:  420,
+		attr.DPS:     []interface{}{80, 88, 96, 106, 116, 128, 140, 153, 168, 185, 203, 223, 246},
 		attr.BaseDam: 64,
 		attr.HSpeed:  0.8,
 		attr.Targets: targets.AirAndGround,
@@ -51,7 +50,7 @@ var buildings = [...]card{
 		attr.Desc:     `Defensive building with a long range. Shoots exploding shells that deal area damage. Cannot shoot at targets that get very close!`,
 		attr.Elixir:   4,
 		attr.BaseHP:   600,
-		attr.DPS:      []interface{}{21, common.X, common.X, common.X, common.X, common.X, common.X, 41, common.X, common.X, 55, common.X, common.X},
+		attr.DPS:      []interface{}{21, 23, 26, 29, 31, 34, 38, 41, 45, 50, 55, 60, 66},
 		attr.BaseADam: 108,
 		attr.HSpeed:   5,
 		attr.Targets:  targets.Ground,
@@ -82,7 +81,7 @@ var buildings = [...]card{
 		attr.Desc:     `Defensive building that houses a Bomber. Deals area damage to anything dumb enough to stand near it.`,
 		attr.Elixir:   5,
 		attr.BaseHP:   900,
-		attr.DPS:      []interface{}{62, 68, 75, 83, 91, 100, 110, 120, 132, 145, common.X},
+		attr.DPS:      []interface{}{62, 68, 75, 83, 91, 100, 110, 120, 132, 145, 160},
 		attr.BaseADam: 100,
 		attr.HSpeed:   1.6,
 		attr.Targets:  targets.Ground,
@@ -97,7 +96,7 @@ var buildings = [...]card{
 		attr.Type:      typ.Building,
 		attr.Desc:      `Troop building that periodically deploys Skeletons to fight the enemy. When destroyed, spawns 4 Skeletons. Creepy!`,
 		attr.Elixir:    3,
-		attr.BaseHP:    200,
+		attr.BaseHP:    220,
 		attr.BaseSkeLV: 3,
 		attr.SSpeed:    2.9,
 		attr.DTime:     1,
@@ -140,12 +139,12 @@ var buildings = [...]card{
 		attr.Rarity:    rarity.Rare,
 		attr.Type:      typ.Building,
 		attr.Desc:      `The Furnace spawns two Fire Spirits at a time. It also makes great brick-oven pancakes.`,
-		attr.Elixir:    5,
-		attr.BaseHP:    700,
+		attr.Elixir:    4,
+		attr.BaseHP:    600,
 		attr.BaseFspLV: 3,
 		attr.SSpeed:    10,
 		attr.DTime:     1,
-		attr.LTime:     50,
+		attr.LTime:     40,
 	}.init(),
 	card{
 		attr.Name:   "Elixir Collector",
@@ -154,7 +153,7 @@ var buildings = [...]card{
 		attr.Type:   typ.Building,
 		attr.Desc:   `You gotta spend Elixir to make Elixir.`,
 		attr.Elixir: 5,
-		attr.BaseHP: 640,
+		attr.BaseHP: 580,
 		attr.PSpeed: 9.8,
 		attr.DTime:  1,
 		attr.LTime:  70,
