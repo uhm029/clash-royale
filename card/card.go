@@ -11,74 +11,95 @@ import (
 type Card int8
 
 const (
-	// --- Common Troops ---
-	Knight Card = iota
-	Archers
-	Bomber
-	Goblins
-	SpearGoblins
-	Skeletons
-	Minions
-	Barbarians
-	MinionHorde
-	FireSpirits
-	RoyalGiant
-	// --- Rare Troops ---
-	Giant
-	Musketeer
-	MiniPekka
-	Valkyrie
-	HogRider
-	Wizard
-	ThreeMusketeers
-	// --- Epic Troops ---
-	Witch
-	SkeletonArmy
-	BabyDragon
-	Prince
-	GiantSkeleton
-	Balloon
-	Pekka
-	Golem
-	Golemite
-	DarkPrince
-	Guards
-	// --- Legendary Troops ---
-	LavaHound
-	LavaPups
-	IceWizard
-	Miner
-	Sparky
-	Princess
-
-	// --- Common Buildings ---
-	Cannon
-	Tesla
-	Mortar
-	// --- Rare Buildings ---
-	GobllinHut
-	BombTower
-	Tombstone
-	BarbarianHut
-	InfernoTower
-	Furnace
-	ElixirCollector
-	// --- Epic Buildings ---
-	XBow
-
-	// --- Common Spells ---
-	Arrows
-	Zap
-	// --- Rare Spells ---
-	Fireball
-	Rocket
-	// --- Epic Spells ---
-	Lightning
-	GoblinBarrel
-	Rage
-	Freeze
-	Mirror
-	Poison
+	// --- 2016-01-04 ---
+	Knight          Card = iota // 2016-01-04 (Common Troops)
+	Archers                     // 2016-01-04
+	Bomber                      // 2016-01-04
+	Goblins                     // 2016-01-04
+	SpearGoblins                // 2016-01-04
+	Skeletons                   // 2016-01-04
+	Minions                     // 2016-01-04
+	Barbarians                  // 2016-01-04
+	MinionHorde                 // 2016-01-04
+	Giant                       // 2016-01-04 (Rare Troops)
+	Musketeer                   // 2016-01-04
+	MiniPekka                   // 2016-01-04
+	Valkyrie                    // 2016-01-04
+	HogRider                    // 2016-01-04
+	Wizard                      // 2016-01-04
+	Witch                       // 2016-01-04 (Epic Troops)
+	SkeletonArmy                // 2016-01-04
+	BabyDragon                  // 2016-01-04
+	Prince                      // 2016-01-04
+	GiantSkeleton               // 2016-01-04
+	Balloon                     // 2016-01-04
+	Pekka                       // 2016-01-04
+	Golem                       // 2016-01-04
+	Golemite                    // TODO: Remove this!
+	Cannon                      // 2016-01-04 (Common Buildings)
+	Tesla                       // 2016-01-04
+	Mortar                      // 2016-01-04
+	GobllinHut                  // 2016-01-04 (Rare Buildings)
+	BombTower                   // 2016-01-04
+	Tombstone                   // 2016-01-04
+	BarbarianHut                // 2016-01-04
+	InfernoTower                // 2016-01-04
+	ElixirCollector             // 2016-01-04
+	XBow                        // 2016-01-04 (Epic Buildings)
+	Arrows                      // 2016-01-04 (Common Spells)
+	Zap                         // 2016-01-04
+	Fireball                    // 2016-01-04 (Rare Spells)
+	Rocket                      // 2016-01-04
+	Lightning                   // 2016-01-04 (Epic Spells)
+	GoblinBarrel                // 2016-01-04
+	Rage                        // 2016-01-04
+	Freeze                      // 2016-01-04
+	Mirror                      // 2016-01-04
+	// --- 2016-02-29 ---
+	RoyalGiant      // 2016-02-29 (Common Troops)
+	ThreeMusketeers // 2016-02-29 (Rare Troops)
+	DarkPrince      // 2016-02-29 (Epic Troops)
+	IceWizard       // 2016-02-29 (Legendary Troops)
+	Princess        // 2016-02-29 (Legendary Troops)
+	Poison          // 2016-02-29 (Epic Spells)
+	// --- 2016-05-03 ---
+	FireSpirits // 2016-05-03 (Common Troops)
+	Guards      // 2016-05-03 (Epic Troops)
+	LavaHound   // 2016-05-03 (Legendary Troops)
+	LavaPups    // TODO: Remove this!
+	Miner       // 2016-05-03 (Legendary Troops)
+	Sparky      // 2016-05-03 (Legendary Troops)
+	Furnace     // 2016-05-03 (Rare Buildings)
+	// --- 2016-07-04 ---
+	IceSpirit  // 2016-07-04 (Common Troops)
+	Bowler     // 2016-07-04 (Epic Troops)
+	Lumberjack // 2016-07-04 (Legendary Troops)
+	TheLog     // 2016-07-04 (Legendary Spells)
+	// --- 2016-09-19 ---
+	MegaMinion    // 2016-09-19 (Rare Troops)
+	InfernoDragon // 2016-09-30 (Legendary Troops)
+	IceGolem      // 2016-10-14 (Rare Troops)
+	Graveyard     // 2016-10-28 (Legendary Spells)
+	// --- 2016-11-01 ---
+	Tornado         // 2016-11-11 (Epic Spells)
+	EliteBarbarians // 2016-11-25 (Common Troops)
+	Clone           // 2016-12-09 (Epic Spells)
+	ElectroWizard   // 2016-12-30 (Legendary Troops)
+	// --- 2016-12-15 ---
+	DartGoblin  // 2017-01-13 (Rare Troops)
+	Executioner // 2017-01-27 (Epic Troops)
+	BattleRam   // 2017-02-10 (Rare Troops)
+	GoblinGang  // 2017-02-24 (Common Troops)
+	// --- 2017-03-13 ---
+	Bandit     // 2017-03-24 (Legendary Troops)
+	Heal       // 2017-05-01 (Rare Speels)
+	NightWitch // 2017-05-31 (Legendary Troops)
+	Bats       // 2017-??-?? (Common Troops)
+	// --- 2017-06-12 ---
+	SkeletonBarrel // 2017-??-?? (Common Troops)
+	FlyingMachine  // 2017-??-?? (Rare Troops)
+	CannonCart     // 2017-??-?? (Epic Troops)
+	MegaKnight     // 2017-??-?? (Legendary Troops)
 )
 
 func ForEach(f func(Card)) {
@@ -227,7 +248,7 @@ func (c Card) ForEachUpgradableAttribute(f func(attr.Upgradable)) {
 
 type card map[attr.Attribute]interface{}
 
-var cards = append(troops[:], append(buildings[:], spells[:]...)...)
+var cards = append(cards20160104[:], append(cards20160229[:], cards20160503[:]...)...)
 
 // constructor
 func (c card) init() card {
