@@ -136,6 +136,7 @@ func (t *Table) SetContentAlignment(a Alignment) {
 
 func (t *Table) Print() {
 	s := ""
+	// t.contents[0] MUST exist, otherwise the stats of the card doesn't change by leveling up
 	limit := len(t.contents[0]) - 1
 
 	// Table header
