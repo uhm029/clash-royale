@@ -18,6 +18,7 @@ const (
 	DamL
 	DamH
 	ADam
+	CDam
 	DDam
 	CTDam
 	GobLV
@@ -28,6 +29,7 @@ const (
 	GolLV
 	LavLV
 	DurU
+	FDurU
 	MCLV
 	MRLV
 	MELV
@@ -79,6 +81,7 @@ var upgradableAttributes = [...]*upgradableAttribute{
 	&upgradableAttribute{"Damage (L)", format.Int},
 	&upgradableAttribute{"Damage (H)", format.Int},
 	&upgradableAttribute{"Area Damage", format.Int},
+	&upgradableAttribute{"Charge Damage", format.Int},
 	&upgradableAttribute{"Death Damage", format.Int},
 	&upgradableAttribute{"Crown Tower Damage", format.Int},
 	&upgradableAttribute{"Goblin Level", format.Int},
@@ -89,6 +92,7 @@ var upgradableAttributes = [...]*upgradableAttribute{
 	&upgradableAttribute{"Golemite Level", format.Int},
 	&upgradableAttribute{"Lava Pups Level", format.Int},
 	&upgradableAttribute{"Duration", format.Time},
+	&upgradableAttribute{"Freeze Duration", format.Time},
 	&upgradableAttribute{"Mirrored Common Level", format.Int},
 	&upgradableAttribute{"Mirrored Rare Level", format.Int},
 	&upgradableAttribute{"Mirrored Epic Level", format.Int},

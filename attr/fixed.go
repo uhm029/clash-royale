@@ -24,6 +24,7 @@ const (
 	DTime
 	LTime
 	DurF
+	SDurF
 	Boost
 	Radius
 	Count
@@ -77,6 +78,7 @@ var fixedAttributes = [...]*fixedAttribute{
 	&fixedAttribute{"Deploy Time", format.Time},
 	&fixedAttribute{"Lifetime", format.Time},
 	&fixedAttribute{"Duration", format.Time},
+	&fixedAttribute{"Stun Duration", format.Time},
 	&fixedAttribute{"Boost", format.Percentage},
 	&fixedAttribute{"Radius", format.Float},
 	&fixedAttribute{"Count", format.Count},

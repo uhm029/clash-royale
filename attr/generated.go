@@ -19,6 +19,7 @@ const (
 	BaseGolLV
 	BaseLavLV
 	BaseDurU
+	BaseFDurU
 	BaseMCLV
 	BaseMRLV
 	BaseMELV
@@ -70,6 +71,7 @@ var generatedAttributes = [...]*generatedAttribute{
 	&generatedAttribute{GolLV, generateLv},
 	&generatedAttribute{LavLV, generateLv},
 	&generatedAttribute{DurU, generateDur},
+	&generatedAttribute{FDurU, generateDur},
 	&generatedAttribute{MCLV, generateLv},
 	&generatedAttribute{MRLV, generateLv},
 	&generatedAttribute{MELV, generateLv},
