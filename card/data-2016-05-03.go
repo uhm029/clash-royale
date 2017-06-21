@@ -3,7 +3,6 @@ package card
 import (
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attr"
-	"github.com/asukakenji/clash-royale/common"
 	"github.com/asukakenji/clash-royale/rarity"
 	"github.com/asukakenji/clash-royale/rng"
 	"github.com/asukakenji/clash-royale/speed"
@@ -39,7 +38,7 @@ var cards20160503 = [...]card{
 		attr.Elixir:  3,
 		attr.BaseHP:  65,
 		attr.BaseSHP: 150,
-		attr.DPS:     []interface{}{54, common.X, common.X, common.X, common.X, common.X, common.X, common.X},
+		attr.DPS:     []interface{}{54, 59, 65, 71, 78, 86, 95, 104},
 		attr.BaseDam: 65,
 		attr.HSpeed:  1.2,
 		attr.Targets: targets.Ground,
@@ -58,8 +57,8 @@ var cards20160503 = [...]card{
 		attr.Desc:      `The Lava Hound is a majestic flying beast that attacks buildings. The Lava Pups are less majestic angry babies that attack anything.`,
 		attr.Elixir:    7,
 		attr.BaseHP:    3000,
-		attr.DPS:       []interface{}{26, 29, 32, 35, 39},
-		attr.BaseADam:  35,
+		attr.DPS:       []interface{}{34, 37, 41, 45, 50},
+		attr.BaseADam:  45,
 		attr.BaseLavLV: 1,
 		attr.HSpeed:    1.3,
 		attr.Targets:   targets.Buildings,
@@ -75,7 +74,7 @@ var cards20160503 = [...]card{
 		attr.Type:    typ.Troop,
 		attr.Desc:    ``,
 		attr.Elixir:  0,
-		attr.BaseHP:  180,
+		attr.BaseHP:  179,
 		attr.BaseDam: 45,
 		attr.HSpeed:  1,
 		attr.Targets: targets.AirAndGround,
@@ -88,7 +87,7 @@ var cards20160503 = [...]card{
 		attr.Type:    typ.Troop,
 		attr.Desc:    `The Miner can burrow his way underground and appear anywhere in the Arena. It's not magic, it's a shovel.`,
 		attr.Elixir:  3,
-		attr.BaseHP:  1060,
+		attr.BaseHP:  1000,
 		attr.DPS:     []interface{}{133, 146, 160, 176, 194},
 		attr.BaseDam: 160,
 		attr.CTDam:   []interface{}{64, 71, 78, 85, 94},
@@ -103,7 +102,7 @@ var cards20160503 = [...]card{
 		attr.Arena:    arena.Arena6,
 		attr.Rarity:   rarity.Legendary,
 		attr.Type:     typ.Troop,
-		attr.Desc:     `Sparky has a heavy-handed approach to life: Obliterate everything in sight.`,
+		attr.Desc:     `Sparky slowly charges up, then unloads MASSIVE area damage. Overkill isn't in her vocabulary.`,
 		attr.Elixir:   6,
 		attr.BaseHP:   1200,
 		attr.DPS:      []interface{}{260, 286, 314, 345, 379},
@@ -123,10 +122,10 @@ var cards20160503 = [...]card{
 		attr.Type:      typ.Building,
 		attr.Desc:      `The Furnace spawns two Fire Spirits at a time. It also makes great brick-oven pancakes.`,
 		attr.Elixir:    4,
-		attr.BaseHP:    600,
+		attr.BaseHP:    570,
 		attr.BaseFspLV: 3,
 		attr.SSpeed:    10,
 		attr.DTime:     1,
-		attr.LTime:     40,
+		attr.LTime:     50,
 	}.init(),
 }

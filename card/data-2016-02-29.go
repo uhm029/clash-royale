@@ -3,7 +3,6 @@ package card
 import (
 	"github.com/asukakenji/clash-royale/arena"
 	"github.com/asukakenji/clash-royale/attr"
-	"github.com/asukakenji/clash-royale/common"
 	"github.com/asukakenji/clash-royale/rarity"
 	"github.com/asukakenji/clash-royale/rng"
 	"github.com/asukakenji/clash-royale/speed"
@@ -21,13 +20,13 @@ var cards20160229 = [...]card{
 		attr.Desc:    `Destroying enemy buildings with his massive cannon is his job; making a raggedy blond beard look good is his passion.`,
 		attr.Elixir:  6,
 		attr.BaseHP:  1200,
-		attr.DPS:     []interface{}{50, common.X, common.X, common.X, common.X, common.X, 88, 96, 106, 116, common.X, common.X, common.X},
+		attr.DPS:     []interface{}{44, 50, 55, 60, 64, 70, 77, 84, 93, 102, 112, 123, 135},
 		attr.BaseDam: 75,
-		attr.HSpeed:  1.5,
+		attr.HSpeed:  1.7,
 		attr.Targets: targets.Buildings,
 		attr.Speed:   speed.Slow,
 		attr.Range:   6.5,
-		attr.DTime:   1,
+		attr.DTime:   2,
 	}.init(),
 
 	// --- Rare Troops ---
@@ -36,7 +35,7 @@ var cards20160229 = [...]card{
 		attr.Arena:   arena.Arena7,
 		attr.Rarity:  rarity.Rare,
 		attr.Type:    typ.Troop,
-		attr.Desc:    `Trio of power-ful, independent markswomen, fighting for justice and honor. Disrespecting them would not be just a mistake, it would be a cardinal sin!`,
+		attr.Desc:    `Trio of powerful, independent markswomen, fighting for justice and honor. Disrespecting them would not be just a mistake, it would be a cardinal sin!`,
 		attr.Elixir:  9,
 		attr.BaseHP:  340,
 		attr.DPS:     []interface{}{90, 100, 110, 120, 132, 145, 160, 175, 192, 211, 232},
@@ -57,10 +56,11 @@ var cards20160229 = [...]card{
 		attr.Type:     typ.Troop,
 		attr.Desc:     `The Dark Prince deals area damage and lets his spiked club do the talking for him - because when he does talk, it sounds like he has a bucket on his head.`,
 		attr.Elixir:   4,
-		attr.BaseHP:   700,
+		attr.BaseHP:   735,
 		attr.BaseSHP:  200,
-		attr.DPS:      []interface{}{83, 91, 100, 110, 121, 133, 146, 159},
-		attr.BaseADam: 125,
+		attr.DPS:      []interface{}{96, 106, 116, 128, 140, 154, 170, 186},
+		attr.BaseADam: 145,
+		attr.CDam:     []interface{}{290, 319, 350, 385, 423, 464, 510, 559},
 		attr.HSpeed:   1.5,
 		attr.Targets:  targets.Ground,
 		attr.Speed:    speed.Medium,
@@ -74,9 +74,9 @@ var cards20160229 = [...]card{
 		attr.Arena:    arena.Arena5,
 		attr.Rarity:   rarity.Legendary,
 		attr.Type:     typ.Troop,
-		attr.Desc:     `This chill caster throws Ice Shards that slow down enemies' movement and attack speed. Despite being freezing cold, he has a handlebar mustache that's too hot for TV.`,
+		attr.Desc:     `This chill caster throws ice shards that slow down enemies' movement and attack speed. Despite being freezing cold, he has a handlebar mustache that's too hot for TV.`,
 		attr.Elixir:   3,
-		attr.BaseHP:   700,
+		attr.BaseHP:   665,
 		attr.DPS:      []interface{}{42, 46, 50, 55, 60},
 		attr.BaseADam: 63,
 		attr.HSpeed:   1.5,
@@ -108,11 +108,11 @@ var cards20160229 = [...]card{
 		attr.Arena:  arena.Arena5,
 		attr.Rarity: rarity.Epic,
 		attr.Type:   typ.Spell,
-		attr.Desc:   `Covers the area in a sticky toxin, damaging and slowing down troops and buildings. Yet somehow leaves the grass green and healthy. Go figure!`,
+		attr.Desc:   `Covers the area in a deadly toxin, damaging enemy troops and buildings over time. Yet somehow leaves the grass green and healthy. Go figure!`,
 		attr.Elixir: 4,
-		attr.DPS:    []interface{}{42, 46, 50, 55, 62, 67, 73, 81},
-		attr.CTDPS:  []interface{}{17, 19, 20, 22, 25, 27, 30, 33},
-		attr.DurF:   10,
+		attr.DPS:    []interface{}{57, 62, 68, 75, 83, 91, 100, 110},
+		attr.CTDPS:  []interface{}{23, 25, 28, 30, 34, 37, 40, 44},
+		attr.DurF:   8,
 		attr.Radius: 3.5,
 	}.init(),
 }
